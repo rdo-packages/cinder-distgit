@@ -119,7 +119,8 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-sed -i '/setuptools_git/d' setup.py
+# TODO: Have the following handle multi line entries
+sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
 %build
 %{__python} setup.py build
