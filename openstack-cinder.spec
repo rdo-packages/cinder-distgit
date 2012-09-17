@@ -18,8 +18,6 @@ Source12:         openstack-cinder-volume.service
 
 Source20:         cinder-sudoers
 
-Obsoletes:        openstack-nova-volume
-
 #
 # patches_base=folsom-3
 #
