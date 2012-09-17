@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2012.2
-Release:          0.2.f3%{?dist}
+Release:          0.3.f3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -30,6 +30,7 @@ BuildRequires:    intltool
 BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
+BuildRequires:    openstack-utils
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
@@ -123,6 +124,15 @@ find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
 %build
+
+# Move authtoken configuration out of paste.ini
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_tenant_name
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_user
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_password
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_host
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_port
+openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_protocol
+
 %{__python} setup.py build
 
 %install
@@ -253,5 +263,8 @@ fi
 %endif
 
 %changelog
+* Mon Sep 17 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.3.f3
+- Move user config out of /etc/cinder/api-paste.ini
+
 * Mon Sep  3 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.2.f3
 - Initial release
