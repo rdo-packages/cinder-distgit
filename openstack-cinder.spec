@@ -33,6 +33,8 @@ BuildRequires:    openstack-utils
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
 
+Requires:         python-cinderclient # as convenience
+
 Requires(post):   systemd-units
 Requires(preun):  systemd-units
 Requires(postun): systemd-units
@@ -263,6 +265,7 @@ fi
 %changelog
 * Mon Sep 17 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.3.f3
 - Move user config out of /etc/cinder/api-paste.ini
+- Require python-cinderclient
 
 * Mon Sep  3 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.2.f3
 - Initial release
