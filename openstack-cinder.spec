@@ -33,7 +33,8 @@ BuildRequires:    openstack-utils
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
 
-Requires:         python-cinderclient # as convenience
+# as convenience
+Requires:         python-cinderclient
 
 Requires(post):   systemd-units
 Requires(preun):  systemd-units
