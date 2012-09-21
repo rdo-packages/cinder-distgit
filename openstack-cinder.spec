@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2012.2
-Release:          0.4.f3%{?dist}
+Release:          0.5.rc1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/folsom/folsom-3/+download/cinder-2012.2~f3.tar.gz
+Source0:          https://launchpad.net/cinder/folsom/folsom-rc1/+download/cinder-2012.2~rc1.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -20,7 +20,7 @@ Source12:         openstack-cinder-volume.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=folsom-3
+# patches_base=folsom-rc1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 
@@ -192,10 +192,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
 mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
 install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
 
-# Ensure all binaries have an appropriate prefix
-mv %{buildroot}%{_bindir}/clear_rabbit_queues %{buildroot}%{_bindir}/cinder-clear-rabbit-queues
-mv %{buildroot}%{_bindir}/volume-usage-audit %{buildroot}%{_bindir}/cinder-volume-usage-audit
-
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python_sitelib}/cinder/tests/
@@ -269,6 +265,9 @@ fi
 %endif
 
 %changelog
+* Fri Sep 21 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.5.rc1
+- Update to Folsom RC1
+
 * Fri Sep 21 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.4.f3
 - Fix to ensure that tgt configuration is honored
 
