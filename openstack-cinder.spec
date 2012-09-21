@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2012.2
-Release:          0.3.f3%{?dist}
+Release:          0.4.f3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -11,6 +11,7 @@ URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://launchpad.net/cinder/folsom/folsom-3/+download/cinder-2012.2~f3.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
+Source3:          cinder-tgt.conf
 
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
@@ -167,6 +168,8 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/cinder/cinder.conf
+install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
+install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
@@ -240,9 +243,11 @@ fi
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
+%config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
 
 %dir %attr(0755, cinder, root) %{_localstatedir}/log/cinder
 %dir %attr(0755, cinder, root) %{_localstatedir}/run/cinder
+%dir %attr(0755, cinder, root) %{_sysconfdir}/cinder/volumes
 
 %{_bindir}/cinder-*
 %{_unitdir}/*.service
@@ -264,6 +269,9 @@ fi
 %endif
 
 %changelog
+* Fri Sep 21 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.4.f3
+- Fix to ensure that tgt configuration is honored
+
 * Mon Sep 17 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.3.f3
 - Move user config out of /etc/cinder/api-paste.ini
 - Require python-cinderclient
