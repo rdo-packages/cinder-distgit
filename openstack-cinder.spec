@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2012.2
-Release:          0.5.rc1%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/folsom/folsom-rc1/+download/cinder-2012.2~rc1.tar.gz
+Source0:          https://launchpad.net/cinder/folsom/%{version}/+download/cinder-%{version}.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -20,7 +20,7 @@ Source12:         openstack-cinder-volume.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=folsom-rc1
+# patches_base=2012.2
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 
@@ -265,6 +265,9 @@ fi
 %endif
 
 %changelog
+* Thu Sep 27 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-1
+- Update to Folsom final
+
 * Fri Sep 21 2012 Pádraig Brady <P@draigBrady.com> - 2012.2-0.5.rc1
 - Update to Folsom RC1
 
