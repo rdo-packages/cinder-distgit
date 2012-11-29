@@ -1,14 +1,14 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2012.2
-Release:          2%{?dist}
+Version:          2013.1
+Release:          0.1.g1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/folsom/%{version}/+download/cinder-%{version}.tar.gz
+Source0:          https://launchpad.net/cinder/grizzly/grizzly-1/+download/cinder-2013.1~g1.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
