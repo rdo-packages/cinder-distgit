@@ -20,7 +20,7 @@ Source12:         openstack-cinder-volume.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2012.2
+# patches_base=grizzly-1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 
@@ -264,6 +264,9 @@ fi
 %endif
 
 %changelog
+* Thu Nov 29 2012 Eric Harney <eharney@redhat.com> - 2013.1-0.1.g1
+- Update to Grizzly milestone 1
+
 * Wed Nov 14 2012 Eric Harney <eharney@redhat.com> - 2012.2-2
 - Remove unused dependency on python-daemon
 
