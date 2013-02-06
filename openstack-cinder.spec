@@ -198,7 +198,6 @@ rm -fr %{buildroot}%{python_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
 %pre
-#TODO:reserve 165 in the setup package
 getent group cinder >/dev/null || groupadd -r cinder --gid 165
 if ! getent passwd cinder >/dev/null; then
   useradd -u 165 -r -g cinder -G cinder,nobody -d %{_sharedstatedir}/cinder -s /sbin/nologin -c "OpenStack Cinder Daemons" cinder
