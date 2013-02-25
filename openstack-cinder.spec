@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.1
-Release:          0.2.g2%{?dist}
+Release:          0.2.g3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/grizzly/grizzly-2/+download/cinder-2013.1~g2.tar.gz
+Source0:          https://launchpad.net/cinder/grizzly/grizzly-2/+download/cinder-2013.1.g3.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -263,6 +263,9 @@ fi
 %endif
 
 %changelog
+* Mon Feb 25 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.2.g3
+- Update to Grizzly milestone 3
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2013.1-0.2.g2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
