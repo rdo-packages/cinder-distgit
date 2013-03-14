@@ -264,10 +264,10 @@ fi
 %endif
 
 %changelog
-* Tue Mar 05 2013 Pádraig Brady <P@draigBrady.com> - 2013.1.0.4.g3
+* Tue Mar 05 2013 Pádraig Brady <P@draigBrady.com> - 2013.1-0.4.g3
 - Add dependency on python-stevedore
 
-* Mon Feb 25 2013 Eric Harney <eharney@redhat.com> - 2013.1.0.3.g3
+* Mon Feb 25 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.3.g3
 - Fix build issues with G-3 update
 
 * Mon Feb 25 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.2.g3
