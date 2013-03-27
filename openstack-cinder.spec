@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.1
-Release:          0.5.rc2%{?dist}
+Release:          0.5.rc3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/grizzly/grizzly-rc2/+download/cinder-2013.1.rc2.tar.gz
+Source0:          https://launchpad.net/cinder/grizzly/grizzly-rc2/+download/cinder-2013.1.rc3.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -114,7 +114,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.rc2
+%setup -q -n cinder-%{version}.rc3
 
 %patch0001 -p1
 
@@ -264,6 +264,9 @@ fi
 %endif
 
 %changelog
+* Mon Mar 27 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc3
+- Update to Grizzly RC3 release
+
 * Mon Mar 25 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc2
 - Update to Grizzly RC2 release
 
