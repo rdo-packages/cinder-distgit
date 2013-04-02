@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.1
-Release:          0.5.rc3%{?dist}
+Release:          0.6.rc3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -23,6 +23,7 @@ Source20:         cinder-sudoers
 # patches_base=grizzly-2
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
+Patch0002: 0002-remove-deprecated-assert_unicode-sqlalchemy-attribut.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -117,6 +118,7 @@ This package contains documentation files for cinder.
 %setup -q -n cinder-%{version}.rc3
 
 %patch0001 -p1
+%patch0002 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -264,6 +266,9 @@ fi
 %endif
 
 %changelog
+* Tue Apr  2 2013 Pádraig Brady <pbrady@redhat.com> 2013.1-0.6.rc3
+- Adjust to support sqlalchemy-0.8.0
+
 * Mon Mar 27 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc3
 - Update to Grizzly RC3 release
 
