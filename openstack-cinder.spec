@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.1
-Release:          0.6.rc3%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/grizzly/grizzly-rc2/+download/cinder-2013.1.rc3.tar.gz
+Source0:          https://launchpad.net/cinder/grizzly/%{version}/+download/cinder-%{version}.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -115,7 +115,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.rc3
+%setup -q -n cinder-%{version}
 
 %patch0001 -p1
 %patch0002 -p1
@@ -266,7 +266,10 @@ fi
 %endif
 
 %changelog
-* Tue Apr  2 2013 Pádraig Brady <pbrady@redhat.com> 2013.1-0.6.rc3
+* Thu Apr 04 2013 Eric Harney <eharney@redhat.com> - 2013.1-1
+- Update to Grizzly final release
+
+* Tue Apr  2 2013 Pádraig Brady <pbrady@redhat.com> - 2013.1-0.6.rc3
 - Adjust to support sqlalchemy-0.8.0
 
 * Mon Mar 27 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc3
