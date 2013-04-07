@@ -20,7 +20,7 @@ Source12:         openstack-cinder-volume.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=grizzly-2
+# patches_base=2013.1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-remove-deprecated-assert_unicode-sqlalchemy-attribut.patch
