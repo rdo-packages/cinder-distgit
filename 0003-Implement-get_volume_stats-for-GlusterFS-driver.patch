@@ -1,0 +1,148 @@
+From c4250743349f72f7fd860fec08684ac2981765d3 Mon Sep 17 00:00:00 2001
+From: Eric Harney <eharney@redhat.com>
+Date: Wed, 3 Apr 2013 14:39:38 -0400
+Subject: [PATCH] Implement get_volume_stats for GlusterFS driver
+
+Implement get_volume_stats(), so that the GlusterFS driver
+will work correctly with the scheduler.
+
+Fixes bug: 1164038
+
+Change-Id: Ib4db8bad897212227b39704e2e6cb5f07f2bb70e
+(cherry picked from commit d59094f316f0c41aaa7be63ee4e25e2dea4fa0a9)
+---
+ cinder/tests/test_glusterfs.py     | 17 ++++++++--------
+ cinder/volume/drivers/glusterfs.py | 40 +++++++++++++++++++++++++++++++++++---
+ 2 files changed, 46 insertions(+), 11 deletions(-)
+
+diff --git a/cinder/tests/test_glusterfs.py b/cinder/tests/test_glusterfs.py
+index 4bf4040..4739caf 100644
+--- a/cinder/tests/test_glusterfs.py
++++ b/cinder/tests/test_glusterfs.py
+@@ -255,10 +255,11 @@ class GlusterFsDriverTestCase(test.TestCase):
+         mox = self._mox
+         drv = self._driver
+ 
++        df_total_size = 2620544
+         df_avail = 1490560
+         df_head = 'Filesystem 1K-blocks Used Available Use% Mounted on\n'
+-        df_data = 'glusterfs-host:/export 2620544 996864 %d 41%% /mnt' % \
+-            df_avail
++        df_data = 'glusterfs-host:/export %d 996864 %d 41%% /mnt' % \
++                  (df_total_size, df_avail)
+         df_output = df_head + df_data
+ 
+         setattr(glusterfs.FLAGS, 'glusterfs_disk_util', 'df')
+@@ -274,7 +275,7 @@ class GlusterFsDriverTestCase(test.TestCase):
+ 
+         mox.ReplayAll()
+ 
+-        self.assertEquals(df_avail,
++        self.assertEquals((df_avail, df_total_size),
+                           drv._get_available_capacity(
+                               self.TEST_EXPORT1))
+ 
+@@ -319,7 +320,7 @@ class GlusterFsDriverTestCase(test.TestCase):
+ 
+         mox.ReplayAll()
+ 
+-        self.assertEquals(df_total_size - du_used,
++        self.assertEquals((df_total_size - du_used, df_total_size),
+                           drv._get_available_capacity(
+                               self.TEST_EXPORT1))
+ 
+@@ -450,9 +451,9 @@ class GlusterFsDriverTestCase(test.TestCase):
+ 
+         mox.StubOutWithMock(drv, '_get_available_capacity')
+         drv._get_available_capacity(self.TEST_EXPORT1).\
+-            AndReturn(2 * self.ONE_GB_IN_BYTES)
++            AndReturn((2 * self.ONE_GB_IN_BYTES, 5 * self.ONE_GB_IN_BYTES))
+         drv._get_available_capacity(self.TEST_EXPORT2).\
+-            AndReturn(3 * self.ONE_GB_IN_BYTES)
++            AndReturn((3 * self.ONE_GB_IN_BYTES, 10 * self.ONE_GB_IN_BYTES))
+ 
+         mox.ReplayAll()
+ 
+@@ -471,9 +472,9 @@ class GlusterFsDriverTestCase(test.TestCase):
+ 
+         mox.StubOutWithMock(drv, '_get_available_capacity')
+         drv._get_available_capacity(self.TEST_EXPORT1).\
+-            AndReturn(0)
++            AndReturn((0, 5 * self.ONE_GB_IN_BYTES))
+         drv._get_available_capacity(self.TEST_EXPORT2).\
+-            AndReturn(0)
++            AndReturn((0, 10 * self.ONE_GB_IN_BYTES))
+ 
+         mox.ReplayAll()
+ 
+diff --git a/cinder/volume/drivers/glusterfs.py b/cinder/volume/drivers/glusterfs.py
+index 6e127e1..5d1aced 100644
+--- a/cinder/volume/drivers/glusterfs.py
++++ b/cinder/volume/drivers/glusterfs.py
+@@ -200,7 +200,7 @@ class GlusterfsDriver(nfs.RemoteFsDriver):
+         greatest_share = None
+ 
+         for glusterfs_share in self._mounted_shares:
+-            capacity = self._get_available_capacity(glusterfs_share)
++            capacity = self._get_available_capacity(glusterfs_share)[0]
+             if capacity > greatest_size:
+                 greatest_share = glusterfs_share
+                 greatest_size = capacity
+@@ -229,17 +229,17 @@ class GlusterfsDriver(nfs.RemoteFsDriver):
+ 
+         available = 0
+ 
++        size = int(out.split()[1])
+         if self.configuration.glusterfs_disk_util == 'df':
+             available = int(out.split()[3])
+         else:
+-            size = int(out.split()[1])
+             out, _ = self._execute('du', '-sb', '--apparent-size',
+                                    '--exclude', '*snapshot*', mount_point,
+                                    run_as_root=True)
+             used = int(out.split()[0])
+             available = size - used
+ 
+-        return available
++        return available, size
+ 
+     def _mount_glusterfs(self, glusterfs_share, mount_path, ensure=False):
+         """Mount GlusterFS share to mount path."""
+@@ -254,3 +254,37 @@ class GlusterfsDriver(nfs.RemoteFsDriver):
+                 LOG.warn(_("%s is already mounted"), glusterfs_share)
+             else:
+                 raise
++
++    def get_volume_stats(self, refresh=False):
++        """Get volume stats.
++
++        If 'refresh' is True, update the stats first."""
++        if refresh or not self._stats:
++            self._update_volume_stats()
++
++        return self._stats
++
++    def _update_volume_stats(self):
++        """Retrieve stats info from volume group."""
++
++        data = {}
++        backend_name = self.configuration.safe_get('volume_backend_name')
++        data['volume_backend_name'] = backend_name or 'GlusterFS'
++        data['vendor_name'] = 'Open Source'
++        data['driver_version'] = '1.0'
++        data['storage_protocol'] = 'glusterfs'
++
++        self._ensure_shares_mounted()
++
++        global_capacity = 0
++        global_free = 0
++        for nfs_share in self._mounted_shares:
++            free, capacity = self._get_available_capacity(nfs_share)
++            global_capacity += capacity
++            global_free += free
++
++        data['total_capacity_gb'] = global_capacity / 1024.0 ** 3
++        data['free_capacity_gb'] = global_free / 1024.0 ** 3
++        data['reserved_percentage'] = 0
++        data['QoS_support'] = False
++        self._stats = data

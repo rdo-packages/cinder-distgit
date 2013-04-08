@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -24,6 +24,7 @@ Source20:         cinder-sudoers
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-remove-deprecated-assert_unicode-sqlalchemy-attribut.patch
+Patch0003: 0003-Implement-get_volume_stats-for-GlusterFS-driver.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -119,6 +120,7 @@ This package contains documentation files for cinder.
 
 %patch0001 -p1
 %patch0002 -p1
+%patch0003 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -266,6 +268,9 @@ fi
 %endif
 
 %changelog
+* Mon Apr 08 2013 Eric Harney <eharney@redhat.com> - 2013.1-2
+- Backport fix for GlusterFS driver get_volume_stats
+
 * Thu Apr 04 2013 Eric Harney <eharney@redhat.com> - 2013.1-1
 - Update to Grizzly final release
 
