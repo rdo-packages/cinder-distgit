@@ -278,7 +278,7 @@ fi
 * Tue Apr  2 2013 Pádraig Brady <pbrady@redhat.com> - 2013.1-0.6.rc3
 - Adjust to support sqlalchemy-0.8.0
 
-* Mon Mar 27 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc3
+* Wed Mar 27 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc3
 - Update to Grizzly RC3 release
 
 * Mon Mar 25 2013 Eric Harney <eharney@redhat.com> - 2013.1-0.5.rc2
