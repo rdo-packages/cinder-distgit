@@ -1,14 +1,14 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2013.1.1
-Release:          1%{?dist}
+Version:          2013.2
+Release:          0.1.h1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/grizzly/%{version}/+download/cinder-%{version}.tar.gz
+Source0:          https://launchpad.net/cinder/havana/havana-1/+download/cinder-%{version}.b1.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -20,17 +20,21 @@ Source12:         openstack-cinder-volume.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2013.1.1
+# patches_base=2013.2.b1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
-Patch0002: 0002-remove-deprecated-assert_unicode-sqlalchemy-attribut.patch
+Patch0002: 0002-Allow-SQLAlchemy-0.8.patch
+Patch0003: 0003-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
+BuildRequires:    python-d2to1
+BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
 BuildRequires:    openstack-utils
+BuildRequires:    python-oslo-config
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
@@ -73,6 +77,7 @@ Requires:         python-lxml
 Requires:         python-anyjson
 Requires:         python-cheetah
 Requires:         python-stevedore
+Requires:         python-suds
 
 Requires:         python-sqlalchemy
 Requires:         python-migrate
@@ -82,6 +87,13 @@ Requires:         python-routes
 Requires:         python-webob
 
 Requires:         python-glanceclient >= 1:0
+Requires:         python-swiftclient >= 1.2
+
+Requires:         python-oslo-config
+Requires:         python-six
+
+Requires:         python-babel
+Requires:         python-lockfile
 
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
@@ -115,10 +127,11 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}
+%setup -q -n cinder-%{version}.b1
 
 %patch0001 -p1
 %patch0002 -p1
+%patch0003 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -126,6 +139,10 @@ find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 # TODO: Have the following handle multi line entries
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
+
+# We add REDHATCINDERVERSION/RELEASE with the pbr removal patch
+sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
+sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 
 %build
 
@@ -266,6 +283,9 @@ fi
 %endif
 
 %changelog
+* Thu Jun 13 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.1.h1
+- Update to Havana milestone 1
+
 * Mon May 13 2013 Eric Harney <eharney@redhat.com> - 2013.1.1-1
 - Update to Grizzly stable release 1, 2013.1.1
 

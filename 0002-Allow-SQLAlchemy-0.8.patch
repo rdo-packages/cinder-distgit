@@ -1,0 +1,22 @@
+From 4edc809979ba8bb5f23a1cbae5a5cd598b9f2139 Mon Sep 17 00:00:00 2001
+From: Eric Harney <eharney@redhat.com>
+Date: Fri, 14 Jun 2013 11:50:22 -0400
+Subject: [PATCH] Allow SQLAlchemy 0.8
+
+---
+ tools/pip-requires | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/pip-requires b/tools/pip-requires
+index 3a2357c..788b949 100644
+--- a/tools/pip-requires
++++ b/tools/pip-requires
+@@ -19,7 +19,7 @@ python-keystoneclient>=0.2,<0.3
+ python-swiftclient>=1.2,<2
+ routes>=1.12.3
+ six
+-sqlalchemy>=0.7,<=0.7.99
++sqlalchemy>=0.7
+ sqlalchemy-migrate>=0.7
+ stevedore>=0.7
+ suds>=0.4
