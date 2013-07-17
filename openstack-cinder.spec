@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.1.h1%{?dist}
+Release:          0.2.b1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -283,7 +283,7 @@ fi
 %endif
 
 %changelog
-* Thu Jun 13 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.1.h1
+* Thu Jun 13 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.2.b1
 - Update to Havana milestone 1
 
 * Mon May 13 2013 Eric Harney <eharney@redhat.com> - 2013.1.1-1
