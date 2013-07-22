@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.3.b2%{?dist}
+Release:          0.4.b2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -77,6 +77,7 @@ Requires:         python-lxml
 Requires:         python-anyjson
 Requires:         python-cheetah
 Requires:         python-stevedore
+Requires:         python-suds
 
 Requires:         python-sqlalchemy
 Requires:         python-migrate
@@ -286,7 +287,10 @@ fi
 %endif
 
 %changelog
-* Sun Jul 22 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.3.b2
+* Mon Jul 22 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.4.b2
+- Add dependency on python-suds to support the netapp driver
+
+* Sun Jul 21 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.3.b2
 - Update to Havana milestone 2
 
 * Thu Jun 13 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.2.b1
