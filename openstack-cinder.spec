@@ -62,6 +62,8 @@ Requires:         sudo
 
 Requires:         MySQL-python
 
+Requires:         qemu-img
+
 Requires:         python-paramiko
 
 Requires:         python-qpid
@@ -290,6 +292,7 @@ fi
 * Mon Jul 22 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.4.b2
 - Add dependency on python-suds to support the netapp driver
 - Add dependency on python-keystoneclient for auth token middleware
+- Add dependency on qemu-img for volume creation from Glance images
 
 * Sun Jul 21 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.3.b2
 - Update to Havana milestone 2
