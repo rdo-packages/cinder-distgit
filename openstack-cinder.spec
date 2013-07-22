@@ -88,6 +88,7 @@ Requires:         python-webob
 
 Requires:         python-glanceclient >= 1:0
 Requires:         python-swiftclient >= 1.2
+Requires:         python-keystoneclient
 
 Requires:         python-oslo-config
 Requires:         python-six
@@ -289,6 +290,7 @@ fi
 %changelog
 * Mon Jul 22 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.4.b2
 - Add dependency on python-suds to support the netapp driver
+- Add dependency on python-keystoneclient for auth token middleware
 
 * Sun Jul 21 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.3.b2
 - Update to Havana milestone 2
