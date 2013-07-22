@@ -140,6 +140,10 @@ find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 # TODO: Have the following handle multi line entries
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 
+# Remove the requirements file so that pbr hooks don't add it
+# to distutils requires_dist config
+rm -rf {test-,}requirements.txt tools/{pip,test}-requires
+
 # We add REDHATCINDERVERSION/RELEASE with the pbr removal patch
 sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
 sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
