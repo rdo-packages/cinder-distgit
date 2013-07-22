@@ -34,7 +34,6 @@ BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
 BuildRequires:    openstack-utils
-BuildRequires:    python-oslo-config
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
