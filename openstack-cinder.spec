@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.4.b2%{?dist}
+Release:          0.5.b2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -289,6 +289,9 @@ fi
 %endif
 
 %changelog
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2013.2-0.5.b2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Mon Jul 22 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.4.b2
 - Add dependency on python-suds to support the netapp driver
 - Add dependency on python-keystoneclient for auth token middleware
