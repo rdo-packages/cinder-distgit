@@ -16,6 +16,7 @@ Source3:          cinder-tgt.conf
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
 Source12:         openstack-cinder-volume.service
+Source13:         openstack-cinder-backup.service
 
 Source20:         cinder-sudoers
 
@@ -203,6 +204,7 @@ install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/po
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-cinder-api.service
 install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/openstack-cinder-scheduler.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/openstack-cinder-volume.service
+install -p -D -m 644 %{SOURCE13} %{buildroot}%{_unitdir}/openstack-cinder-backup.service
 
 # Install sudoers
 install -p -D -m 440 %{SOURCE20} %{buildroot}%{_sysconfdir}/sudoers.d/cinder
@@ -289,6 +291,9 @@ fi
 %endif
 
 %changelog
+* Mon Aug 26 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.6.b2
+- Add cinder-backup service init script
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2013.2-0.5.b2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
