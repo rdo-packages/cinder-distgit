@@ -8,7 +8,7 @@ Summary:          OpenStack Volume service
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/havana/havana-1/+download/cinder-%{version}.b2.tar.gz
+Source0:          https://launchpad.net/cinder/havana/havana-2/+download/cinder-%{version}.b2.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
