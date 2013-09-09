@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.7.b2%{?dist}
+Release:          0.8.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/havana/havana-2/+download/cinder-%{version}.b2.tar.gz
+Source0:          https://launchpad.net/cinder/havana/havana-3/+download/cinder-%{version}.b3.tar.gz
 Source1:          cinder.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2013.2.b2
+# patches_base=2013.2.b3
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -92,6 +92,7 @@ Requires:         python-webob
 Requires:         python-glanceclient >= 1:0
 Requires:         python-swiftclient >= 1.2
 Requires:         python-keystoneclient
+Requires:         python-novaclient >= 2.14
 
 Requires:         python-oslo-config
 Requires:         python-six
@@ -131,7 +132,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b2
+%setup -q -n cinder-%{version}.b3
 
 %patch0001 -p1
 %patch0002 -p1
@@ -292,6 +293,10 @@ fi
 %endif
 
 %changelog
+* Mon Sep 9 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.8.b3
+- Update to Havana milestone 3
+- Add dependency on python-novaclient
+
 * Thu Aug 29 2013 Pádraig Brady <pbrady@redhat.com> - 2013.2-0.7.b2
 - Add dependency on sysfsutils to support the fiber channel driver
 

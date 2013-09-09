@@ -1,4 +1,4 @@
-From 9094ccdd30cdba2fb90c3231793152778c83c4f8 Mon Sep 17 00:00:00 2001
+From eb9a23b255a60a5ff2910c80720e16dd2be53776 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?P=C3=A1draig=20Brady?= <P@draigBrady.com>
 Date: Mon, 22 Jul 2013 03:10:04 +0100
 Subject: [PATCH] Revert "Use oslo.sphinx and remove local copy of doc theme"
@@ -9,15 +9,19 @@ Conflicts:
 
 	test-requirements.txt
 ---
- doc/source/_static/basic.css       |  416 ++++++++++++++++++++++++++++++++++++
- doc/source/_static/default.css     |  230 ++++++++++++++++++++
- doc/source/_static/jquery.tweet.js |  154 +++++++++++++
- doc/source/_static/tweaks.css      |  218 +++++++++++++++++++
- doc/source/_theme/layout.html      |   95 ++++++++
- doc/source/_theme/theme.conf       |    5 +
- doc/source/conf.py                 |    8 +-
- test-requirements.txt              |    1 -
- 8 files changed, 1121 insertions(+), 6 deletions(-)
+ doc/source/_static/.gitignore      |   0
+ doc/source/_static/.placeholder    |   0
+ doc/source/_static/basic.css       | 416 +++++++++++++++++++++++++++++++++++++
+ doc/source/_static/default.css     | 230 ++++++++++++++++++++
+ doc/source/_static/jquery.tweet.js | 154 ++++++++++++++
+ doc/source/_static/tweaks.css      | 218 +++++++++++++++++++
+ doc/source/_templates/.gitignore   |   0
+ doc/source/_templates/.placeholder |   0
+ doc/source/_theme/layout.html      |  95 +++++++++
+ doc/source/_theme/theme.conf       |   5 +
+ doc/source/conf.py                 |   8 +-
+ test-requirements.txt              |   1 -
+ 12 files changed, 1121 insertions(+), 6 deletions(-)
  create mode 100644 doc/source/_static/.gitignore
  create mode 100644 doc/source/_static/.placeholder
  create mode 100644 doc/source/_static/basic.css
@@ -1223,11 +1227,12 @@ index 7a2bf1a..01bd3b4 100644
  # Theme options are theme-specific and customize the look and feel of a theme
  # further.  For a list of options available for each theme, see the
 diff --git a/test-requirements.txt b/test-requirements.txt
-index 98a6a67..47ca74d 100644
+index 3d8e9bf..f83b20b 100644
 --- a/test-requirements.txt
 +++ b/test-requirements.txt
-@@ -15,4 +15,3 @@ sphinx>=1.1.2
+@@ -12,5 +12,4 @@ sphinx>=1.1.2
  python-subunit
  testtools>=0.9.32
- testrepository>=0.0.15
+ testrepository>=0.0.17
 -oslo.sphinx
+ python-novaclient>=2.12.0
