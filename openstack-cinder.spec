@@ -2,14 +2,14 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.8.b3%{?dist}
+Release:          0.9.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://launchpad.net/cinder/havana/havana-3/+download/cinder-%{version}.b3.tar.gz
-Source1:          cinder.conf
+Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
 
@@ -94,7 +94,7 @@ Requires:         python-swiftclient >= 1.2
 Requires:         python-keystoneclient
 Requires:         python-novaclient >= 2.14
 
-Requires:         python-oslo-config
+Requires:         python-oslo-config >= 1:1.2.0
 Requires:         python-six
 
 Requires:         python-babel
@@ -195,7 +195,8 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
-install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/cinder/cinder.conf
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
+install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
 install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
@@ -268,6 +269,7 @@ fi
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
 %config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
+%attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
 %dir %attr(0755, cinder, root) %{_localstatedir}/log/cinder
 %dir %attr(0755, cinder, root) %{_localstatedir}/run/cinder
@@ -293,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Wed Sep 18 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.9.b3
+- Add cinder-dist.conf
+
 * Mon Sep 9 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.8.b3
 - Update to Havana milestone 3
 - Add dependency on python-novaclient
