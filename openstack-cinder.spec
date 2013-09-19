@@ -271,7 +271,7 @@ fi
 %config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
 %attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
-%dir %attr(0755, cinder, root) %{_localstatedir}/log/cinder
+%dir %attr(0750, cinder, root) %{_localstatedir}/log/cinder
 %dir %attr(0755, cinder, root) %{_localstatedir}/run/cinder
 %dir %attr(0755, cinder, root) %{_sysconfdir}/cinder/volumes
 
@@ -297,6 +297,7 @@ fi
 %changelog
 * Wed Sep 18 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.9.b3
 - Add cinder-dist.conf
+- Tighten permissions on /var/log/cinder
 
 * Mon Sep 9 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.8.b3
 - Update to Havana milestone 3
