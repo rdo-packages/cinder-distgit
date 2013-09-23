@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.9.b3%{?dist}
+Release:          0.10.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -92,7 +92,7 @@ Requires:         python-webob
 Requires:         python-glanceclient >= 1:0
 Requires:         python-swiftclient >= 1.2
 Requires:         python-keystoneclient
-Requires:         python-novaclient >= 2.14
+Requires:         python-novaclient >= 2.15
 
 Requires:         python-oslo-config >= 1:1.2.0
 Requires:         python-six
@@ -295,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Mon Sep 23 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.10.b3
+- Depend on python-novaclient 2.15
+
 * Wed Sep 18 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.9.b3
 - Add cinder-dist.conf
 - Tighten permissions on /var/log/cinder
