@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.10.b3%{?dist}
+Release:          0.11.rc1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/havana/havana-3/+download/cinder-%{version}.b3.tar.gz
+Source0:          https://launchpad.net/cinder/havana/havana-rc1/+download/cinder-%{version}.rc1.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2013.2.b3
+# patches_base=2013.2.rc1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -92,7 +92,7 @@ Requires:         python-webob
 Requires:         python-glanceclient >= 1:0
 Requires:         python-swiftclient >= 1.2
 Requires:         python-keystoneclient
-Requires:         python-novaclient >= 2.15
+Requires:         python-novaclient >= 1:2.15
 
 Requires:         python-oslo-config >= 1:1.2.0
 Requires:         python-six
@@ -132,7 +132,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b3
+%setup -q -n cinder-%{version}.rc1
 
 %patch0001 -p1
 %patch0002 -p1
@@ -295,6 +295,10 @@ fi
 %endif
 
 %changelog
+* Tue Oct 08 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.11.rc1
+- Update to Havana RC1
+- Fix python-novaclient req epoch
+
 * Mon Sep 23 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.10.b3
 - Depend on python-novaclient 2.15
 

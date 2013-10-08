@@ -1,4 +1,4 @@
-From c44bbcccf3c42fce5d4ce9ec52f28e291fac3b4b Mon Sep 17 00:00:00 2001
+From c617721f7fb025284f8dbaededcfb6bcb4610fa4 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?P=C3=A1draig=20Brady?= <P@draigBrady.com>
 Date: Fri, 21 Sep 2012 13:33:26 +0100
 Subject: [PATCH] Ensure we don't access the net when building docs
@@ -9,7 +9,7 @@ Subject: [PATCH] Ensure we don't access the net when building docs
  1 file changed, 1 deletion(-)
 
 diff --git a/doc/source/conf.py b/doc/source/conf.py
-index e27d458..7a2bf1a 100644
+index 97ee288..238a922 100644
 --- a/doc/source/conf.py
 +++ b/doc/source/conf.py
 @@ -29,7 +29,6 @@ sys.path.insert(0, os.path.abspath('./'))
