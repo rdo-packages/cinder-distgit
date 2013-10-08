@@ -1,4 +1,4 @@
-From 6343780dbbb0ebe98700d6b47008651ed063b321 Mon Sep 17 00:00:00 2001
+From 84cc2c3f649690210c9661269427fe309fbf312f Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?P=C3=A1draig=20Brady?= <P@draigBrady.com>
 Date: Mon, 22 Jul 2013 03:10:04 +0100
 Subject: [PATCH] Revert "Use oslo.sphinx and remove local copy of doc theme"
@@ -20,8 +20,8 @@ Conflicts:
  doc/source/_theme/layout.html      |  95 +++++++++
  doc/source/_theme/theme.conf       |   5 +
  doc/source/conf.py                 |   8 +-
- test-requirements.txt              |   2 +-
- 12 files changed, 1122 insertions(+), 6 deletions(-)
+ test-requirements.txt              |   1 -
+ 12 files changed, 1121 insertions(+), 6 deletions(-)
  create mode 100644 doc/source/_static/.gitignore
  create mode 100644 doc/source/_static/.placeholder
  create mode 100644 doc/source/_static/basic.css
@@ -1227,12 +1227,11 @@ index 238a922..58fc367 100644
  # Theme options are theme-specific and customize the look and feel of a theme
  # further.  For a list of options available for each theme, see the
 diff --git a/test-requirements.txt b/test-requirements.txt
-index 35f6c82..f83b20b 100644
+index 35f6c82..895a523 100644
 --- a/test-requirements.txt
 +++ b/test-requirements.txt
-@@ -12,4 +12,4 @@ sphinx>=1.1.2
+@@ -12,4 +12,3 @@ sphinx>=1.1.2
  python-subunit
  testtools>=0.9.32
  testrepository>=0.0.17
 -oslo.sphinx
-+python-novaclient>=2.12.0
