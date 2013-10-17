@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2013.2
-Release:          0.13.rc3%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/havana/havana-rc3/+download/cinder-%{version}.rc3.tar.gz
+Source0:          https://launchpad.net/cinder/havana/%{version}/+download/cinder-%{version}.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2013.2.rc3
+# patches_base=2013.2
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -132,7 +132,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.rc3
+%setup -q -n cinder-%{version}
 
 %patch0001 -p1
 %patch0002 -p1
@@ -295,7 +295,10 @@ fi
 %endif
 
 %changelog
-* Wed Oct 16 2013 Eric Harney <eharney@redhat.com> - 2013.2.0.13.rc3
+* Thu Oct 17 2013 Eric Harney <eharney@redhat.com> - 2013.2-1
+- Update to 2013.2 (Havana)
+
+* Wed Oct 16 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.13.rc3
 - Update to Havana RC3
 
 * Fri Oct 11 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.12.rc2

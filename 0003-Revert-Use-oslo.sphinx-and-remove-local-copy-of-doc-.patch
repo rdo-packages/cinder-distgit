@@ -1,4 +1,4 @@
-From 4b3fd34b0faf2a574d43cdccfd9edf126313f021 Mon Sep 17 00:00:00 2001
+From 5109fb1f45b454d177d7db4752c0fe3ca959b936 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?P=C3=A1draig=20Brady?= <P@draigBrady.com>
 Date: Mon, 22 Jul 2013 03:10:04 +0100
 Subject: [PATCH] Revert "Use oslo.sphinx and remove local copy of doc theme"
