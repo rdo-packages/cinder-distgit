@@ -243,7 +243,7 @@ fi
 
 %preun
 if [ $1 -eq 0 ] ; then
-    for svc in volume api scheduler; do
+    for svc in volume api scheduler backup; do
         /bin/systemctl --no-reload disable openstack-cinder-${svc}.service > /dev/null 2>&1 || :
         /bin/systemctl stop openstack-cinder-${svc}.service > /dev/null 2>&1 || :
     done
@@ -253,7 +253,7 @@ fi
 /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 if [ $1 -ge 1 ] ; then
     # Package upgrade, not uninstall
-    for svc in volume api scheduler; do
+    for svc in volume api scheduler backup; do
         /bin/systemctl try-restart openstack-cinder-${svc}.service >/dev/null 2>&1 || :
     done
 fi
@@ -297,6 +297,7 @@ fi
 %changelog
 * Thu Oct 17 2013 Eric Harney <eharney@redhat.com> - 2013.2-1
 - Update to 2013.2 (Havana)
+- Restart/remove cinder-backup service during upgrade/uninstallation
 
 * Wed Oct 16 2013 Eric Harney <eharney@redhat.com> - 2013.2-0.13.rc3
 - Update to Havana RC3
