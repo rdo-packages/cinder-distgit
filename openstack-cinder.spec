@@ -1,14 +1,14 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2013.2
-Release:          2%{?dist}
+Version:          2014.1
+Release:          0.1.b1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/havana/%{version}/+download/cinder-%{version}.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/icehouse-1/+download/cinder-%{version}.b1.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,12 +21,11 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2013.2
+# patches_base=2014.1.b1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 Patch0003: 0003-Revert-Use-oslo.sphinx-and-remove-local-copy-of-doc-.patch
-Patch0004: 0004-GlusterFS-set-correct-filename-when-cloning-volume.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -133,12 +132,11 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}
+%setup -q -n cinder-%{version}.b1
 
 %patch0001 -p1
 %patch0002 -p1
 %patch0003 -p1
-%patch0004 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -297,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Thu Dec 19 2013 Eric Harney <eharney@redhat.com> - 2014.1-0.1.b1
+- Update to Icehouse milestone 1
+
 * Mon Oct 28 2013 Eric Harney <eharney@redhat.com> - 2013.2-2
 - Fix GlusterFS volume driver clone operations
 
