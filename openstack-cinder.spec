@@ -34,7 +34,7 @@ BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
-BuildRequires:    openstack-utils
+BuildRequires:    crudini
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
@@ -156,12 +156,12 @@ sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 %build
 
 # Move authtoken configuration out of paste.ini
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_tenant_name
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_user
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken admin_password
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_host
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_port
-openstack-config --del etc/cinder/api-paste.ini filter:authtoken auth_protocol
+crudini --del etc/cinder/api-paste.ini filter:authtoken admin_tenant_name
+crudini --del etc/cinder/api-paste.ini filter:authtoken admin_user
+crudini --del etc/cinder/api-paste.ini filter:authtoken admin_password
+crudini --del etc/cinder/api-paste.ini filter:authtoken auth_host
+crudini --del etc/cinder/api-paste.ini filter:authtoken auth_port
+crudini --del etc/cinder/api-paste.ini filter:authtoken auth_protocol
 
 %{__python} setup.py build
 
