@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.2.b1%{?dist}
+Release:          0.3.b2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.b1
+# patches_base=2014.1.b2
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -295,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Mon Jan 27 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.3.b2
+- Update to Icehouse milestone 2
+
 * Mon Jan 06 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.2.b1
 - Set python-six min version to ensure updated
 
