@@ -8,7 +8,7 @@ Summary:          OpenStack Volume service
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/icehouse-1/+download/cinder-%{version}.b1.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/icehouse-2/+download/cinder-%{version}.b2.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -132,7 +132,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b1
+%setup -q -n cinder-%{version}.b2
 
 %patch0001 -p1
 %patch0002 -p1
