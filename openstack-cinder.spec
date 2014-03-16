@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.3.b2%{?dist}
+Release:          0.4.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/icehouse-2/+download/cinder-%{version}.b2.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/icehouse-3/+download/cinder-%{version}.b3.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.b2
+# patches_base=2014.1.b3
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -100,6 +100,9 @@ Requires:         python-six >= 1.4.1
 Requires:         python-babel
 Requires:         python-lockfile
 
+Requires:         python-oslo-rootwrap
+Requires:         python-taskflow
+
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
 access block storage volumes for use by Virtual Machine instances.
@@ -132,7 +135,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b2
+%setup -q -n cinder-%{version}.b3
 
 %patch0001 -p1
 %patch0002 -p1
@@ -295,6 +298,10 @@ fi
 %endif
 
 %changelog
+* Sun Mar 16 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.4.b3
+- Update to Icehouse milestone 3
+- Add deps on python-oslo-rootwrap, python-taskflow
+
 * Mon Jan 27 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.3.b2
 - Update to Icehouse milestone 2
 
