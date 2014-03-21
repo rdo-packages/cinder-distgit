@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.4.b3%{?dist}
+Release:          0.5.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -298,6 +298,9 @@ fi
 %endif
 
 %changelog
+* Fri Mar 21 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.5.b3
+- Use lioadm iSCSI helper rather than tgtadm
+
 * Sun Mar 16 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.4.b3
 - Update to Icehouse milestone 3
 - Add deps on python-oslo-rootwrap, python-taskflow
