@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.5.b3%{?dist}
+Release:          0.6.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -48,7 +48,8 @@ Requires(postun): systemd-units
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
-Requires:         scsi-target-utils
+Requires:         targetcli
+Requires:         python-rtslib
 
 %description
 OpenStack Volume (codename Cinder) provides services to manage and
@@ -298,6 +299,9 @@ fi
 %endif
 
 %changelog
+* Tue Mar 25 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.6.b3
+- Depend on python-rtslib and targetcli rather than scis-target-utils
+
 * Fri Mar 21 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.5.b3
 - Use lioadm iSCSI helper rather than tgtadm
 
