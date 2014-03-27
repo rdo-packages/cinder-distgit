@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.6.b3%{?dist}
+Release:          0.7.rc1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/icehouse-3/+download/cinder-%{version}.b3.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/icehouse-rc1/+download/cinder-%{version}.rc1.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,15 +21,16 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.b3
+# patches_base=2014.1.rc1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0003: 0003-Revert-Use-oslo.sphinx-and-remove-local-copy-of-doc-.patch
+Patch0003: 0003-Revert-Switch-over-to-oslosphinx.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
 BuildRequires:    python-d2to1
+BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
@@ -136,7 +137,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b3
+%setup -q -n cinder-%{version}.rc1
 
 %patch0001 -p1
 %patch0002 -p1
@@ -299,8 +300,11 @@ fi
 %endif
 
 %changelog
+* Thu Mar 27 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.7.rc1
+- Update to Icehouse RC1
+
 * Tue Mar 25 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.6.b3
-- Depend on python-rtslib and targetcli rather than scis-target-utils
+- Depend on python-rtslib and targetcli rather than scsi-target-utils
 
 * Fri Mar 21 2014 Pádraig Brady <pbrady@redhat.com> - 2014.1-0.5.b3
 - Use lioadm iSCSI helper rather than tgtadm

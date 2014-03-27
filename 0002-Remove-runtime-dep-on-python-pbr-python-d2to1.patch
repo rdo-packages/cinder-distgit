@@ -1,4 +1,4 @@
-From 48d5008174f2052a2ae4de4636c2800336f6ce1e Mon Sep 17 00:00:00 2001
+From e4b170d133598c043cd4831ad56bcf1c0cf1a571 Mon Sep 17 00:00:00 2001
 From: Eric Harney <eharney@redhat.com>
 Date: Thu, 13 Jun 2013 17:50:12 -0400
 Subject: [PATCH] Remove runtime dep on python-pbr, python-d2to1
