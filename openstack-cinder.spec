@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.7.rc1%{?dist}
+Release:          0.8.rc1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -97,7 +97,7 @@ Requires:         python-keystoneclient
 Requires:         python-novaclient >= 1:2.15
 
 Requires:         python-oslo-config >= 1:1.2.0
-Requires:         python-six >= 1.4.1
+Requires:         python-six >= 1.5.0
 
 Requires:         python-babel
 Requires:         python-lockfile
@@ -300,6 +300,9 @@ fi
 %endif
 
 %changelog
+* Mon Apr 07 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.8.rc1
+- Icehouse requires newer version of python-six
+
 * Thu Mar 27 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.7.rc1
 - Update to Icehouse RC1
 
