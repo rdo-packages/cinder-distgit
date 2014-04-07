@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.8.rc1%{?dist}
+Release:          0.8.rc2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/icehouse-rc1/+download/cinder-%{version}.rc1.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/icehouse-rc2/+download/cinder-%{version}.rc2.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -137,7 +137,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.rc1
+%setup -q -n cinder-%{version}.rc2
 
 %patch0001 -p1
 %patch0002 -p1
@@ -300,7 +300,8 @@ fi
 %endif
 
 %changelog
-* Mon Apr 07 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.8.rc1
+* Mon Apr 07 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.8.rc2
+- Update to Icehouse RC2
 - Icehouse requires newer version of python-six
 
 * Thu Mar 27 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.7.rc1
