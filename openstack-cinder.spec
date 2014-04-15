@@ -21,11 +21,14 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.rc1
+# patches_base=2014.1.rc3
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 Patch0003: 0003-Revert-Switch-over-to-oslosphinx.patch
+Patch0004: 0004-GlusterFS-Delete-active-snapshot-file-on-volume-dele.patch
+Patch0005: 0005-notify-calling-process-we-are-ready-to-serve.patch
+Patch0006: 0006-Move-notification-point-to-a-better-place.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -143,6 +146,9 @@ This package contains documentation files for cinder.
 %patch0001 -p1
 %patch0002 -p1
 %patch0003 -p1
+%patch0004 -p1
+%patch0005 -p1
+%patch0006 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -303,6 +309,8 @@ fi
 %changelog
 * Tue Apr 15 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.10.rc3
 - Add python-oslo-messaging requirement
+- Add GlusterFS delete patch
+- Add systemd patches (not used yet)
 
 * Tue Apr 15 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.9.rc3
 - Update to Icehouse RC3
