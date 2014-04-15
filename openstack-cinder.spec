@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.9.rc3%{?dist}
+Release:          0.10.rc3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -104,6 +104,7 @@ Requires:         python-lockfile
 
 Requires:         python-oslo-rootwrap
 Requires:         python-taskflow
+Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
 
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
@@ -300,6 +301,9 @@ fi
 %endif
 
 %changelog
+* Tue Apr 15 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.10.rc3
+- Add python-oslo-messaging requirement
+
 * Tue Apr 15 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.9.rc3
 - Update to Icehouse RC3
 
