@@ -2,13 +2,13 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          0.10.rc3%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/icehouse-rc3/+download/cinder-%{version}.rc3.tar.gz
+Source0:          https://launchpad.net/cinder/icehouse/2014.1/+download/cinder-%{version}.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.rc3
+# patches_base=2014.1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -141,7 +141,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.rc3
+%setup -q -n cinder-%{version}
 
 %patch0001 -p1
 %patch0002 -p1
@@ -307,6 +307,9 @@ fi
 %endif
 
 %changelog
+* Thu Apr 17 2014 Eric Harney <eharney@redhat.com> - 2014.1-1
+- Update to 2014.1 (Icehouse)
+
 * Tue Apr 15 2014 Eric Harney <eharney@redhat.com> - 2014.1-0.10.rc3
 - Add python-oslo-messaging requirement
 - Add GlusterFS delete patch
