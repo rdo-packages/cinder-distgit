@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -307,6 +307,9 @@ fi
 %endif
 
 %changelog
+* Mon Apr 21 2014 Eric Harney <eharney@redhat.com> - 2014.1-2
+- Remove qpid settings from cinder-dist.conf
+
 * Thu Apr 17 2014 Eric Harney <eharney@redhat.com> - 2014.1-1
 - Update to 2014.1 (Icehouse)
 
