@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -38,7 +38,6 @@ BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
-BuildRequires:    crudini
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
@@ -166,15 +165,6 @@ sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
 sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 
 %build
-
-# Move authtoken configuration out of paste.ini
-crudini --del etc/cinder/api-paste.ini filter:authtoken admin_tenant_name
-crudini --del etc/cinder/api-paste.ini filter:authtoken admin_user
-crudini --del etc/cinder/api-paste.ini filter:authtoken admin_password
-crudini --del etc/cinder/api-paste.ini filter:authtoken auth_host
-crudini --del etc/cinder/api-paste.ini filter:authtoken auth_port
-crudini --del etc/cinder/api-paste.ini filter:authtoken auth_protocol
-
 %{__python} setup.py build
 
 %install
@@ -307,6 +297,9 @@ fi
 %endif
 
 %changelog
+* Tue Apr 29 2014 Alan Pevec <apevec@redhat.com> - 2014.1-3
+- drop crudini build dependency
+
 * Mon Apr 21 2014 Eric Harney <eharney@redhat.com> - 2014.1-2
 - Remove qpid settings from cinder-dist.conf
 
