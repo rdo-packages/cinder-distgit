@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -297,6 +297,9 @@ fi
 %endif
 
 %changelog
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2014.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Tue Apr 29 2014 Alan Pevec <apevec@redhat.com> - 2014.1-3
 - drop crudini build dependency
 
