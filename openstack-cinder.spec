@@ -1,8 +1,8 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.1
-Release:          4%{?dist}
+Version:          2014.1.1
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -21,14 +21,13 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1
+# patches_base=2014.1.1
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 Patch0003: 0003-Revert-Switch-over-to-oslosphinx.patch
-Patch0004: 0004-GlusterFS-Delete-active-snapshot-file-on-volume-dele.patch
-Patch0005: 0005-notify-calling-process-we-are-ready-to-serve.patch
-Patch0006: 0006-Move-notification-point-to-a-better-place.patch
+Patch0004: 0004-notify-calling-process-we-are-ready-to-serve.patch
+Patch0005: 0005-Move-notification-point-to-a-better-place.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -147,7 +146,6 @@ This package contains documentation files for cinder.
 %patch0003 -p1
 %patch0004 -p1
 %patch0005 -p1
-%patch0006 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -297,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Mon Jun 09 2014 Eric Harney <eharney@redhat.com> - 2014.1.1-1
+- Update to Icehouse stable release 1
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2014.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
