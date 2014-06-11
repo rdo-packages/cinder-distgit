@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -106,6 +106,8 @@ Requires:         python-lockfile
 Requires:         python-oslo-rootwrap
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
+
+Requires:         iscsi-initiator-utils
 
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
@@ -295,6 +297,9 @@ fi
 %endif
 
 %changelog
+* Wed Jun 11 2014 Eric Harney <eharney@redhat.com> - 2014.1.1-2
+- Add dependency on iscsi-initiator-utils
+
 * Mon Jun 09 2014 Eric Harney <eharney@redhat.com> - 2014.1.1-1
 - Update to Icehouse stable release 1
 
