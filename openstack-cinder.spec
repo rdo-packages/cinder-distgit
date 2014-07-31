@@ -1,14 +1,14 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.1.1
-Release:          2%{?dist}
+Version:          2014.2
+Release:          0.1.b2%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/icehouse/2014.1/+download/cinder-%{version}.tar.gz
+Source0:          https://launchpad.net/cinder/juno/juno-2/+download/cinder-%{version}.b2.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.1.1
+# patches_base=2014.2.b2
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -141,7 +141,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}
+%setup -q -n cinder-%{version}.b2
 
 %patch0001 -p1
 %patch0002 -p1
@@ -297,6 +297,9 @@ fi
 %endif
 
 %changelog
+* Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
+- Update to Juno milestone 2
+
 * Wed Jun 11 2014 Eric Harney <eharney@redhat.com> - 2014.1.1-2
 - Add dependency on iscsi-initiator-utils
 
