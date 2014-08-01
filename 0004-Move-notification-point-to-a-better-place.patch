@@ -1,4 +1,4 @@
-From b3848824d907926a9db6022eb8b7e1835b84e584 Mon Sep 17 00:00:00 2001
+From 6e294aa7ed285ae1b81c2138e49537ca6c035d0e Mon Sep 17 00:00:00 2001
 From: Alan Pevec <apevec@redhat.com>
 Date: Mon, 14 Apr 2014 18:11:04 +0200
 Subject: [PATCH] Move notification point to a better place
@@ -48,3 +48,6 @@ index 128d113..cb4fee7 100644
          done.wait()
  
  
+-- 
+1.9.3
+
