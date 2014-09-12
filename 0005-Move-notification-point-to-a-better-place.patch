@@ -1,4 +1,4 @@
-From b3848824d907926a9db6022eb8b7e1835b84e584 Mon Sep 17 00:00:00 2001
+From d2294ec2137c4ed28e3fabe3520ce3aa2b4d49a7 Mon Sep 17 00:00:00 2001
 From: Alan Pevec <apevec@redhat.com>
 Date: Mon, 14 Apr 2014 18:11:04 +0200
 Subject: [PATCH] Move notification point to a better place

@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.1.b2%{?dist}
+Release:          0.1.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -21,7 +21,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.2.b2
+# patches_base=2014.2.b3
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
@@ -51,6 +51,7 @@ Requires(pre):    shadow-utils
 
 Requires:         lvm2
 Requires:         targetcli
+Requires:         python-osprofiler
 Requires:         python-rtslib
 
 %description
@@ -108,6 +109,8 @@ Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
 
 Requires:         iscsi-initiator-utils
+
+Requires:         python-osprofiler
 
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
@@ -297,6 +300,9 @@ fi
 %endif
 
 %changelog
+* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b3
+- Update to Juno milestone 3
+
 * Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
 - Update to Juno milestone 2
 
