@@ -1,14 +1,17 @@
+%global release_name juno
+%global milestone 3
+
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.1.b3%{?dist}
+Release:          0.2.b%{milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/juno/juno-2/+download/cinder-%{version}.b2.tar.gz
+Source0:          http://launchpad.net/cinder/%{release_name}/%{release_name}-%{milestone}/+download/cinder-%{version}.b%{milestone}.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -144,7 +147,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b2
+%setup -q -n cinder-%{version}.b%{milestone}
 
 %patch0001 -p1
 %patch0002 -p1
@@ -156,8 +159,7 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-# TODO: Have the following handle multi line entries
-sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
+sed -i 's/%{version}.b%{milestone}/%{version}/' PKG-INFO
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
@@ -300,7 +302,7 @@ fi
 %endif
 
 %changelog
-* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b3
+* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.2.b3
 - Update to Juno milestone 3
 
 * Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
