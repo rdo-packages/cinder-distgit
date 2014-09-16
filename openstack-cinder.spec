@@ -25,8 +25,6 @@ Source20:         cinder-sudoers
 #
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0003: 0003-notify-calling-process-we-are-ready-to-serve.patch
-Patch0004: 0004-Move-notification-point-to-a-better-place.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -144,8 +142,6 @@ This package contains documentation files for cinder.
 
 %patch0001 -p1
 %patch0002 -p1
-%patch0003 -p1
-%patch0004 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
