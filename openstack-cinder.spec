@@ -23,8 +23,7 @@ Source20:         cinder-sudoers
 #
 # patches_base=2014.2.b2
 #
-Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
-Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
+Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -141,7 +140,6 @@ This package contains documentation files for cinder.
 %setup -q -n cinder-%{upstream_version}
 
 %patch0001 -p1
-%patch0002 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -291,6 +289,10 @@ fi
 %endif
 
 %changelog
+* Wed Oct 01 2014 Dan Prince <dprince@redhat.com> - XXX
+- Remove 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
+  since it was applied upstream.
+
 * Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
 - Update to Juno milestone 2
 
