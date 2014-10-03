@@ -2,7 +2,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.1.b2%{?dist}
+Release:          0.1.b3%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -21,9 +21,13 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.2.b2
+# patches_base=2014.2.b3
 #
-Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
+Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
+Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
+Patch0003: 0003-Revert-Switch-over-to-oslosphinx.patch
+Patch0004: 0004-notify-calling-process-we-are-ready-to-serve.patch
+Patch0005: 0005-Move-notification-point-to-a-better-place.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -47,6 +51,7 @@ Requires(pre):    shadow-utils
 
 Requires:         lvm2
 Requires:         targetcli
+Requires:         python-osprofiler
 Requires:         python-rtslib
 
 %description
@@ -105,6 +110,8 @@ Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
 
 Requires:         iscsi-initiator-utils
 
+Requires:         python-osprofiler
+
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
 access block storage volumes for use by Virtual Machine instances.
@@ -137,9 +144,13 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{upstream_version}
+%setup -q -n cinder-%{version}.b3
 
 %patch0001 -p1
+%patch0002 -p1
+%patch0003 -p1
+%patch0004 -p1
+%patch0005 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -289,9 +300,8 @@ fi
 %endif
 
 %changelog
-* Wed Oct 01 2014 Dan Prince <dprince@redhat.com> - XXX
-- Remove 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
-  since it was applied upstream.
+* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b3
+- Update to Juno milestone 3
 
 * Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
 - Update to Juno milestone 2
