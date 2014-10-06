@@ -143,7 +143,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b3
+%setup -q -n cinder-%{upstream_version}
 
 %patch0001 -p1
 %patch0002 -p1
