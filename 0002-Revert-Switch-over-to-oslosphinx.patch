@@ -22,13 +22,3 @@ index f830735..5317c61 100644
                ]
  
  # autodoc generation is a bit aggressive and a nuisance
-diff --git a/test-requirements.txt b/test-requirements.txt
-index 5f20bd4..7d5e310 100644
---- a/test-requirements.txt
-+++ b/test-requirements.txt
-@@ -11,4 +11,4 @@ sphinx>=1.1.2,!=1.2.0,<1.3
- python-subunit>=0.0.18
- testtools>=0.9.34
- testrepository>=0.0.18
--oslosphinx
-+oslo.sphinx
