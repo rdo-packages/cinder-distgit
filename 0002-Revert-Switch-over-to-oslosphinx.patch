@@ -1,16 +1,20 @@
-From f7061eb369b88f7b5df293599190b53e70e58172 Mon Sep 17 00:00:00 2001
+From dd54b7a97d6ca0b4502298703659266058fd464b Mon Sep 17 00:00:00 2001
+From: Dan Prince <dprince@redhat.com>
+Date: Mon, 6 Oct 2014 17:54:54 -0400
+Subject: [PATCH 2/2] Revert "Switch over to oslosphinx"
+
 From: Eric Harney <eharney@redhat.com>
 Date: Thu, 27 Mar 2014 14:24:57 -0400
 Subject: [PATCH] Revert "Switch over to oslosphinx"
 
-This reverts commit ea7d4a599224b5d0c7674d03993bbe72c49f0d51.
+NOTE: no need to patch test-requirements.txt since we
+remove that file in the spec anyways.
 ---
- doc/source/conf.py    | 2 +-
- test-requirements.txt | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ doc/source/conf.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/doc/source/conf.py b/doc/source/conf.py
-index f830735..5317c61 100644
+index d2ea1ce..c6f666a 100644
 --- a/doc/source/conf.py
 +++ b/doc/source/conf.py
 @@ -32,7 +32,7 @@ extensions = ['sphinx.ext.autodoc',
@@ -22,3 +26,6 @@ index f830735..5317c61 100644
                ]
  
  # autodoc generation is a bit aggressive and a nuisance
+-- 
+1.9.3
+

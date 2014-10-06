@@ -1,7 +1,7 @@
-From 43502e775124bd1f1007586d9292c3c6ae7c6356 Mon Sep 17 00:00:00 2001
+From 6d87e296a0ca040fe2d967fbd294980eac16ac5e Mon Sep 17 00:00:00 2001
 From: Eric Harney <eharney@redhat.com>
 Date: Thu, 13 Jun 2013 17:50:12 -0400
-Subject: [PATCH] Remove runtime dep on python-pbr, python-d2to1
+Subject: [PATCH 1/2] Remove runtime dep on python-pbr, python-d2to1
 
 Requires RPM spec to fill in REDHATCINDERVERSION.
 ---
