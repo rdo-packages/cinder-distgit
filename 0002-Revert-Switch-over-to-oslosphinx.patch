@@ -1,0 +1,34 @@
+From f7061eb369b88f7b5df293599190b53e70e58172 Mon Sep 17 00:00:00 2001
+From: Eric Harney <eharney@redhat.com>
+Date: Thu, 27 Mar 2014 14:24:57 -0400
+Subject: [PATCH] Revert "Switch over to oslosphinx"
+
+This reverts commit ea7d4a599224b5d0c7674d03993bbe72c49f0d51.
+---
+ doc/source/conf.py    | 2 +-
+ test-requirements.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/doc/source/conf.py b/doc/source/conf.py
+index f830735..5317c61 100644
+--- a/doc/source/conf.py
++++ b/doc/source/conf.py
+@@ -32,7 +32,7 @@ extensions = ['sphinx.ext.autodoc',
+               'sphinx.ext.pngmath',
+               'sphinx.ext.ifconfig',
+               'sphinx.ext.graphviz',
+-              'oslosphinx',
++              'oslo.sphinx',
+               ]
+ 
+ # autodoc generation is a bit aggressive and a nuisance
+diff --git a/test-requirements.txt b/test-requirements.txt
+index 5f20bd4..7d5e310 100644
+--- a/test-requirements.txt
++++ b/test-requirements.txt
+@@ -11,4 +11,4 @@ sphinx>=1.1.2,!=1.2.0,<1.3
+ python-subunit>=0.0.18
+ testtools>=0.9.34
+ testrepository>=0.0.18
+-oslosphinx
++oslo.sphinx
