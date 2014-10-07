@@ -24,7 +24,6 @@ Source20:         cinder-sudoers
 # patches_base=2014.2.b3
 #
 Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -144,7 +143,6 @@ This package contains documentation files for cinder.
 %setup -q -n cinder-%{upstream_version}
 
 %patch0001 -p1
-%patch0002 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
