@@ -1,17 +1,17 @@
 %global release_name juno
-%global milestone 3
+%global milestone rc1
 
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.2.b%{milestone}%{?dist}
+Release:          0.3.%{milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          http://launchpad.net/cinder/%{release_name}/%{release_name}-%{milestone}/+download/cinder-%{version}.b%{milestone}.tar.gz
+Source0:          http://launchpad.net/cinder/%{release_name}/%{release_name}-%{milestone}/+download/cinder-%{version}.%{milestone}.tar.gz
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -24,13 +24,10 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.2.b3
+# patches_base=2014.2.rc1
 #
-Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
-Patch0002: 0002-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0003: 0003-Revert-Switch-over-to-oslosphinx.patch
-Patch0004: 0004-notify-calling-process-we-are-ready-to-serve.patch
-Patch0005: 0005-Move-notification-point-to-a-better-place.patch
+Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
+Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -53,7 +50,6 @@ Requires(postun): systemd-units
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
-Requires:         targetcli
 Requires:         python-osprofiler
 Requires:         python-rtslib
 
@@ -147,13 +143,10 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{version}.b%{milestone}
+%setup -q -n cinder-%{version}.%{milestone}
 
 %patch0001 -p1
 %patch0002 -p1
-%patch0003 -p1
-%patch0004 -p1
-%patch0005 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -302,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Wed Oct 08 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.3.b3
+- Update to upstream 2014.2.rc1
+
 * Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.2.b3
 - Update to Juno milestone 3
 
