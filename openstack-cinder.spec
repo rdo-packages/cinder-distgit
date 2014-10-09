@@ -5,7 +5,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.3.%{milestone}%{?dist}
+Release:          0.4.%{milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -152,7 +152,7 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-sed -i 's/%{version}.b%{milestone}/%{version}/' PKG-INFO
+sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
@@ -295,7 +295,10 @@ fi
 %endif
 
 %changelog
-* Wed Oct 08 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.3.b3
+* Thu Oct 09 2014 hguemar <hguemar@senbonzakura> - 2014.2-0.4.rc1
+- Fix spec typos
+
+* Wed Oct 08 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.3.rc1
 - Update to upstream 2014.2.rc1
 
 * Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.2.b3
