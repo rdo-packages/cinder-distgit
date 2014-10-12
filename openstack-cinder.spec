@@ -1,11 +1,11 @@
 %global release_name juno
-%global milestone rc1
+%global milestone rc2
 
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          0.4.%{milestone}%{?dist}
+Release:          0.5.%{milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 Group:            Applications/System
@@ -24,7 +24,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.2.rc1
+# patches_base=2014.2.rc2
 #
 Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
@@ -295,6 +295,9 @@ fi
 %endif
 
 %changelog
+* Mon Oct 13 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.5.rc2
+- Update to upstream 2014.2.rc2
+
 * Thu Oct 09 2014 hguemar <hguemar@senbonzakura> - 2014.2-0.4.rc1
 - Fix spec typos
 
