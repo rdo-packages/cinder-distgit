@@ -1,14 +1,16 @@
+%global release_name juno
+
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.2
-Release:          0.1.b3%{?dist}
+Version:          XXX
+Release:          XXX{?dist}
 Summary:          OpenStack Volume service
 
-Group:            Applications/System
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/cinder/juno/juno-2/+download/cinder-%{version}.b2.tar.gz
+Source0:          http://launchpad.net/cinder/%{release_name}/%{version}/+download/cinder-%{version}.tar.gz
+
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
 Source3:          cinder-tgt.conf
@@ -17,13 +19,11 @@ Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
 Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
-
 Source20:         cinder-sudoers
 
 #
-# patches_base=2014.2.b3
+# patches_base=2014.2
 #
-Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -31,8 +31,11 @@ BuildRequires:    python-d2to1
 BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
+BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
+BuildRequires:    systemd
+BuildRequires:    git
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
@@ -40,13 +43,12 @@ Requires:         python-cinder = %{version}-%{release}
 # as convenience
 Requires:         python-cinderclient
 
-Requires(post):   systemd-units
-Requires(preun):  systemd-units
-Requires(postun): systemd-units
+Requires(post):   systemd
+Requires(preun):  systemd
+Requires(postun): systemd
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
-Requires:         targetcli
 Requires:         python-osprofiler
 Requires:         python-rtslib
 
@@ -121,7 +123,6 @@ Group:            Documentation
 
 Requires:         %{name} = %{version}-%{release}
 
-BuildRequires:    systemd-units
 BuildRequires:    graphviz
 
 # Required to build module documents
@@ -140,16 +141,13 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%setup -q -n cinder-%{upstream_version}
-
-%patch0001 -p1
+%autosetup -n cinder-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-# TODO: Have the following handle multi line entries
-sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
+sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
@@ -160,10 +158,10 @@ sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
 sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
@@ -233,31 +231,24 @@ fi
 exit 0
 
 %post
-if [ $1 -eq 1 ] ; then
-    # Initial installation
-    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
-fi
+%systemd_post openstack-cinder-volume
+%systemd_post openstack-cinder-api
+%systemd_post openstack-cinder-scheduler
+%systemd_post openstack-cinder-backup
 
 %preun
-if [ $1 -eq 0 ] ; then
-    for svc in volume api scheduler backup; do
-        /bin/systemctl --no-reload disable openstack-cinder-${svc}.service > /dev/null 2>&1 || :
-        /bin/systemctl stop openstack-cinder-${svc}.service > /dev/null 2>&1 || :
-    done
-fi
+%systemd_preun openstack-cinder-volume
+%systemd_preun openstack-cinder-api
+%systemd_preun openstack-cinder-scheduler
+%systemd_preun openstack-cinder-backup
 
 %postun
-/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-if [ $1 -ge 1 ] ; then
-    # Package upgrade, not uninstall
-    for svc in volume api scheduler backup; do
-        /bin/systemctl try-restart openstack-cinder-${svc}.service >/dev/null 2>&1 || :
-    done
-fi
+%systemd_postun_with_restart openstack-cinder-volume
+%systemd_postun_with_restart openstack-cinder-api
+%systemd_postun_with_restart openstack-cinder-scheduler
+%systemd_postun_with_restart openstack-cinder-backup
 
 %files
-%doc LICENSE
-
 %dir %{_sysconfdir}/cinder
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
@@ -282,9 +273,10 @@ fi
 %dir %{_sharedstatedir}/cinder/tmp
 
 %files -n python-cinder
-%doc LICENSE
-%{python_sitelib}/cinder
-%{python_sitelib}/cinder-%{version}*.egg-info
+%{?!_licensedir: %global license %%doc}
+%license LICENSE
+%{python2_sitelib}/cinder
+%{python2_sitelib}/cinder-*.egg-info
 
 %if 0%{?with_doc}
 %files doc
@@ -292,7 +284,23 @@ fi
 %endif
 
 %changelog
-* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b3
+* Fri Oct 17 2014 Haïkel Guémar <hguemar@fedoraproject.org> 2014.2-1
+- Update to upstream 2014.2
+- Spec cleanups
+
+* Wed Oct 15 2014 Haïkel Guémar <hguemar@fedoraproject.org> 2014.2-0.6.rc3
+- Update to upstream 2014.2.rc3
+
+* Mon Oct 13 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.5.rc2
+- Update to upstream 2014.2.rc2
+
+* Thu Oct 09 2014 hguemar <hguemar@senbonzakura> - 2014.2-0.4.rc1
+- Fix spec typos
+
+* Wed Oct 08 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2-0.3.rc1
+- Update to upstream 2014.2.rc1
+
+* Fri Sep 12 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.2.b3
 - Update to Juno milestone 3
 
 * Thu Jul 31 2014 Eric Harney <eharney@redhat.com> - 2014.2-0.1.b2
