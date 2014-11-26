@@ -4,7 +4,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -13,7 +13,6 @@ Source0:          http://launchpad.net/cinder/%{release_name}/%{version}/+downlo
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
-Source3:          cinder-tgt.conf
 
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
@@ -195,7 +194,6 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
 install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
-install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
@@ -258,7 +256,6 @@ exit 0
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
-%config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
 %attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
 %dir %attr(0750, cinder, root) %{_localstatedir}/log/cinder
@@ -286,6 +283,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Nov 26 2014 Haïkel guémar <hguemar@redhat.com> - 2014.2-2
+- Drop now useless tgtd configuration (RHBZ #1157619)
+
 * Fri Oct 17 2014 Haïkel Guémar <hguemar@fedoraproject.org> 2014.2-1
 - Update to upstream 2014.2
 - Spec cleanups
