@@ -4,7 +4,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -98,6 +98,7 @@ Requires:         python-keystoneclient
 Requires:         python-novaclient >= 1:2.15
 
 Requires:         python-oslo-config >= 1:1.2.0
+Requires:         python-oslo-db >= 1.0.0
 Requires:         python-six >= 1.5.0
 
 Requires:         python-babel
@@ -283,6 +284,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Dec 04 2014 Eric Harney <eharney@redhat.com> - 2014.2-3
+- Depend on python-oslo-db
+
 * Wed Nov 26 2014 Haïkel guémar <hguemar@redhat.com> - 2014.2-2
 - Drop now useless tgtd configuration (RHBZ #1157619)
 
