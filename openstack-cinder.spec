@@ -3,8 +3,8 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.2
-Release:          3%{?dist}
+Version:          2014.2.1
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -20,9 +20,6 @@ Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
-#
-# patches_base=2014.2
-#
 Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
 Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
 
@@ -284,6 +281,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Dec 05 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2.1-1
+- Update to upstream 2014.2.1
+
 * Thu Dec 04 2014 Eric Harney <eharney@redhat.com> - 2014.2-3
 - Depend on python-oslo-db
 

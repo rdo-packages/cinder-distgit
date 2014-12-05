@@ -1,4 +1,4 @@
-From eb457b7f680f14879e73d59f53d46b01ca917dad Mon Sep 17 00:00:00 2001
+From d8cf5b755a6533c8e806adee8ad463792e01e837 Mon Sep 17 00:00:00 2001
 From: Eric Harney <eharney@redhat.com>
 Date: Thu, 27 Mar 2014 14:24:57 -0400
 Subject: [PATCH] Revert "Switch over to oslosphinx"
@@ -23,7 +23,7 @@ index d2ea1ce..c6f666a 100644
  
  # autodoc generation is a bit aggressive and a nuisance
 diff --git a/test-requirements.txt b/test-requirements.txt
-index fef0ca1..35db6c5 100644
+index 4e433d9..5d1d94a 100644
 --- a/test-requirements.txt
 +++ b/test-requirements.txt
 @@ -1,7 +1,3 @@
