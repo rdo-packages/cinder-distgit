@@ -40,6 +40,9 @@ BuildRequires:    git
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
 
+# we dropped the patch to remove PBR for Delorean
+Requires:         python-pbr
+
 # as convenience
 Requires:         python-cinderclient
 
