@@ -191,7 +191,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
-install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
 install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
@@ -250,7 +249,7 @@ exit 0
 
 %files
 %dir %{_sysconfdir}/cinder
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
+#%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
