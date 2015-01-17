@@ -4,7 +4,7 @@
 
 Name:             openstack-cinder
 Version:          2014.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -102,9 +102,11 @@ Requires:         python-babel
 Requires:         python-lockfile
 
 Requires:         python-oslo-rootwrap
-Requires:         python-taskflow
+Requires:         python-taskflow >= 0.4.0
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
+Requires:         python-keystonemiddleware >= 1.0.0
 
+Requires:         libcgroup-tools
 Requires:         iscsi-initiator-utils
 
 Requires:         python-osprofiler
@@ -281,6 +283,9 @@ exit 0
 %endif
 
 %changelog
+* Sat Jan 17 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 2014.2.1-2
+- Fix requirements (RHBZ #1174760 #1175368 #1179060)
+
 * Fri Dec 05 2014 Haikel Guemar <hguemar@fedoraproject.org> 2014.2.1-1
 - Update to upstream 2014.2.1
 
