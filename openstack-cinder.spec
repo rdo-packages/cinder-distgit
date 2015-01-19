@@ -106,6 +106,11 @@ Requires:         python-babel
 Requires:         python-lockfile
 
 Requires:         python-oslo-rootwrap
+Requires:         python-oslo-utils
+Requires:         python-oslo-serialization
+Requires:         python-oslo-db
+Requires:         python-oslo-context
+Requires:         python-oslo-concurrency
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
 
