@@ -111,6 +111,7 @@ Requires:         python-oslo-serialization
 Requires:         python-oslo-db
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
+Requires:         python-oslo-middleware
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
 
