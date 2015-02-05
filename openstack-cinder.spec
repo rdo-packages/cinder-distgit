@@ -3,8 +3,8 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.2.1
-Release:          2%{?dist}
+Version:          2014.2.2
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -283,6 +283,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Feb 05 2015 Haikel Guemar <hguemar@fedoraproject.org> - 2014.2.2-1
+- Update to upstream 2014.2.2
+
 * Sat Jan 17 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 2014.2.1-2
 - Fix requirements (RHBZ #1174760 #1175368 #1179060)
 

@@ -1,4 +1,4 @@
-From d8cf5b755a6533c8e806adee8ad463792e01e837 Mon Sep 17 00:00:00 2001
+From 72ceaa24ee86ed59d3f3f4755e11a8eb2f741ef2 Mon Sep 17 00:00:00 2001
 From: Eric Harney <eharney@redhat.com>
 Date: Thu, 27 Mar 2014 14:24:57 -0400
 Subject: [PATCH] Revert "Switch over to oslosphinx"
