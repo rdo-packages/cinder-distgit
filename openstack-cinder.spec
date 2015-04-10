@@ -3,13 +3,16 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.2.2
+Version:          2014.2.3
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          http://launchpad.net/cinder/%{release_name}/%{version}/+download/cinder-%{version}.tar.gz
+
+Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
+Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -19,9 +22,6 @@ Source11:         openstack-cinder-scheduler.service
 Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
-
-Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -283,6 +283,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Apr 10 2015 Haikel Guemar <hguemar@redhat.com> 2014.2.3-1
+- Update to upstream 2014.2.3
+
 * Thu Feb 05 2015 Haikel Guemar <hguemar@fedoraproject.org> - 2014.2.2-1
 - Update to upstream 2014.2.2
 
