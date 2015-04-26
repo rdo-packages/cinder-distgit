@@ -1,18 +1,19 @@
-%global release_name juno
+%global release_name kilo
+%global milestone .0rc2
+%global service cinder
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
-Version:          2014.2.3
-Release:          1%{?dist}
+Version:          2015.1
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          http://launchpad.net/cinder/%{release_name}/%{version}/+download/cinder-%{version}.tar.gz
-
-Patch0001: 0001-Remove-runtime-dep-on-python-pbr-python-d2to1.patch
-Patch0002: 0002-Revert-Switch-over-to-oslosphinx.patch
+Source0:          http://launchpad.net/%{service}/%{release_name}/%{release_name}-rc2/+download/%{service}-%{upstream_version}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -37,6 +38,9 @@ BuildRequires:    git
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{version}-%{release}
+
+# we dropped the patch to remove PBR for Delorean
+Requires:         python-pbr
 
 # as convenience
 Requires:         python-cinderclient
@@ -102,9 +106,15 @@ Requires:         python-babel
 Requires:         python-lockfile
 
 Requires:         python-oslo-rootwrap
-Requires:         python-taskflow >= 0.4.0
-Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
-Requires:         python-keystonemiddleware >= 1.0.0
+Requires:         python-oslo-utils
+Requires:         python-oslo-serialization
+Requires:         python-oslo-db
+Requires:         python-oslo-context
+Requires:         python-oslo-concurrency
+Requires:         python-oslo-middleware
+Requires:         python-taskflow >= 0.7.1
+Requires:         python-oslo-messaging >= 1.8.0
+Requires:         python-keystonemiddleware >= 1.5.0
 
 Requires:         libcgroup-tools
 Requires:         iscsi-initiator-utils
@@ -142,7 +152,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%autosetup -n cinder-%{version} -S git
+%autosetup -n cinder-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -192,7 +202,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
-install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
@@ -250,7 +259,7 @@ exit 0
 
 %files
 %dir %{_sysconfdir}/cinder
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
+#%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
@@ -275,7 +284,7 @@ exit 0
 %{?!_licensedir: %global license %%doc}
 %license LICENSE
 %{python2_sitelib}/cinder
-%{python2_sitelib}/cinder-%{version}*.egg-info
+%{python2_sitelib}/cinder-*.egg-info
 
 %if 0%{?with_doc}
 %files doc
