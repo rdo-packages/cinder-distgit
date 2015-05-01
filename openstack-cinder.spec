@@ -17,6 +17,7 @@ Source0:          http://launchpad.net/%{service}/%{release_name}/%{release_name
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
+Source3:          cinder.conf.sample
 
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
@@ -154,19 +155,15 @@ This package contains documentation files for cinder.
 %prep
 %autosetup -n cinder-%{upstream_version} -S git
 
+cp %{SOURCE3} etc/cinder/cinder.conf.sample
+
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
-
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
-
-# We add REDHATCINDERVERSION/RELEASE with the pbr removal patch
-sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
-sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 
 %build
 %{__python2} setup.py build
@@ -206,6 +203,7 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
+install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 
 # Install initscripts for services
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-cinder-api.service
@@ -259,7 +257,7 @@ exit 0
 
 %files
 %dir %{_sysconfdir}/cinder
-#%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
+%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
