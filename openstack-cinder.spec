@@ -7,7 +7,7 @@
 
 Name:             openstack-cinder
 Version:          2015.1.0
-Release:          1%{?milestone}%{?dist}
+Release:          2%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -289,5 +289,8 @@ exit 0
 %endif
 
 %changelog
+* Mon May 04 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.0-2
+- update keystone_authtoken section in sample conf
+
 * Thu Apr 30 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.0-1
 - OpenStack Kilo release
