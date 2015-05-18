@@ -70,7 +70,7 @@ Requires:         MySQL-python
 
 Requires:         qemu-img
 Requires:         sysfsutils
-
+Requires:         os-brick
 Requires:         python-paramiko
 
 Requires:         python-qpid
