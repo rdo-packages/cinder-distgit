@@ -114,6 +114,7 @@ Requires:         python-oslo-concurrency
 Requires:         python-oslo-middleware
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
+Requires:         python-oslo-versionedobjects
 
 Requires:         iscsi-initiator-utils
 
