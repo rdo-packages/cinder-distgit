@@ -7,7 +7,7 @@
 
 Name:             openstack-cinder
 Version:          2015.1.0
-Release:          2%{?milestone}%{?dist}
+Release:          3%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -23,6 +23,8 @@ Source11:         openstack-cinder-scheduler.service
 Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
+
+Patch0001: 0001-Disallow-backing-files-when-uploading-volumes-to-ima.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -289,6 +291,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Jun 17 2015 Haïkel Guémar <hguemar@fedoraproject.org> 2015.1.0-3
+- Fix CVE-2015-1851 (RHBZ #1231822)
+
 * Mon May 04 2015 Alan Pevec <alan.pevec@redhat.com> 2015.1.0-2
 - update keystone_authtoken section in sample conf
 
