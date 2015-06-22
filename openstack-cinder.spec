@@ -3,8 +3,11 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 
 Name:             openstack-cinder
+# Liberty semver reset
+# https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
+Epoch:            1
 Version:          XXX
-Release:          XXX{?dist}
+Release:          XXX
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -38,7 +41,7 @@ BuildRequires:    systemd
 BuildRequires:    git
 
 Requires:         openstack-utils
-Requires:         python-cinder = %{version}-%{release}
+Requires:         python-cinder = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
 Requires:         python-pbr
@@ -131,7 +134,7 @@ This package contains the cinder Python library.
 Summary:          Documentation for OpenStack Volume
 Group:            Documentation
 
-Requires:         %{name} = %{version}-%{release}
+Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
 
