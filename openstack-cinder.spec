@@ -107,6 +107,7 @@ Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
 Requires:         python-lockfile
+Requires:         python-jinja2
 
 Requires:         python-oslo-rootwrap
 Requires:         python-oslo-utils
