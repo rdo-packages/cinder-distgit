@@ -169,9 +169,6 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 # to distutils requires_dist config
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
-# We add REDHATCINDERVERSION/RELEASE with the pbr removal patch
-sed -i s/REDHATCINDERVERSION/%{version}/ cinder/version.py
-sed -i s/REDHATCINDERRELEASE/%{release}/ cinder/version.py
 
 %build
 %{__python2} setup.py build
@@ -234,8 +231,8 @@ install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/
 
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-debug
-rm -fr %{buildroot}%{python_sitelib}/cinder/tests/
-rm -fr %{buildroot}%{python_sitelib}/run_tests.*
+rm -fr %{buildroot}%{python2_sitelib}/cinder/tests/
+rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
 %pre
