@@ -38,6 +38,7 @@ BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
+BuildRequires:    os-brick
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
@@ -229,6 +230,12 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
 mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
 install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
 
+
+# Symlinks to rootwrap config files
+mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
+for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
+ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
+done
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python2_sitelib}/cinder/tests/
@@ -269,6 +276,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
 %config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
+%{_sysconfdir}/cinder/rootwrap.d/
 %attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
 %dir %attr(0750, cinder, root) %{_localstatedir}/log/cinder
