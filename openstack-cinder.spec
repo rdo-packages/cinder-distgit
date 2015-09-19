@@ -1,22 +1,22 @@
-%global release_name kilo
-%global service cinder
+%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+%global pypi_name cinder
+%global release_name liberty
+%global milestone rc1
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
-
 Name:             openstack-cinder
-Version:          2015.1.0
-Release:          3%{?milestone}%{?dist}
+Version:          7.0.0.0
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          http://launchpad.net/%{service}/%{release_name}/%{version}/+download/%{service}-%{upstream_version}.tar.gz
+Source0:          https://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-%{milestone}/+download/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
-Source3:          cinder.conf.sample
+Source3:          cinder-tgt.conf
 
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
@@ -24,7 +24,9 @@ Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
-Patch0001: 0001-Disallow-backing-files-when-uploading-volumes-to-ima.patch
+#
+# patches_base=7.0.0.0rc1
+#
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -37,9 +39,10 @@ BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
+BuildRequires:    os-brick
 
 Requires:         openstack-utils
-Requires:         python-cinder = %{version}-%{release}
+Requires:         python-cinder = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
 Requires:         python-pbr
@@ -71,7 +74,7 @@ Requires:         MySQL-python
 
 Requires:         qemu-img
 Requires:         sysfsutils
-
+Requires:         os-brick
 Requires:         python-paramiko
 
 Requires:         python-qpid
@@ -103,9 +106,11 @@ Requires:         python-novaclient >= 1:2.15
 Requires:         python-oslo-config >= 1:1.2.0
 Requires:         python-oslo-db >= 1.0.0
 Requires:         python-six >= 1.5.0
+Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
 Requires:         python-lockfile
+Requires:         python-jinja2
 
 Requires:         python-oslo-rootwrap
 Requires:         python-oslo-utils
@@ -117,7 +122,8 @@ Requires:         python-oslo-middleware
 Requires:         python-taskflow >= 0.7.1
 Requires:         python-oslo-messaging >= 1.8.0
 Requires:         python-keystonemiddleware >= 1.5.0
-
+Requires:         python-oslo-service
+Requires:         python-oslo-versionedobjects
 Requires:         libcgroup-tools
 Requires:         iscsi-initiator-utils
 
@@ -134,7 +140,7 @@ This package contains the cinder Python library.
 Summary:          Documentation for OpenStack Volume
 Group:            Documentation
 
-Requires:         %{name} = %{version}-%{release}
+Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
 
@@ -165,6 +171,7 @@ find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
+
 
 %build
 %{__python2} setup.py build
@@ -201,10 +208,10 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
+install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
-install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 
 # Install initscripts for services
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-cinder-api.service
@@ -225,10 +232,16 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
 mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
 install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
 
+
+# Symlinks to rootwrap config files
+mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
+for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
+ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
+done
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-debug
-rm -fr %{buildroot}%{python_sitelib}/cinder/tests/
-rm -fr %{buildroot}%{python_sitelib}/run_tests.*
+rm -fr %{buildroot}%{python2_sitelib}/cinder/tests/
+rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
 %pre
@@ -258,12 +271,14 @@ exit 0
 
 %files
 %dir %{_sysconfdir}/cinder
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
+#%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
+%config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
+%{_sysconfdir}/cinder/rootwrap.d/
 %attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
 %dir %attr(0750, cinder, root) %{_localstatedir}/log/cinder
@@ -291,6 +306,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Sep 30 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0.0-0.1rc1
+- Update to upstream 7.0.0.0rc1
+
 * Wed Jun 17 2015 Haïkel Guémar <hguemar@fedoraproject.org> 2015.1.0-3
 - Fix CVE-2015-1851 (RHBZ #1231822)
 
