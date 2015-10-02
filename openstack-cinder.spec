@@ -248,6 +248,7 @@ for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
 ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
 done
 # Remove unneeded in production stuff
+rm -f %{buildroot}%{_bindir}/cinder-all
 rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python2_sitelib}/cinder/tests/
 rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
