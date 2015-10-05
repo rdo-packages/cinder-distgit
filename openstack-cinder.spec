@@ -1,18 +1,18 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 %global release_name liberty
-%global milestone rc1
+%global milestone .0rc1
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-cinder
-Version:          7.0.0.0
+Version:          7.0.0
 Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://launchpad.net/%{pypi_name}/%{release_name}/%{release_name}-%{milestone}/+download/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -306,7 +306,7 @@ exit 0
 %endif
 
 %changelog
-* Wed Sep 30 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0.0-0.1rc1
+* Wed Sep 30 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0-0.1rc1
 - Update to upstream 7.0.0.0rc1
 
 * Wed Jun 17 2015 Haïkel Guémar <hguemar@fedoraproject.org> 2015.1.0-3
