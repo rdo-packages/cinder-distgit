@@ -1,13 +1,13 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 %global release_name liberty
-%global milestone .0rc1
+%global milestone .0rc2
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-cinder
 Version:          7.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          0.2%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -25,7 +25,7 @@ Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
 #
-# patches_base=7.0.0.0rc1
+# patches_base=7.0.0.0rc2
 #
 
 BuildArch:        noarch
@@ -40,6 +40,11 @@ BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    os-brick
+BuildRequires:    python-lxml
+BuildRequires:    python-oslo-concurrency
+BuildRequires:    python-oslo-db
+BuildRequires:    python-oslo-messaging
+BuildRequires:    python-oslo-service
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
@@ -306,6 +311,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Oct 07 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0-0.2.0rc2
+- Update to upstream 7.0.0.0rc2
+
 * Wed Sep 30 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0-0.1rc1
 - Update to upstream 7.0.0.0rc1
 
