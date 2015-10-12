@@ -6,8 +6,11 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-cinder
+# Liberty semver reset
+# https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
+Epoch:            1
 Version:          7.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          0.3%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
