@@ -10,7 +10,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          7.0.0
-Release:          0.4%{?milestone}%{?dist}
+Release:          0.5%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -43,11 +43,27 @@ BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    os-brick
-BuildRequires:    python-lxml
 BuildRequires:    python-oslo-concurrency
-BuildRequires:    python-oslo-db
 BuildRequires:    python-oslo-messaging
 BuildRequires:    python-oslo-service
+# Required to build cinder.conf
+BuildRequires:    python-keystonemiddleware
+BuildRequires:    python-glanceclient
+BuildRequires:    python-novaclient
+BuildRequires:    python-swiftclient
+BuildRequires:    python-oslo-db
+BuildRequires:    python-oslo-config >= 2:1.11.0
+BuildRequires:    python-oslo-policy
+BuildRequires:    python-oslo-reports
+BuildRequires:    python-oslotest
+BuildRequires:    python-oslo-versionedobjects
+BuildRequires:    python-oslo-vmware
+BuildRequires:    python-crypto
+BuildRequires:    python-lxml
+BuildRequires:    python-osprofiler
+BuildRequires:    python-paramiko
+BuildRequires:    python-suds
+BuildRequires:    python-taskflow
 
 Requires:         openstack-utils
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
@@ -171,8 +187,6 @@ This package contains documentation files for cinder.
 %prep
 %autosetup -n cinder-%{upstream_version} -S git
 
-cp %{SOURCE3} etc/cinder/cinder.conf.sample
-
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
@@ -183,6 +197,9 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 
 %build
+# Generate config file
+PYTHONPATH=. tools/config/generate_sample.sh from_tox
+
 %{__python2} setup.py build
 
 %install
@@ -221,6 +238,7 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.con
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
+install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
 
 # Install initscripts for services
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-cinder-api.service
@@ -281,7 +299,7 @@ exit 0
 
 %files
 %dir %{_sysconfdir}/cinder
-#%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
+%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
