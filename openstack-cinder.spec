@@ -10,7 +10,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          7.0.0
-Release:          0.3%{?milestone}%{?dist}
+Release:          0.4%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -130,6 +130,7 @@ Requires:         python-oslo-middleware
 Requires:         python-taskflow >= 0.7.1
 Requires:         python-oslo-messaging >= 1.8.0
 Requires:         python-keystonemiddleware >= 1.5.0
+Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
 Requires:         libcgroup-tools
