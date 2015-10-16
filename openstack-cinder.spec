@@ -1,7 +1,6 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 %global release_name liberty
-%global milestone .0rc2
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -10,7 +9,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          7.0.0
-Release:          0.5%{?milestone}%{?dist}
+Release:          1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -26,10 +25,6 @@ Source11:         openstack-cinder-scheduler.service
 Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
-
-#
-# patches_base=7.0.0.0rc2
-#
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -334,6 +329,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Oct 16 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:7.0.0-1
+- Update to upstream 7.0.0
+
 * Wed Oct 07 2015 Haikel Guemar <hguemar@fedoraproject.org> 7.0.0-0.2.0rc2
 - Update to upstream 7.0.0.0rc2
 
