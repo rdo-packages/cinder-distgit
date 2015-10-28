@@ -49,6 +49,7 @@ BuildRequires:    python-oslo-config >= 2:1.11.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
+BuildRequires:    python-oslo-utils
 BuildRequires:    python-oslo-versionedobjects
 BuildRequires:    python-oslo-vmware
 BuildRequires:    python-crypto
