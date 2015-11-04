@@ -88,8 +88,6 @@ Group:            Applications/System
 
 Requires:         sudo
 
-Requires:         MySQL-python
-
 Requires:         qemu-img
 Requires:         sysfsutils
 Requires:         os-brick
