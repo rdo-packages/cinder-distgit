@@ -58,6 +58,7 @@ BuildRequires:    python-osprofiler
 BuildRequires:    python-paramiko
 BuildRequires:    python-suds
 BuildRequires:    python-taskflow
+BuildRequires:    python-tooz
 
 
 Requires:         openstack-utils
@@ -107,6 +108,7 @@ Requires:         python-anyjson
 Requires:         python-cheetah
 Requires:         python-stevedore
 Requires:         python-suds
+Requires:         python-tooz
 
 Requires:         python-sqlalchemy
 Requires:         python-migrate
