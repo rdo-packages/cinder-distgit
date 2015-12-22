@@ -1,10 +1,6 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 %global release_name liberty
-# commit used for the rebase
-%global commit 2e8902d6b5f618b80ccf1b7d24060a22a13231d6
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-# git format-patch --no-renames --no-signature -N --ignore-submodules 2e8902d..liberty-patches
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -12,17 +8,13 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          7.0.0
-Release:          2.%{shortcommit}git%{?milestone}%{?dist}
+Version:          7.0.1
+Release:          1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-#Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
-# git clone git@github.com:openstack/cinder && cd cinder
-# git checkout 2e8902d
-# PBR_VERSION=7.0.0-2.2e8902dgit python setup.py sdist
-Source0:          cinder-%{version}-2.%{shortcommit}git.tar.gz
+Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -188,7 +180,7 @@ This package contains documentation files for cinder.
 %endif
 
 %prep
-%autosetup -n cinder-%{version}-2.%{shortcommit}git -S git
+%autosetup -n cinder-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -337,6 +329,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Dec 22 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:7.0.1-12e8902dgit
+- Update to 7.0.1
+
 * Mon Dec 21 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1:7.0.0-2
 - Rebase to latest commit from stable/liberty passing CI
 
