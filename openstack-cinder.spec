@@ -139,6 +139,7 @@ Requires:         python-oslo-concurrency
 Requires:         python-oslo-middleware
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
+Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
