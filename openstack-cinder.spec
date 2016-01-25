@@ -23,15 +23,13 @@ Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
-#
-# patches_base=2014.2
-#
 
 BuildArch:        noarch
 BuildRequires:    intltool
 BuildRequires:    python-d2to1
 BuildRequires:    python-oslo-sphinx
 BuildRequires:    python-pbr
+BuildRequires:    python-reno
 BuildRequires:    python-sphinx
 BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
@@ -40,6 +38,7 @@ BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    os-brick
 # Required to build cinder.conf
+BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
 BuildRequires:    python-glanceclient
 BuildRequires:    python-novaclient
@@ -52,6 +51,7 @@ BuildRequires:    python-oslotest
 BuildRequires:    python-oslo-utils
 BuildRequires:    python-oslo-versionedobjects
 BuildRequires:    python-oslo-vmware
+BuildRequires:    python-os-win
 BuildRequires:    python-crypto
 BuildRequires:    python-lxml
 BuildRequires:    python-osprofiler
@@ -101,7 +101,7 @@ Requires:         python-amqplib
 
 Requires:         python-eventlet
 Requires:         python-greenlet
-Requires:         python-iso8601
+Requires:         python-iso8601 >= 0.1.9
 Requires:         python-netaddr
 Requires:         python-lxml
 Requires:         python-anyjson
@@ -129,6 +129,7 @@ Requires:         python-psutil >= 1.1.1
 Requires:         python-babel
 Requires:         python-lockfile
 Requires:         python-jinja2
+Requires:         python-google-api-client >= 1.4.2
 
 Requires:         python-oslo-rootwrap
 Requires:         python-oslo-utils
@@ -169,7 +170,8 @@ BuildRequires:    python-routes
 BuildRequires:    python-sqlalchemy
 BuildRequires:    python-webob
 # while not strictly required, quiets the build down when building docs.
-BuildRequires:    python-migrate, python-iso8601
+BuildRequires:    python-migrate
+BuildRequires:    python-iso8601 >= 0.1.9
 
 %description      doc
 OpenStack Volume (codename Cinder) provides services to manage and
