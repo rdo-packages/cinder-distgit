@@ -6,4 +6,6 @@ compress
     missingok
     compress
     minsize 100k
+    size 10M
+    copytruncate
 }
