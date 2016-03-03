@@ -155,6 +155,16 @@ access block storage volumes for use by Virtual Machine instances.
 
 This package contains the cinder Python library.
 
+%package -n python-cinder-tests
+Summary:        Cinder tests
+Requires:       openstack-cinder = %{epoch}:%{version}-%{release}
+
+%description -n python-cinder-tests
+OpenStack Volume (codename Cinder) provides services to manage and
+access block storage volumes for use by Virtual Machine instances.
+
+This package contains the Cinder test files.
+
 %if 0%{?with_doc}
 %package doc
 Summary:          Documentation for OpenStack Volume
@@ -266,7 +276,6 @@ done
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-all
 rm -f %{buildroot}%{_bindir}/cinder-debug
-rm -fr %{buildroot}%{python2_sitelib}/cinder/tests/
 rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
@@ -325,6 +334,11 @@ exit 0
 %license LICENSE
 %{python2_sitelib}/cinder
 %{python2_sitelib}/cinder-*.egg-info
+%exclude %{python2_sitelib}/cinder/tests
+
+%files -n python-cinder-tests
+%license LICENSE
+%{python2_sitelib}/cinder/tests
 
 %if 0%{?with_doc}
 %files doc
