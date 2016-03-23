@@ -1,17 +1,20 @@
+%define milestone .0rc1
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          8.0.0
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-master.tar.gz
+Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -346,3 +349,5 @@ exit 0
 %endif
 
 %changelog
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 8.0.0-0.1.0rc1
+- RC1 Rebuild for Mitaka rc1
