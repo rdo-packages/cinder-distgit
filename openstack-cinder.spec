@@ -97,17 +97,11 @@ Requires:         sysfsutils
 Requires:         os-brick
 Requires:         python-paramiko
 
-Requires:         python-qpid
-Requires:         python-kombu
-Requires:         python-amqplib
-
 Requires:         python-eventlet
 Requires:         python-greenlet
 Requires:         python-iso8601 >= 0.1.9
-Requires:         python-netaddr
 Requires:         python-lxml
 Requires:         python-anyjson
-Requires:         python-cheetah
 Requires:         python-stevedore
 Requires:         python-suds
 Requires:         python-tooz
@@ -129,8 +123,6 @@ Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
-Requires:         python-lockfile
-Requires:         python-jinja2
 Requires:         python-google-api-client >= 1.4.2
 
 Requires:         python-oslo-rootwrap
