@@ -1,4 +1,4 @@
-%define milestone .0rc1
+%define milestone .0rc2
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 
@@ -9,12 +9,16 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          8.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          0.2%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
+
+#
+# patches_base=8.0.0.0rc2
+#
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
@@ -349,5 +353,8 @@ exit 0
 %endif
 
 %changelog
+* Sat Apr 02 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:8.0.0-0.2.0rc1
+- Update to 8.0.0.0rc2
+
 * Wed Mar 23 2016 RDO <rdo-list@redhat.com> 8.0.0-0.1.0rc1
 - RC1 Rebuild for Mitaka rc1
