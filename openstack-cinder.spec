@@ -40,11 +40,11 @@ BuildRequires:    os-brick
 # Required to build cinder.conf
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
-BuildRequires:    python-glanceclient
-BuildRequires:    python-novaclient
-BuildRequires:    python-swiftclient
+BuildRequires:    python-glanceclient >= 1:2.0.0
+BuildRequires:    python-novaclient >= 2.29.0
+BuildRequires:    python-swiftclient >= 2.2.0
 BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:1.11.0
+BuildRequires:    python-oslo-config >= 2:3.7.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
@@ -117,13 +117,13 @@ Requires:         python-paste-deploy
 Requires:         python-routes
 Requires:         python-webob
 
-Requires:         python-glanceclient >= 1:0
-Requires:         python-swiftclient >= 1.2
+Requires:         python-glanceclient >= 1:2.0.0
+Requires:         python-swiftclient >= 2.2.0
 Requires:         python-keystoneclient
-Requires:         python-novaclient >= 1:2.15
+Requires:         python-novaclient >= 1:2.29.0
 
-Requires:         python-oslo-config >= 1:1.2.0
-Requires:         python-six >= 1.5.0
+Requires:         python-oslo-config >= 2:3.7.0
+Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
@@ -139,7 +139,7 @@ Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
 Requires:         python-oslo-middleware
 Requires:         python-taskflow
-Requires:         python-oslo-messaging >= 1.3.0-0.1.a9
+Requires:         python-oslo-messaging >= 4.0.0
 Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
