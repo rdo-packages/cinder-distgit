@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-649df4c1d9f2a90c9a2abd4a0cca7f509f9f14ea       	cinder-distgit-core
-cabc6e040879599925e7d168c7e68907949cef99        	cinder-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+649df4c1d9f2a90c9a2abd4a0cca7f509f9f14ea	cinder-distgit-core
+cabc6e040879599925e7d168c7e68907949cef99	openstack/cinder-distgit-ptl
+global:Registered-Users                 	Registered Users
