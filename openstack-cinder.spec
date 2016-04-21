@@ -346,3 +346,4 @@ exit 0
 %endif
 
 %changelog
+# Test do not merge
