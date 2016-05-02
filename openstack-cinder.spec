@@ -259,6 +259,10 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
 mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
 install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
 
+# copy tempest_tests to %{python2_sitelib}
+# till https://review.openstack.org/#/c/311715/ get merged
+cp -r tempest_tests %{buildroot}%{python2_sitelib}/tempest_tests
+
 
 # Symlinks to rootwrap config files
 mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
@@ -327,10 +331,13 @@ exit 0
 %{python2_sitelib}/cinder
 %{python2_sitelib}/cinder-*.egg-info
 %exclude %{python2_sitelib}/cinder/tests
+%exclude %{python2_sitelib}/tempest_tests
 
 %files -n python-cinder-tests
 %license LICENSE
 %{python2_sitelib}/cinder/tests
+%{python2_sitelib}/tempest_tests
+
 
 %if 0%{?with_doc}
 %files doc
