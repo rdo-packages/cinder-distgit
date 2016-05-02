@@ -151,6 +151,23 @@ This package contains the cinder Python library.
 Summary:        Cinder tests
 Requires:       openstack-cinder = %{epoch}:%{version}-%{release}
 
+# Added test requirements
+Requires:       python-hacking
+Requires:       python-anyjson
+Requires:       python-coverage
+Requires:       python-ddt
+Requires:       python-fixtures
+Requires:       python-mock
+Requires:       python-mox3
+Requires:       python-oslotest
+Requires:       python-subunit
+Requires:       python-testtools
+Requires:       python-testrepository
+Requires:       python-testresources
+Requires:       python-testscenarios
+Requires:       python-os-testr
+Requires:       python-tempest-lib
+
 %description -n python-cinder-tests
 OpenStack Volume (codename Cinder) provides services to manage and
 access block storage volumes for use by Virtual Machine instances.
@@ -259,7 +276,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
 mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
 install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
 
-
 # Symlinks to rootwrap config files
 mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
 for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
@@ -331,6 +347,7 @@ exit 0
 %files -n python-cinder-tests
 %license LICENSE
 %{python2_sitelib}/cinder/tests
+
 
 %if 0%{?with_doc}
 %files doc
