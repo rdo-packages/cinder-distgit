@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_acedabf1",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-05-02T22:20:05Z",
+      "side": 1,
+      "message": "This needs to be renamed upstream, tempest_tests is prone to conflicts.",
+      "revId": "eb8eb6bb697fb0366ed3b310dd37c99a98f3a7cd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
