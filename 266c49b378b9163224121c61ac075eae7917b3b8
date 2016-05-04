@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_ac8febcb",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 62
+      },
+      "writtenOn": "2016-05-04T17:37:58Z",
+      "side": 1,
+      "message": "^ that\u0027s the one we need, thanks",
+      "revId": "266c49b378b9163224121c61ac075eae7917b3b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_4cbc2f6d",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 62
+      },
+      "writtenOn": "2016-05-04T17:37:58Z",
+      "side": 1,
+      "message": "do we need this change?",
+      "revId": "266c49b378b9163224121c61ac075eae7917b3b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
