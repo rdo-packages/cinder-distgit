@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_4c63cf1a",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-05-04T18:32:31Z",
+      "side": 1,
+      "message": "I have added all the test dependencies, It will be required while running test.",
+      "parentUuid": "dabed58f_ac8febcb",
+      "revId": "266c49b378b9163224121c61ac075eae7917b3b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_4cbc2f6d",
         "filename": "openstack-cinder.spec",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-05-04T17:37:58Z",
       "side": 1,
       "message": "do we need this change?",
+      "revId": "266c49b378b9163224121c61ac075eae7917b3b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_0c6dd704",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-05-04T18:32:31Z",
+      "side": 1,
+      "message": "Remove added attributes of cinder tempest patch",
+      "parentUuid": "dabed58f_4cbc2f6d",
       "revId": "266c49b378b9163224121c61ac075eae7917b3b8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
