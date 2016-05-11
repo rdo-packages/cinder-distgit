@@ -141,6 +141,9 @@ Requires:         iscsi-initiator-utils
 
 Requires:         python-osprofiler
 
+Requires:         python-httplib2 >= 0.7.5
+Requires:         python-oauth2client >= 1.5.0
+
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
 access block storage volumes for use by Virtual Machine instances.
