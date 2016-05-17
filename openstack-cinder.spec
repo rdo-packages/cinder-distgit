@@ -59,6 +59,8 @@ BuildRequires:    python-paramiko
 BuildRequires:    python-suds
 BuildRequires:    python-taskflow
 BuildRequires:    python-tooz
+# Required to compile translation files
+BuildRequires:    python-babel
 
 
 Requires:         openstack-utils
@@ -136,6 +138,7 @@ Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
+Requires:         python-oslo-log
 
 Requires:         iscsi-initiator-utils
 
@@ -220,7 +223,11 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 # Generate config file
 PYTHONPATH=. tools/config/generate_sample.sh from_tox
 
+# Build
 %{__python2} setup.py build
+
+# Generate i18n files
+%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
@@ -285,6 +292,16 @@ mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
 for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
 ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
 done
+
+# Install i18n .mo files (.po and .pot are not required)
+install -d -m 755 %{buildroot}%{_datadir}
+rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*/LC_*/%{pypi_name}*po
+rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*pot
+mv %{buildroot}%{python2_sitelib}/%{pypi_name}/locale %{buildroot}%{_datadir}/locale
+
+# Find language files
+%find_lang %{pypi_name} --all-name
+
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-all
 rm -f %{buildroot}%{_bindir}/cinder-debug
@@ -341,7 +358,7 @@ exit 0
 %dir %{_sharedstatedir}/cinder
 %dir %{_sharedstatedir}/cinder/tmp
 
-%files -n python-cinder
+%files -n python-cinder -f %{pypi_name}.lang
 %{?!_licensedir: %global license %%doc}
 %license LICENSE
 %{python2_sitelib}/cinder
