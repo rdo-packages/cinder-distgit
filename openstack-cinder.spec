@@ -59,6 +59,8 @@ BuildRequires:    python-paramiko
 BuildRequires:    python-suds
 BuildRequires:    python-taskflow
 BuildRequires:    python-tooz
+# Required to compile translation files
+BuildRequires:    python-babel
 
 
 Requires:         openstack-utils
@@ -220,6 +222,18 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 # Generate config file
 PYTHONPATH=. tools/config/generate_sample.sh from_tox
 
+# Generate i18n files
+
+%{__python2} setup.py compile_catalog
+echo >> cinder.egg-info/SOURCES.txt
+ls cinder/locale/*/LC_*/cinder*mo >> cinder.egg-info/SOURCES.txt
+sed -i '/cinder\/locale\/.*\/LC_.*\/cinder.*.po/d'  cinder.egg-info/SOURCES.txt
+sed -i '/cinder\/locale\/cinder.*.pot/d'  cinder.egg-info/SOURCES.txt
+
+# I need to remove .git to avoid egg-info regeneration on build
+rm -rf .git*
+
+# Build
 %{__python2} setup.py build
 
 %install
@@ -285,6 +299,14 @@ mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
 for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
 ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
 done
+
+# Install i18n files
+install -d -m 755 %{buildroot}%{_datadir}
+mv %{buildroot}%{python2_sitelib}/cinder/locale %{buildroot}%{_datadir}/locale
+
+# Find language files
+%find_lang cinder
+
 # Remove unneeded in production stuff
 rm -f %{buildroot}%{_bindir}/cinder-all
 rm -f %{buildroot}%{_bindir}/cinder-debug
@@ -341,7 +363,7 @@ exit 0
 %dir %{_sharedstatedir}/cinder
 %dir %{_sharedstatedir}/cinder/tmp
 
-%files -n python-cinder
+%files -n python-cinder -f cinder.lang
 %{?!_licensedir: %global license %%doc}
 %license LICENSE
 %{python2_sitelib}/cinder
