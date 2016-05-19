@@ -38,7 +38,7 @@ BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    os-brick
 # Required to build cinder.conf
-BuildRequires:    python-google-api-client >= 1.4.2
+BuildRequires:    google-api-python-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
 BuildRequires:    python-glanceclient >= 1:2.0.0
 BuildRequires:    python-novaclient >= 2.29.0
@@ -121,7 +121,7 @@ Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
-Requires:         python-google-api-client >= 1.4.2
+Requires:         google-api-python-client >= 1.4.2
 
 Requires:         python-oslo-rootwrap
 Requires:         python-oslo-utils
@@ -136,6 +136,7 @@ Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
+Requires:         python-oslo-log
 
 Requires:         iscsi-initiator-utils
 
