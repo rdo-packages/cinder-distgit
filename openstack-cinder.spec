@@ -136,6 +136,7 @@ Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
+Requires:         python-oslo-log
 
 Requires:         iscsi-initiator-utils
 
