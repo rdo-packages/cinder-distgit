@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_fe36e5e6",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-05-19T13:10:59Z",
+      "side": 1,
+      "message": "python-google-api-client is the correct name,\nprovided by\nhttp://cbs.centos.org/koji/rpminfo?rpmID\u003d45739",
+      "revId": "a27d6e1da6b2687387d79642d733cb37d1c9eb42",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
