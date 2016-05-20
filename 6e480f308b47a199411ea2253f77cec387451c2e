@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_9ec7a964",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-05-20T12:11:12Z",
+      "side": 1,
+      "message": "you can remove that line now",
+      "revId": "6e480f308b47a199411ea2253f77cec387451c2e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_bec4ed5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-05-20T12:11:12Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6e480f308b47a199411ea2253f77cec387451c2e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
