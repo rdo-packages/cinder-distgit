@@ -37,6 +37,9 @@ BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    os-brick
+BuildRequires:    pyparsing
+BuildRequires:    pytz
+BuildRequires:    python-decorator
 # Required to build cinder.conf
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
@@ -59,6 +62,12 @@ BuildRequires:    python-paramiko
 BuildRequires:    python-suds
 BuildRequires:    python-taskflow
 BuildRequires:    python-tooz
+BuildRequires:    python-oslo-log
+BuildRequires:    python-oslo-i18n
+BuildRequires:    python-barbicanclient
+BuildRequires:    python-requests
+BuildRequires:    python-retrying
+
 # Required to compile translation files
 BuildRequires:    python-babel
 
@@ -145,6 +154,16 @@ Requires:         python-osprofiler
 
 Requires:         python-httplib2 >= 0.7.5
 Requires:         python-oauth2client >= 1.5.0
+
+Requires:         python-oslo-log
+Requires:         python-oslo-i18n
+Requires:         python-barbicanclient
+Requires:         python-requests
+Requires:         python-retrying
+Requires:         pyparsing
+Requires:         pytz
+Requires:         python-decorator
+
 
 %description -n   python-cinder
 OpenStack Volume (codename Cinder) provides services to manage and
