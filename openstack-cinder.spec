@@ -15,7 +15,6 @@ Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-master
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
-Source3:          cinder-tgt.conf
 
 Source10:         openstack-cinder-api.service
 Source11:         openstack-cinder-scheduler.service
@@ -279,7 +278,6 @@ install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
 install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
-install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/tgt/conf.d/cinder.conf
 install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
 install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
 install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
@@ -359,7 +357,6 @@ exit 0
 %config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
 %config(noreplace) %{_sysconfdir}/sudoers.d/cinder
-%config(noreplace) %{_sysconfdir}/tgt/conf.d/cinder.conf
 %{_sysconfdir}/cinder/rootwrap.d/
 %attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
 
