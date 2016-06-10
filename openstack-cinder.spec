@@ -238,7 +238,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 # Generate config file
-PYTHONPATH=. tools/config/generate_sample.sh from_tox
+PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-generator.conf
 
 # Build
 %{__python2} setup.py build
