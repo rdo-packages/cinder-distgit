@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba51214e_3831490c",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-06-10T13:19:14Z",
+      "side": 1,
+      "message": "We are inside the doc directory, where there is no setup.py file",
+      "range": {
+        "startLine": 258,
+        "startChar": 11,
+        "endLine": 258,
+        "endChar": 21
+      },
+      "revId": "222f355f3a9fe4e8df2721d158434aba26b43958",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
