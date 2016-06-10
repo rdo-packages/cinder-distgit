@@ -238,7 +238,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 # Generate config file
-PYTHONPATH=. tools/config/generate_sample.sh from_tox
+PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-generator.conf
 
 # Build
 %{__python2} setup.py build
@@ -255,7 +255,7 @@ export PYTHONPATH="$( pwd ):$PYTHONPATH"
 pushd doc
 
 %if 0%{?with_doc}
-SPHINX_DEBUG=1 sphinx-build -b html source build/html
+%{__python2} setup.py build_sphinx
 # Fix hidden-file-or-dir warnings
 rm -fr build/html/.doctrees build/html/.buildinfo
 %endif
