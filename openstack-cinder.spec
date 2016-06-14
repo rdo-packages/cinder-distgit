@@ -70,8 +70,6 @@ BuildRequires:    python-retrying
 # Required to compile translation files
 BuildRequires:    python-babel
 
-
-Requires:         openstack-utils
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
