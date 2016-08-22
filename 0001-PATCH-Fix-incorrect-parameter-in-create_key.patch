@@ -1,0 +1,45 @@
+From 609cad60e0d6667f3608edf8f1e8ddcf8ae0291b Mon Sep 17 00:00:00 2001
+From: lisali <xiaoyan.li@intel.com>
+Date: Mon, 22 Aug 2016 22:19:42 +0800
+Subject: [PATCH] Fix incorrect parameter in create_key
+
+In the change https://review.openstack.org/#/c/251503, it gave
+wrong parameter key_length, and it leads creation of encrypted
+volume fails with Barbican.
+
+Change-Id: Ieacfa087ac0288462c1e4c323e05fd8031e1e73c
+Closes-Bug:1615059
+---
+ cinder/tests/unit/keymgr/mock_key_mgr.py | 2 +-
+ cinder/volume/flows/api/create_volume.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cinder/tests/unit/keymgr/mock_key_mgr.py b/cinder/tests/unit/keymgr/mock_key_mgr.py
+index a5fcd9e..af54370 100644
+--- a/cinder/tests/unit/keymgr/mock_key_mgr.py
++++ b/cinder/tests/unit/keymgr/mock_key_mgr.py
+@@ -61,7 +61,7 @@ class MockKeyManager(key_mgr.KeyManager):
+         return hex_encoded
+ 
+     def _generate_key(self, **kwargs):
+-        _hex = self._generate_hex_key(kwargs.get('key_length'))
++        _hex = self._generate_hex_key(kwargs.get('length'))
+         key_bytes = array.array('B', binascii.unhexlify(_hex)).tolist()
+         algorithm = kwargs.get('algorithm', 'AES')
+         return key.SymmetricKey(algorithm, key_bytes)
+diff --git a/cinder/volume/flows/api/create_volume.py b/cinder/volume/flows/api/create_volume.py
+index ed4a095..af5d961 100644
+--- a/cinder/volume/flows/api/create_volume.py
++++ b/cinder/volume/flows/api/create_volume.py
+@@ -369,7 +369,7 @@ class ExtractVolumeRequestTask(flow_utils.CinderTask):
+                 algorithm = cipher.split('-')[0] if cipher else None
+                 encryption_key_id = key_manager.create_key(context,
+                                                            algorithm=algorithm,
+-                                                           key_length=length)
++                                                           length=length)
+ 
+         return encryption_key_id
+ 
+-- 
+1.9.1
+

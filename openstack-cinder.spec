@@ -22,6 +22,8 @@ Source12:         openstack-cinder-volume.service
 Source13:         openstack-cinder-backup.service
 Source20:         cinder-sudoers
 
+# Test https://review.openstack.org/#/c/358670/ to fix https://launchpad.net/bugs/1615059
+Patch0001: 0001-PATCH-Fix-incorrect-parameter-in-create_key.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -222,6 +224,7 @@ This package contains documentation files for cinder.
 
 %prep
 %autosetup -n cinder-%{upstream_version} -S git
+%patch0001 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
