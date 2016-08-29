@@ -54,6 +54,7 @@ BuildRequires:    python-oslo-utils
 BuildRequires:    python-oslo-versionedobjects
 BuildRequires:    python-oslo-vmware
 BuildRequires:    python-os-win
+BuildRequires:    python-castellan
 BuildRequires:    python-crypto
 BuildRequires:    python-lxml
 BuildRequires:    python-osprofiler
@@ -103,6 +104,7 @@ Requires:         sysfsutils
 Requires:         os-brick
 Requires:         python-paramiko
 
+Requires:         python-castellan
 Requires:         python-eventlet
 Requires:         python-greenlet
 Requires:         python-iso8601 >= 0.1.9
