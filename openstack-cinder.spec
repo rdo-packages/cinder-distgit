@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          8.0.0
+Version:          8.1.0
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -360,6 +360,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Sep 15 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:8.1.0-1
+- Update to 8.1.0
+
 * Thu Apr  7 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1:8.0.0-1
 - Upstream 8.0.0
 
