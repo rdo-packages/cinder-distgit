@@ -12,7 +12,7 @@ Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:          https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:          cinder-dist.conf
 Source2:          cinder.logrotate
