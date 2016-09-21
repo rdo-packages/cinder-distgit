@@ -1,4 +1,4 @@
-%global milestone .0b3
+%global milestone .0rc1
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
@@ -8,7 +8,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          9.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          0.2%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -16,7 +16,7 @@ URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 #
-# patches_base=9.0.0.0b3
+# patches_base=9.0.0.0rc1
 #
 
 Source1:          cinder-dist.conf
@@ -389,6 +389,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Sep 21 2016 Alfredo Moralejo <amoralej@redhat.com> 1:9.0.0-0.2.0rc1
+- Update to 9.0.0.0rc1
+
 * Thu Sep 15 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:9.0.0-0.1
 - Update to 9.0.0.0b3
 
