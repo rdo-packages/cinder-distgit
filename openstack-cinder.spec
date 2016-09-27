@@ -160,7 +160,7 @@ Requires:         python-osprofiler
 Requires:         python-httplib2 >= 0.7.5
 Requires:         python-oauth2client >= 1.5.0
 
-Requires:         python-oslo-log
+Requires:         python-oslo-log >= 3.4.0
 Requires:         python-oslo-i18n
 Requires:         python-barbicanclient
 Requires:         python-requests
