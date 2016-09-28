@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dacfb570_61e776e5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 176
+      },
+      "writtenOn": "2016-09-28T07:04:23Z",
+      "side": 1,
+      "message": "I have confusion because https://github.com/openstack/requirements/blob/stable/newton/upper-constraints.txt#L217 says oslo.log\u003d\u003d\u003d3.16.0 and https://github.com/openstack/cinder/blob/stable/newton/requirements.txt#L22 says oslo.log\u003e\u003d1.14.0 and http://cbs.centos.org/koji/buildinfo?buildID\u003d12203 saying for python-oslo-log-3.16.0-1.el7, can you please check again ?",
+      "revId": "9d57285286e18edc67d52ccbe5eb10d7e5b220c6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
