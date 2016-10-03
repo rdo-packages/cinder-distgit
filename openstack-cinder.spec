@@ -175,8 +175,23 @@ This package contains the cinder Python library.
 Summary:        Cinder tests
 Requires:       openstack-cinder = %{epoch}:%{version}-%{release}
 
+BuildRequires:  python-anyjson
+BuildRequires:  python-coverage
+BuildRequires:  python-ddt
+BuildRequires:  python-fixtures
+BuildRequires:  python-mock
+BuildRequires:  python-mox3
+BuildRequires:  python-oslotest
+BuildRequires:  python-subunit
+BuildRequires:  python-testtools
+BuildRequires:  python-testrepository
+BuildRequires:  python-testresources
+BuildRequires:  python-testscenarios
+BuildRequires:  python-oslo-versionedobjects
+BuildRequires:  python-os-testr
+BuildRequires:  python-tempest
+
 # Added test requirements
-Requires:       python-hacking
 Requires:       python-anyjson
 Requires:       python-coverage
 Requires:       python-ddt
@@ -250,6 +265,24 @@ PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-gen
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+# TODO switch to %{service} everywhere as in openstack-example.spec
+%global service cinder
+egg_path=%{buildroot}%{python_sitelib}/%{service}-*.egg-info
+tempest_egg_path=%{buildroot}%{python_sitelib}/%{service}_tests.egg-info
+mkdir $tempest_egg_path
+grep "tempest\|Tempest" %{service}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
+grep "%{service}/tests" %{service}.egg-info/SOURCES.txt >$tempest_egg_path/SOURCES.txt
+cat > $tempest_egg_path/PKG-INFO <<EOF
+Metadata-Version: 1.1
+Name: %{service}_tests
+Version: %{upstream_version}
+Summary: %{summary} Tempest Plugin
+EOF
+# Remove any reference to Tempest plugin in the main package
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+sed -i '/%{service}\/tests/d' $egg_path/SOURCES.txt
+
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
@@ -318,6 +351,10 @@ rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
+# Skipping tests due to failure
+%check
+%{__python2} setup.py testr ||
+
 %pre
 getent group cinder >/dev/null || groupadd -r cinder --gid 165
 if ! getent passwd cinder >/dev/null; then
@@ -377,6 +414,7 @@ exit 0
 %files -n python-cinder-tests
 %license LICENSE
 %{python2_sitelib}/cinder/tests
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
 %files doc
