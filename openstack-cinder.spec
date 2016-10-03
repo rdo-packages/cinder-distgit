@@ -250,6 +250,23 @@ PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-gen
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Duplicate unmodified egg-info directory for the tempest plugin
+egg_path=$(ls -d %{buildroot}/%{python_sitelib}/cinder-*.egg-info)
+tempest_egg_path=$(echo $egg_path | sed 's:site-packages/cinder-:site-packages/cinder_tests-:')
+cp -vr $egg_path $tempest_egg_path
+
+# Fix egg-info packaged in python-cinder-tests
+grep "tempest\|Tempest" $egg_path/entry_points.txt>$tempest_egg_path/entry_points.txt
+sed -i 's/^Name: cinder/Name: cinder_tests/' $tempest_egg_path/PKG-INFO
+sed -i '/cinder\/tests/!d' $tempest_egg_path/SOURCES.txt
+sed -i '/cinder\/tests/!d' $tempest_egg_path/top_level.txt
+
+# Remove any reference to heat_integrationtests in the installed entry points,
+# sources, etc, so the tempest plugin entry point doesn't go into the common package
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+sed -i '/cinder\/tests/d' $egg_path/SOURCES.txt
+sed -i '/cinder\/tests/d' $egg_path/top_level.txt
+
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
@@ -377,6 +394,7 @@ exit 0
 %files -n python-cinder-tests
 %license LICENSE
 %{python2_sitelib}/cinder/tests
+%{python2_sitelib}/cinder_tests-*.egg-info
 
 %if 0%{?with_doc}
 %files doc
