@@ -251,6 +251,11 @@ PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-gen
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+# TODO switch to %{service} everywhere as in openstack-example.spec
+%global service cinder
+%py2_entrypoint %{service} %{service}
+
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
@@ -378,6 +383,7 @@ exit 0
 %files -n python-cinder-tests
 %license LICENSE
 %{python2_sitelib}/cinder/tests
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
 %files doc
