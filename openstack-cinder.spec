@@ -190,7 +190,7 @@ Requires:       python-testrepository
 Requires:       python-testresources
 Requires:       python-testscenarios
 Requires:       python-os-testr
-Requires:       python-tempest-lib
+Requires:       python-tempest
 
 %description -n python-cinder-tests
 OpenStack Volume (codename Cinder) provides services to manage and
