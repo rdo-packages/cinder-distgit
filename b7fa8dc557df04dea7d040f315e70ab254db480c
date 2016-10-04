@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dacfb570_96f83ae7",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-04T09:30:59Z",
+      "side": 1,
+      "message": "Upstream still has tempest-lib in\nhttps://github.com/openstack/cinder/blob/master/test-requirements.txt#L25\n\nCan that be fixed first?\n\nBTW we really need test deps automation: https://github.com/openstack-packages/rdopkg/issues/42",
+      "revId": "b7fa8dc557df04dea7d040f315e70ab254db480c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
