@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dacfb570_63d85154",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-05T19:08:49Z",
+      "side": 1,
+      "message": "git grep tempest_lib returns none in Cinder Newton",
+      "revId": "4baa886aec439f52d556ed1eaa704dee8722ad1e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
