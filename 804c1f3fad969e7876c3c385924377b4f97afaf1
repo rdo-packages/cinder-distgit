@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad9bd40_e24d48c6",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-12T14:04:20Z",
+      "side": 1,
+      "message": "This is too error prone, and while we could move it to a rpm macro, from my testing following is enough to create a fake egginfo with separate entry point:\n\n* %{buildroot}%{python_sitelib}/cinder_tests.egg-info\n\n  [tempest.test_plugins]\n  cinder_tests \u003d cinder.tests.tempest.plugin:CinderTempestPlugin\n\n* %{buildroot}%{python_sitelib}/PKG-INFO\n\n  Metadata-Version: 1.1\n  Name: cinder_tests\n  Version: 9.0.0\n  Summary: OpenStack Block Storage Tempest Plugin\n\n* epi group show tempest.test_plugins\n  +--------------+-----------------+-----------------+-------------------+-------+\n  | Name         | Module          | Member          | Distribution      | Error |\n  +--------------+-----------------+-----------------+-------------------+-------+\n  | cinder_tests | cinder.tests.te | CinderTempestPl | cinder-tests      |       |\n  |              | mpest.plugin    | ugin            | 9.0.0             |       |\n  +--------------+-----------------+-----------------+-------------------+-------+",
+      "revId": "804c1f3fad969e7876c3c385924377b4f97afaf1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
