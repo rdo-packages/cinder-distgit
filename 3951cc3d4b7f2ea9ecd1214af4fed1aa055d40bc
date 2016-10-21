@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_a0717479",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-21T19:23:10Z",
+      "side": 1,
+      "message": "Strictly speaking, this is not necessarily correct, plugin class could not have Tempest in the name, but looks like all project have it as a convention?",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adbc538_805d58ec",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-21T19:23:10Z",
+      "side": 1,
+      "message": "This is not needed at runtime in faked egginfo, it is used when building sdist tarball.",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adbc538_c06e8096",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-21T19:23:10Z",
+      "side": 1,
+      "message": "ditto re. plugin class names",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adbc538_e06b7c83",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-21T19:23:10Z",
+      "side": 1,
+      "message": "One thing to remember when moving to a rpm macro:\nplugin path depends on project e.g. in Heat it is top-level heat_integrationtests\nOr we just do not touch SOURCES.txt, it should not be used at runtime?",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
