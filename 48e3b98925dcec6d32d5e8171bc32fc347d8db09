@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_1d4a9383",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-10-21T11:12:01Z",
+      "side": 1,
+      "message": "Aren\u0027t those _runtime_ deps for tests?",
+      "revId": "48e3b98925dcec6d32d5e8171bc32fc347d8db09",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
