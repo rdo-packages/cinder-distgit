@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5adbc538_c03be036",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-10-24T07:44:41Z",
+      "side": 1,
+      "message": "As per tempest plugin entry point doc http://docs.openstack.org/developer/tempest/plugin.html#entry-point : \"tempest.test_plugins\" will be the section name and is available in all setup.cfg entrypoint but tempest plugin name and their respective entry path might change but in all the components, the tempest plugin name or path contains tempest word. It appears to be a convention for all projects.",
+      "parentUuid": "5adbc538_a0717479",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5adbc538_805d58ec",
         "filename": "openstack-cinder.spec",
         "patchSetId": 9
@@ -64,6 +82,24 @@
       "writtenOn": "2016-10-21T19:23:10Z",
       "side": 1,
       "message": "One thing to remember when moving to a rpm macro:\nplugin path depends on project e.g. in Heat it is top-level heat_integrationtests\nOr we just do not touch SOURCES.txt, it should not be used at runtime?",
+      "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adbc538_e048dcce",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2016-10-24T07:44:41Z",
+      "side": 1,
+      "message": "Yes, you are right. SOURCES.txt is generated while running egg_info or sdist commands and it is not user editable. it is not actually used at runtime for any purpose. So no need to change it. Reference: https://svn.python.org/projects/sandbox/trunk/setuptools/doc/formats.txt",
+      "parentUuid": "5adbc538_e06b7c83",
       "revId": "3951cc3d4b7f2ea9ecd1214af4fed1aa055d40bc",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
