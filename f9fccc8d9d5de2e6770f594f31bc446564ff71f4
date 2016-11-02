@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_a3da5ee7",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-11-02T09:27:13Z",
+      "side": 1,
+      "message": "Is this just to keep version number in the path?\nFixed %{service}_tests.egg-info works fine, our packages are never going to be parallel installable so let\u0027s KISS.",
+      "revId": "f9fccc8d9d5de2e6770f594f31bc446564ff71f4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adbc538_c3d76abe",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 12
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-11-02T09:27:13Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f9fccc8d9d5de2e6770f594f31bc446564ff71f4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
