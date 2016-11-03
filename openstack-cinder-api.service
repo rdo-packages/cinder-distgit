@@ -7,6 +7,7 @@ Type=simple
 User=cinder
 ExecStart=/usr/bin/cinder-api --config-file /usr/share/cinder/cinder-dist.conf --config-file /etc/cinder/cinder.conf --logfile /var/log/cinder/api.log
 Restart=on-failure
+KillMode=process
 
 [Install]
 WantedBy=multi-user.target
