@@ -8,7 +8,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          8.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -130,7 +130,7 @@ Requires:         python-oslo-utils
 Requires:         python-oslo-serialization
 Requires:         python-oslo-db
 Requires:         python-oslo-context
-Requires:         python-oslo-concurrency
+Requires:         python-oslo-concurrency >= 3.7.1
 Requires:         python-oslo-middleware
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 4.0.0
@@ -360,6 +360,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Nov 15 2016 Eric Harney <eharney@redhat.com> 1:8.1.1-2
+- Depend on oslo-concurrency >= 3.7.1 (CVE-2015-5162)
+
 * Thu Sep 22 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:8.1.1-1
 - Update to 8.1.1
 
