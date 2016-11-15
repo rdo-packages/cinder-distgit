@@ -138,7 +138,7 @@ Requires:         python-oslo-utils
 Requires:         python-oslo-serialization
 Requires:         python-oslo-db
 Requires:         python-oslo-context
-Requires:         python-oslo-concurrency
+Requires:         python-oslo-concurrency >= 3.7.1
 Requires:         python-oslo-middleware
 Requires:         python-taskflow
 Requires:         python-oslo-messaging >= 4.0.0
