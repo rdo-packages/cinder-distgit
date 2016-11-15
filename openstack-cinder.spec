@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          9.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -385,6 +385,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Nov 15 2016 Eric Harney <eharney@redhat.com> 1:9.1.0-2
+- Depend on oslo.concurrency 3.8.0 for CVE-2015-5162
+
 * Tue Nov 15 2016 Alfredo Moralejo <amoralej@redhat.com> 1:9.1.0-1
 - Update to 9.1.0
 
