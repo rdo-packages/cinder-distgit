@@ -8,8 +8,8 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          7.0.1
-Release:          1%{?milestone}%{?dist}
+Version:          7.0.3
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -47,7 +47,7 @@ BuildRequires:    python-glanceclient
 BuildRequires:    python-novaclient
 BuildRequires:    python-swiftclient
 BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:1.11.0
+BuildRequires:    python-oslo-config >= 2:2.3.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
@@ -117,14 +117,14 @@ Requires:         python-paste-deploy
 Requires:         python-routes
 Requires:         python-webob
 
-Requires:         python-glanceclient >= 1:0
-Requires:         python-swiftclient >= 1.2
+Requires:         python-glanceclient >= 1:0.18.0
+Requires:         python-swiftclient >= 2.2.0
 Requires:         python-keystoneclient
-Requires:         python-novaclient >= 1:2.15
+Requires:         python-novaclient >= 1:2.28.1
 
-Requires:         python-oslo-config >= 1:1.2.0
-Requires:         python-oslo-db >= 1.0.0
-Requires:         python-six >= 1.5.0
+Requires:         python-oslo-config >= 1:2.3.0
+Requires:         python-oslo-db >= 2.4.1
+Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
@@ -138,9 +138,9 @@ Requires:         python-oslo-db
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
 Requires:         python-oslo-middleware
-Requires:         python-taskflow >= 0.7.1
-Requires:         python-oslo-messaging >= 1.8.0
-Requires:         python-keystonemiddleware >= 1.5.0
+Requires:         python-taskflow >= 1.16.0
+Requires:         python-oslo-messaging >= 1.16.0
+Requires:         python-keystonemiddleware >= 2.0.0
 Requires:         python-oslo-reports
 Requires:         python-oslo-service
 Requires:         python-oslo-versionedobjects
@@ -329,6 +329,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Nov 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:7.0.3-1
+- Update to 7.0.3
+
 * Tue Dec 22 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:7.0.1-12e8902dgit
 - Update to 7.0.1
 
