@@ -43,11 +43,11 @@ BuildRequires:    python-decorator
 # Required to build cinder.conf
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
-BuildRequires:    python-glanceclient >= 1:2.0.0
+BuildRequires:    python-glanceclient >= 1:2.5.0
 BuildRequires:    python-novaclient >= 2.29.0
-BuildRequires:    python-swiftclient >= 2.2.0
+BuildRequires:    python-swiftclient >= 3.2.0
 BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:3.7.0
+BuildRequires:    python-oslo-config >= 2:3.14.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
@@ -102,68 +102,72 @@ Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick
-Requires:         python-paramiko
+Requires:         os-brick >= 1.8.0
+Requires:         python-paramiko >= 2.0
 
-Requires:         python-castellan
-Requires:         python-eventlet
-Requires:         python-greenlet
-Requires:         python-iso8601 >= 0.1.9
-Requires:         python-lxml
-Requires:         python-anyjson
-Requires:         python-stevedore
+Requires:         python-castellan >= 0.4.0
+Requires:         python-eventlet >= 0.18.2
+Requires:         python-greenlet >= 0.3.2
+Requires:         python-iso8601 >= 0.1.11
+Requires:         python-lxml >= 2.3
+Requires:         python-stevedore >= 1.16.0
 Requires:         python-suds
-Requires:         python-tooz
+Requires:         python-tooz >= 1.28.0
 
-Requires:         python-sqlalchemy
-Requires:         python-migrate
+Requires:         python-sqlalchemy >= 1.0.10
+Requires:         python-migrate >= 0.9.6
 
 Requires:         python-paste-deploy
 Requires:         python-routes
-Requires:         python-webob
+Requires:         python-webob >= 1.2.3
 
-Requires:         python-glanceclient >= 1:2.0.0
-Requires:         python-swiftclient >= 2.2.0
-Requires:         python-keystoneclient
+Requires:         python-glanceclient >= 1:2.5.0
+Requires:         python-swiftclient >= 3.2.0
+Requires:         python-keystoneclient >= 3.8.0
 Requires:         python-novaclient >= 1:2.29.0
 
-Requires:         python-oslo-config >= 2:3.7.0
+Requires:         python-oslo-config >= 2:3.14.0
 Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 1.1.1
 
 Requires:         python-babel
 Requires:         python-google-api-client >= 1.4.2
 
-Requires:         python-oslo-rootwrap
-Requires:         python-oslo-utils
-Requires:         python-oslo-serialization
-Requires:         python-oslo-db
-Requires:         python-oslo-context
+Requires:         python-oslo-rootwrap >= 5.0.0
+Requires:         python-oslo-utils >= 3.16.0
+Requires:         python-oslo-serialization >= 1.10.0
+Requires:         python-oslo-db >= 4.10.0
+Requires:         python-oslo-context >= 2.9.0
 Requires:         python-oslo-concurrency >= 3.8.0
-Requires:         python-oslo-middleware
-Requires:         python-taskflow
+Requires:         python-oslo-middleware >= 3.19.0
+Requires:         python-taskflow >= 1.26.0
 Requires:         python-oslo-messaging >= 4.0.0
-Requires:         python-oslo-policy >= 0.5.0
-Requires:         python-oslo-reports
-Requires:         python-oslo-service
-Requires:         python-oslo-versionedobjects
+Requires:         python-oslo-policy >= 1.9.0
+Requires:         python-oslo-reports >= 0.6.0
+Requires:         python-oslo-service >= 1.10.0
+Requires:         python-oslo-versionedobjects >= 1.19.0
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python-osprofiler
+Requires:         python-osprofiler >= 1.4.0
 
 Requires:         python-httplib2 >= 0.7.5
 Requires:         python-oauth2client >= 1.5.0
 
 Requires:         python-oslo-log >= 3.16.0
-Requires:         python-oslo-i18n
-Requires:         python-barbicanclient
-Requires:         python-requests
-Requires:         python-retrying
-Requires:         pyparsing
+Requires:         python-oslo-i18n >= 2.1.0
+Requires:         python-barbicanclient >= 4.0.0
+Requires:         python-requests >= 2.10.0
+Requires:         python-retrying >= 1.2.3
+Requires:         pyparsing >= 2.0.7
 Requires:         pytz
 Requires:         python-decorator
 Requires:         python-enum34
+
+Requires:         python-keystonemiddleware >= 4.2.0
+Requires:         python-keystoneauth1 >= 2.14.0
+
+Requires:         python-oslo-privsep >= 1.9.0
 
 
 %description -n   python-cinder
