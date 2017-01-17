@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab895d6_a2edff8d",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-01-17T00:09:28Z",
+      "side": 1,
+      "message": "I would remove \u003e\u003d from BRs, they should be always latest in the buildroot, but let\u0027s update and leave those as-is since they are already versioned.\n\nRuntime Requires do need correct \u003e\u003d to ensure upgrades work.",
+      "revId": "16d3f2f0c75ef32a5b6d0cec1abdca80d33d1699",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
