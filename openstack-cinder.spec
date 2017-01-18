@@ -36,6 +36,7 @@ BuildRequires:    python-setuptools
 BuildRequires:    python-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
+BuildRequires:    openstack-macros
 BuildRequires:    os-brick
 BuildRequires:    pyparsing
 BuildRequires:    pytz
