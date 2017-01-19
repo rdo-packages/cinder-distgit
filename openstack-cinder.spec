@@ -111,16 +111,16 @@ Requires:         python-eventlet >= 0.18.2
 Requires:         python-greenlet >= 0.3.2
 Requires:         python-iso8601 >= 0.1.11
 Requires:         python-lxml >= 2.3
-Requires:         python-stevedore >= 1.16.0
+Requires:         python-stevedore >= 1.17.1
 Requires:         python-suds
-Requires:         python-tooz >= 1.28.0
+Requires:         python-tooz >= 1.47.0
 
 Requires:         python-sqlalchemy >= 1.0.10
 Requires:         python-migrate >= 0.9.6
 
 Requires:         python-paste-deploy
-Requires:         python-routes
-Requires:         python-webob >= 1.2.3
+Requires:         python-routes >= 1.12.3
+Requires:         python-webob >= 1.6.0
 
 Requires:         python-glanceclient >= 1:2.5.0
 Requires:         python-swiftclient >= 3.2.0
@@ -135,15 +135,15 @@ Requires:         python-babel
 Requires:         python-google-api-client >= 1.4.2
 
 Requires:         python-oslo-rootwrap >= 5.0.0
-Requires:         python-oslo-utils >= 3.16.0
+Requires:         python-oslo-utils >= 3.18.0
 Requires:         python-oslo-serialization >= 1.10.0
-Requires:         python-oslo-db >= 4.10.0
+Requires:         python-oslo-db >= 4.15.0
 Requires:         python-oslo-context >= 2.9.0
 Requires:         python-oslo-concurrency >= 3.8.0
 Requires:         python-oslo-middleware >= 3.19.0
-Requires:         python-taskflow >= 1.26.0
-Requires:         python-oslo-messaging >= 4.0.0
-Requires:         python-oslo-policy >= 1.9.0
+Requires:         python-taskflow >= 2.7.0
+Requires:         python-oslo-messaging >= 5.14.0
+Requires:         python-oslo-policy >= 1.17.0
 Requires:         python-oslo-reports >= 0.6.0
 Requires:         python-oslo-service >= 1.10.0
 Requires:         python-oslo-versionedobjects >= 1.19.0
@@ -160,15 +160,17 @@ Requires:         python-oslo-i18n >= 2.1.0
 Requires:         python-barbicanclient >= 4.0.0
 Requires:         python-requests >= 2.10.0
 Requires:         python-retrying >= 1.2.3
-Requires:         pyparsing >= 2.0.3
+Requires:         pyparsing >= 2.0.7
 Requires:         pytz
 Requires:         python-decorator
 Requires:         python-enum34
 
-Requires:         python-keystonemiddleware >= 4.2.0
-Requires:         python-keystoneauth1 >= 2.14.0
+Requires:         python-keystonemiddleware >= 4.12.0
+Requires:         python-keystoneauth1 >= 2.17.0
 
 Requires:         python-oslo-privsep >= 1.9.0
+
+Requires:         python-crypto >= 2.6
 
 
 %description -n   python-cinder
