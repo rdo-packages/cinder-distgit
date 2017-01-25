@@ -103,7 +103,7 @@ Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick >= 1.8.0
+Requires:         os-brick >= 1.11.0
 Requires:         python-paramiko >= 2.0
 
 Requires:         python-castellan >= 0.4.0
