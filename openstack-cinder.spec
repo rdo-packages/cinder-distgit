@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          9.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -164,6 +164,8 @@ Requires:         pyparsing
 Requires:         pytz
 Requires:         python-decorator
 Requires:         python-enum34
+
+Requires:         python-oslo-privsep >= 1.9.0
 
 
 %description -n   python-cinder
@@ -385,6 +387,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Jan 30 2017 Eric Harney <eharney@redhat.com> 1:9.1.1-3
+- Add dep on python-oslo-privsep
+
 * Tue Dec 20 2016 Eric Harney <eharney@redhat.com> 1:9.1.1-1
 - Update to 9.1.1
 
