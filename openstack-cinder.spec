@@ -105,6 +105,7 @@ Requires:         qemu-img
 Requires:         sysfsutils
 Requires:         os-brick >= 1.11.0
 Requires:         python-paramiko >= 2.0
+Requires:         python-simplejson >= 2.2.0
 
 Requires:         python-castellan >= 0.4.0
 Requires:         python-eventlet >= 0.18.2
@@ -125,7 +126,7 @@ Requires:         python-webob >= 1.6.0
 Requires:         python-glanceclient >= 1:2.5.0
 Requires:         python-swiftclient >= 3.2.0
 Requires:         python-keystoneclient >= 3.8.0
-Requires:         python-novaclient >= 1:2.29.0
+Requires:         python-novaclient >= 1:6.0.0
 
 Requires:         python-oslo-config >= 2:3.14.0
 Requires:         python-six >= 1.9.0
@@ -166,7 +167,7 @@ Requires:         python-decorator
 Requires:         python-enum34
 
 Requires:         python-keystonemiddleware >= 4.12.0
-Requires:         python-keystoneauth1 >= 2.17.0
+Requires:         python-keystoneauth1 >= 2.18.0
 
 Requires:         python-oslo-privsep >= 1.9.0
 
