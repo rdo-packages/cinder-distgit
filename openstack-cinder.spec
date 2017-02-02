@@ -6,8 +6,8 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          9.1.1
-Release:          3%{?dist}
+Version:          9.1.2
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -387,6 +387,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Feb 02 2017 Alfredo Moralejo <amoralej@redhat.com> 1:9.1.2-1
+- Update to 9.1.2
+
 * Mon Jan 30 2017 Eric Harney <eharney@redhat.com> 1:9.1.1-3
 - Add dep on python-oslo-privsep
 
