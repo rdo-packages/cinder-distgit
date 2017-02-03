@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          9.1.1
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -387,6 +387,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Feb  3 2017 Haïkel Guémar <hguemar@fedoraproject.org> - 1:9.1.1-4
+- DO NOT MERGE THIS!!!!!
+
 * Mon Jan 30 2017 Eric Harney <eharney@redhat.com> 1:9.1.1-3
 - Add dep on python-oslo-privsep
 
