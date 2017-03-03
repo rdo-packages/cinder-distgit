@@ -48,7 +48,7 @@ BuildRequires:    python-glanceclient >= 1:2.5.0
 BuildRequires:    python-novaclient >= 2.29.0
 BuildRequires:    python-swiftclient >= 3.2.0
 BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:3.14.0
+BuildRequires:    python-oslo-config >= 2:3.22.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
@@ -126,7 +126,7 @@ Requires:         python-eventlet >= 0.18.2
 Requires:         python-greenlet >= 0.3.2
 Requires:         python-iso8601 >= 0.1.11
 Requires:         python-lxml >= 2.3
-Requires:         python-stevedore >= 1.17.1
+Requires:         python-stevedore >= 1.20
 Requires:         python-suds
 Requires:         python-tooz >= 1.47.0
 
@@ -140,20 +140,20 @@ Requires:         python-webob >= 1.6.0
 Requires:         python-glanceclient >= 1:2.5.0
 Requires:         python-swiftclient >= 3.2.0
 Requires:         python-keystoneclient >= 3.8.0
-Requires:         python-novaclient >= 1:6.0.0
+Requires:         python-novaclient >= 1:7.1.0
 
 Requires:         python-oslo-config >= 2:3.14.0
 Requires:         python-six >= 1.9.0
-Requires:         python-psutil >= 1.1.1
+Requires:         python-psutil >= 3.2.2
 
 Requires:         python-babel
 Requires:         python-google-api-client >= 1.4.2
 
 Requires:         python-oslo-rootwrap >= 5.0.0
-Requires:         python-oslo-utils >= 3.18.0
+Requires:         python-oslo-utils >= 3.20.0
 Requires:         python-oslo-serialization >= 1.10.0
 Requires:         python-oslo-db >= 4.15.0
-Requires:         python-oslo-context >= 2.9.0
+Requires:         python-oslo-context >= 2.12.0
 Requires:         python-oslo-concurrency >= 3.8.0
 Requires:         python-oslo-middleware >= 3.19.0
 Requires:         python-taskflow >= 2.7.0
@@ -170,7 +170,7 @@ Requires:         python-osprofiler >= 1.4.0
 Requires:         python-httplib2 >= 0.7.5
 Requires:         python-oauth2client >= 1.5.0
 
-Requires:         python-oslo-log >= 3.16.0
+Requires:         python-oslo-log >= 3.22.0
 Requires:         python-oslo-i18n >= 2.1.0
 Requires:         python-barbicanclient >= 4.0.0
 Requires:         python-requests >= 2.10.0
