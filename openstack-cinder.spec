@@ -254,7 +254,8 @@ PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-gen
 %{__python2} setup.py build
 
 # Generate i18n files
-%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale
+# (amoralej) we can remove '-D cinder' once https://review.openstack.org/#/c/439501/ is merged
+%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale -D cinder
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
