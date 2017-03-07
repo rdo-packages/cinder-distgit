@@ -16,6 +16,24 @@
       "revId": "02d8fdf614fcdb285d256e8c1e1e674131bbc03e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_aa24f3c6",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-07T09:44:44Z",
+      "side": 1,
+      "message": "I think we shouldn just compile catalogs as defined in upstream. To avoid in this issue i agreed with i18n PTL to test \"compile_catalog\" in upstream zanata imports so that we don\u0027t hit this kind of issues at packaging in the future.",
+      "parentUuid": "5ac4a560_ca5a0f50",
+      "revId": "02d8fdf614fcdb285d256e8c1e1e674131bbc03e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
