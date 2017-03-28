@@ -73,6 +73,20 @@ BuildRequires:    python-retrying
 # Required to compile translation files
 BuildRequires:    python-babel
 
+# Needed for unit tests
+BuildRequires:    python-ddt
+BuildRequires:    python-fixtures
+BuildRequires:    python-mock
+BuildRequires:    python-oslotest
+BuildRequires:    python-subunit
+BuildRequires:    python-testtools
+BuildRequires:    python-testrepository
+BuildRequires:    python-testresources
+BuildRequires:    python-testscenarios
+BuildRequires:    python-os-testr
+BuildRequires:    python-pep8
+BuildRequires:    python-rtslib
+
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
@@ -332,6 +346,9 @@ rm -f %{buildroot}%{_bindir}/cinder-all
 rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
+
+%check
+OS_TEST_PATH=./cinder/tests/unit ostestr
 
 %pre
 getent group cinder >/dev/null || groupadd -r cinder --gid 165
