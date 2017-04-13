@@ -6,7 +6,7 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          9.1.3
+Version:          9.1.4
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -388,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Apr 13 2017 Alfredo Moralejo <amoralej@redhat.com> 1:9.1.4-1
+- Update to 9.1.4
+
 * Wed Mar 29 2017 Eric Harney <eharney@redhat.com> 1:9.1.3-1
 - Update to 9.1.3
 
