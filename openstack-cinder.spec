@@ -57,7 +57,7 @@ BuildRequires:    python-oslo-versionedobjects
 BuildRequires:    python-oslo-vmware
 BuildRequires:    python-os-win
 BuildRequires:    python-castellan
-BuildRequires:    python-crypto
+BuildRequires:    python-cryptography
 BuildRequires:    python-lxml
 BuildRequires:    python-osprofiler
 BuildRequires:    python-paramiko
@@ -185,7 +185,7 @@ Requires:         python-keystoneauth1 >= 2.18.0
 
 Requires:         python-oslo-privsep >= 1.9.0
 
-Requires:         python-crypto >= 2.6
+Requires:         python-cryptography >= 1.6
 
 
 %description -n   python-cinder
