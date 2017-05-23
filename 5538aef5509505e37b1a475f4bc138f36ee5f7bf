@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa201ad_abf3fb08",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-05-23T08:23:43Z",
+      "side": 1,
+      "message": "I think we can increase concurrency again?",
+      "range": {
+        "startLine": 351,
+        "startChar": 41,
+        "endLine": 351,
+        "endChar": 45
+      },
+      "revId": "5538aef5509505e37b1a475f4bc138f36ee5f7bf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
