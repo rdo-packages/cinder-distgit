@@ -348,7 +348,7 @@ rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
 %check
-OS_TEST_PATH=./cinder/tests/unit ostestr
+OS_TEST_PATH=./cinder/tests/unit ostestr --concurrency=2
 
 %pre
 getent group cinder >/dev/null || groupadd -r cinder --gid 165
