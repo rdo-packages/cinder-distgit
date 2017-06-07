@@ -347,8 +347,12 @@ rm -f %{buildroot}%{_bindir}/cinder-debug
 rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
+# FIXME(jpena): unit tests are taking too long in the current DLRN infra
+# Until we have a better architecture, let's not run them when under DLRN
+%if 0%{!?dlrn}
 %check
 OS_TEST_PATH=./cinder/tests/unit ostestr --concurrency=2
+%endif
 
 %pre
 getent group cinder >/dev/null || groupadd -r cinder --gid 165
