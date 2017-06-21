@@ -6,7 +6,7 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          10.0.2
+Version:          10.0.3
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -399,6 +399,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Jun 21 2017 rdo-trunk <javier.pena@redhat.com> 1:10.0.3-1
+- Update to 10.0.3
+
 * Thu May 18 2017 rdo-trunk <javier.pena@redhat.com> 1:10.0.2-1
 - Update to 10.0.2
 
