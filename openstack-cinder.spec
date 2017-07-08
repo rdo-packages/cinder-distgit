@@ -27,7 +27,7 @@ Source20:         cinder-sudoers
 BuildArch:        noarch
 BuildRequires:    intltool
 BuildRequires:    python-d2to1
-BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstackdocstheme
 BuildRequires:    python-pbr
 BuildRequires:    python-reno
 BuildRequires:    python-sphinx
