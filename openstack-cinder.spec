@@ -41,6 +41,7 @@ BuildRequires:    os-brick
 BuildRequires:    pyparsing
 BuildRequires:    pytz
 BuildRequires:    python-decorator
+BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
@@ -257,8 +258,7 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
-rm -rf {test-,}requirements.txt tools/{pip,test}-requires
-
+%py_req_cleanup
 
 %build
 # Generate config file
