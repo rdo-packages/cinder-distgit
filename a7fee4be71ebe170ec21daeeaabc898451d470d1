@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_2a37eee4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-07-13T15:13:57Z",
+      "side": 1,
+      "message": "Almost there.\n\nIn git commits, you have two things in the commit message, the git \"summary\" and the actual git \"message\".\nIt\u0027s formatted as such:\n\n    git summary\n\n    git message\n\nNotice the line break between the two.\n\nThe git message should be additional information about your commit so the git summary is not too long.\nCan you add a line break here accordingly ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 60,
+        "endLine": 7,
+        "endChar": 127
+      },
+      "revId": "a7fee4be71ebe170ec21daeeaabc898451d470d1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
