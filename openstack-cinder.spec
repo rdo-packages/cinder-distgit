@@ -2,6 +2,10 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name cinder
 
+%global common_desc \
+OpenStack Volume (codename Cinder) provides services to manage and \
+access block storage volumes for use by Virtual Machine instances.
+
 Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
@@ -106,8 +110,7 @@ Requires:         python-osprofiler
 Requires:         python-rtslib
 
 %description
-OpenStack Volume (codename Cinder) provides services to manage and
-access block storage volumes for use by Virtual Machine instances.
+%{common_desc}
 
 
 %package -n       python-cinder
@@ -190,8 +193,7 @@ Requires:         python-cryptography >= 1.6
 
 
 %description -n   python-cinder
-OpenStack Volume (codename Cinder) provides services to manage and
-access block storage volumes for use by Virtual Machine instances.
+%{common_desc}
 
 This package contains the cinder Python library.
 
@@ -217,8 +219,7 @@ Requires:       python-os-testr
 Requires:       python-tempest
 
 %description -n python-cinder-tests
-OpenStack Volume (codename Cinder) provides services to manage and
-access block storage volumes for use by Virtual Machine instances.
+%{common_desc}
 
 This package contains the Cinder test files.
 
@@ -241,8 +242,7 @@ BuildRequires:    python-migrate
 BuildRequires:    python-iso8601 >= 0.1.9
 
 %description      doc
-OpenStack Volume (codename Cinder) provides services to manage and
-access block storage volumes for use by Virtual Machine instances.
+%{common_desc}
 
 This package contains documentation files for cinder.
 %endif
