@@ -89,7 +89,6 @@ BuildRequires:    python-testrepository
 BuildRequires:    python-testresources
 BuildRequires:    python-testscenarios
 BuildRequires:    python-os-testr
-BuildRequires:    python-pep8
 BuildRequires:    python-rtslib
 
 Requires:         python-cinder = %{epoch}:%{version}-%{release}
