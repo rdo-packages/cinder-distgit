@@ -279,7 +279,6 @@ PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-gen
 %py2_entrypoint %{service} %{service}
 
 # docs generation requires everything to be installed first
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
 %if 0%{?with_doc}
 %{__python2} setup.py build_sphinx --builder html
