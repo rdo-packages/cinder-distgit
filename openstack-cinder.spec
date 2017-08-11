@@ -204,7 +204,6 @@ Requires:       openstack-cinder = %{epoch}:%{version}-%{release}
 # Added test requirements
 Requires:       python-hacking
 Requires:       python-anyjson
-Requires:       python-coverage
 Requires:       python-ddt
 Requires:       python-fixtures
 Requires:       python-mock
