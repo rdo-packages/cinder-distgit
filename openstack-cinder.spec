@@ -341,9 +341,6 @@ mv %{buildroot}%{python2_sitelib}/%{pypi_name}/locale %{buildroot}%{_datadir}/lo
 %find_lang %{pypi_name} --all-name
 
 # Remove unneeded in production stuff
-rm -f %{buildroot}%{_bindir}/cinder-all
-rm -f %{buildroot}%{_bindir}/cinder-debug
-rm -fr %{buildroot}%{python2_sitelib}/run_tests.*
 rm -f %{buildroot}/usr/share/doc/cinder/README*
 
 # FIXME(jpena): unit tests are taking too long in the current DLRN infra
