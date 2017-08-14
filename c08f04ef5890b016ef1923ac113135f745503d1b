@@ -22,6 +22,30 @@
       "revId": "c08f04ef5890b016ef1923ac113135f745503d1b",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_013cec2e",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-14T12:23:31Z",
+      "side": 1,
+      "message": "my mistake, it\u0027s ok",
+      "parentUuid": "5a890539_61d3f038",
+      "range": {
+        "startLine": 185,
+        "startChar": 25,
+        "endLine": 185,
+        "endChar": 34
+      },
+      "revId": "c08f04ef5890b016ef1923ac113135f745503d1b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
