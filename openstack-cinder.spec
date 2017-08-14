@@ -49,11 +49,11 @@ BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
-BuildRequires:    python-glanceclient >= 1:2.5.0
-BuildRequires:    python-novaclient >= 2.29.0
+BuildRequires:    python-glanceclient >= 1:2.8.0
+BuildRequires:    python-novaclient >= 1:9.0.0
 BuildRequires:    python-swiftclient >= 3.2.0
 BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:3.22.0
+BuildRequires:    python-oslo-config >= 2:4.0.0
 BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslotest
@@ -120,32 +120,32 @@ Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick >= 1.11.0
+Requires:         os-brick >= 1.15.2
 Requires:         python-paramiko >= 2.0
 Requires:         python-simplejson >= 2.2.0
 
-Requires:         python-castellan >= 0.4.0
+Requires:         python-castellan >= 0.7.0
 Requires:         python-eventlet >= 0.18.2
 Requires:         python-greenlet >= 0.3.2
 Requires:         python-iso8601 >= 0.1.11
 Requires:         python-lxml >= 2.3
-Requires:         python-stevedore >= 1.20
+Requires:         python-stevedore >= 1.20.0
 Requires:         python-suds
 Requires:         python-tooz >= 1.47.0
 
 Requires:         python-sqlalchemy >= 1.0.10
-Requires:         python-migrate >= 0.9.6
+Requires:         python-migrate >= 0.11.0
 
 Requires:         python-paste-deploy
-Requires:         python-routes >= 1.12.3
-Requires:         python-webob >= 1.6.0
+Requires:         python-routes >= 2.3.1
+Requires:         python-webob >= 1.7.1
 
-Requires:         python-glanceclient >= 1:2.5.0
+Requires:         python-glanceclient >= 1:2.8.0
 Requires:         python-swiftclient >= 3.2.0
 Requires:         python-keystoneclient >= 3.8.0
-Requires:         python-novaclient >= 1:7.1.0
+Requires:         python-novaclient >= 1:9.0.0
 
-Requires:         python-oslo-config >= 2:3.14.0
+Requires:         python-oslo-config >= 2:4.0.0
 Requires:         python-six >= 1.9.0
 Requires:         python-psutil >= 3.2.2
 
@@ -155,13 +155,13 @@ Requires:         python-google-api-client >= 1.4.2
 Requires:         python-oslo-rootwrap >= 5.0.0
 Requires:         python-oslo-utils >= 3.20.0
 Requires:         python-oslo-serialization >= 1.10.0
-Requires:         python-oslo-db >= 4.15.0
-Requires:         python-oslo-context >= 2.12.0
+Requires:         python-oslo-db >= 4.24.0
+Requires:         python-oslo-context >= 2.14.0
 Requires:         python-oslo-concurrency >= 3.8.0
-Requires:         python-oslo-middleware >= 3.19.0
+Requires:         python-oslo-middleware >= 3.27.0
 Requires:         python-taskflow >= 2.7.0
-Requires:         python-oslo-messaging >= 5.14.0
-Requires:         python-oslo-policy >= 1.17.0
+Requires:         python-oslo-messaging >= 5.24.2
+Requires:         python-oslo-policy >= 1.23.0
 Requires:         python-oslo-reports >= 0.6.0
 Requires:         python-oslo-service >= 1.10.0
 Requires:         python-oslo-versionedobjects >= 1.19.0
@@ -178,13 +178,14 @@ Requires:         python-oslo-i18n >= 2.1.0
 Requires:         python-barbicanclient >= 4.0.0
 Requires:         python-requests >= 2.10.0
 Requires:         python-retrying >= 1.2.3
-Requires:         pyparsing >= 2.0.7
+Requires:         pyparsing >= 2.1.0
 Requires:         pytz
 Requires:         python-decorator
 Requires:         python-enum34
+Requires:         python-ipaddress
 
 Requires:         python-keystonemiddleware >= 4.12.0
-Requires:         python-keystoneauth1 >= 2.18.0
+Requires:         python-keystoneauth1 >= 3.1.0
 
 Requires:         python-oslo-privsep >= 1.9.0
 
