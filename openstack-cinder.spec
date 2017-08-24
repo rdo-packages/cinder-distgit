@@ -261,7 +261,7 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=cinder/config/cinder-config-generator.conf
+PYTHONPATH=. oslo-config-generator --config-file=tools/config/cinder-config-generator.conf
 
 # Build
 %{__python2} setup.py build
