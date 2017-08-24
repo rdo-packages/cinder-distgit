@@ -50,7 +50,7 @@ BuildRequires:    openstack-macros
 BuildRequires:    python-google-api-client >= 1.4.2
 BuildRequires:    python-keystonemiddleware
 BuildRequires:    python-glanceclient >= 1:2.8.0
-BuildRequires:    python-novaclient >= 1:9.0.0
+BuildRequires:    python-novaclient >= 1:9.1.0
 BuildRequires:    python-swiftclient >= 3.2.0
 BuildRequires:    python-oslo-db
 BuildRequires:    python-oslo-config >= 2:4.0.0
@@ -108,6 +108,9 @@ Requires:         lvm2
 Requires:         python-osprofiler
 Requires:         python-rtslib
 
+# required for cinder-manage
+Requires:         python-prettytable >= 0.7.1
+
 %description
 %{common_desc}
 
@@ -143,7 +146,7 @@ Requires:         python-webob >= 1.7.1
 Requires:         python-glanceclient >= 1:2.8.0
 Requires:         python-swiftclient >= 3.2.0
 Requires:         python-keystoneclient >= 3.8.0
-Requires:         python-novaclient >= 1:9.0.0
+Requires:         python-novaclient >= 1:9.1.0
 
 Requires:         python-oslo-config >= 2:4.0.0
 Requires:         python-six >= 1.9.0
@@ -173,12 +176,12 @@ Requires:         python-osprofiler >= 1.4.0
 Requires:         python-httplib2 >= 0.7.5
 Requires:         python-oauth2client >= 1.5.0
 
-Requires:         python-oslo-log >= 3.22.0
+Requires:         python-oslo-log >= 3.30.0
 Requires:         python-oslo-i18n >= 2.1.0
 Requires:         python-barbicanclient >= 4.0.0
 Requires:         python-requests >= 2.10.0
 Requires:         python-retrying >= 1.2.3
-Requires:         pyparsing >= 2.0.7
+Requires:         pyparsing >= 2.1.0
 Requires:         pytz
 Requires:         python-decorator
 Requires:         python-enum34
