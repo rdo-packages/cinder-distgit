@@ -1,12 +1,12 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
-%global pypi_name cinder
+%global service cinder
 
 %global common_desc \
 OpenStack Volume (codename Cinder) provides services to manage and \
 access block storage volumes for use by Virtual Machine instances.
 
-Name:             openstack-cinder
+Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
@@ -16,16 +16,16 @@ Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
-Source0:          https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-Source1:          cinder-dist.conf
-Source2:          cinder.logrotate
+Source1:          %{service}-dist.conf
+Source2:          %{service}.logrotate
 
-Source10:         openstack-cinder-api.service
-Source11:         openstack-cinder-scheduler.service
-Source12:         openstack-cinder-volume.service
-Source13:         openstack-cinder-backup.service
-Source20:         cinder-sudoers
+Source10:         openstack-%{service}-api.service
+Source11:         openstack-%{service}-scheduler.service
+Source12:         openstack-%{service}-volume.service
+Source13:         openstack-%{service}-backup.service
+Source20:         %{service}-sudoers
 
 
 BuildArch:        noarch
@@ -91,7 +91,7 @@ BuildRequires:    python-testscenarios
 BuildRequires:    python-os-testr
 BuildRequires:    python-rtslib
 
-Requires:         python-cinder = %{epoch}:%{version}-%{release}
+Requires:         python-%{service} = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
 Requires:         python-pbr
@@ -115,7 +115,7 @@ Requires:         python-prettytable >= 0.7.1
 %{common_desc}
 
 
-%package -n       python-cinder
+%package -n       python-%{service}
 Summary:          OpenStack Volume Python libraries
 Group:            Applications/System
 
@@ -195,14 +195,14 @@ Requires:         python-oslo-privsep >= 1.9.0
 Requires:         python-cryptography >= 1.6
 
 
-%description -n   python-cinder
+%description -n   python-%{service}
 %{common_desc}
 
-This package contains the cinder Python library.
+This package contains the %{service} Python library.
 
-%package -n python-cinder-tests
+%package -n python-%{service}-tests
 Summary:        Cinder tests
-Requires:       openstack-cinder = %{epoch}:%{version}-%{release}
+Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 
 # Added test requirements
 Requires:       python-hacking
@@ -220,7 +220,7 @@ Requires:       python-testscenarios
 Requires:       python-os-testr
 Requires:       python-tempest
 
-%description -n python-cinder-tests
+%description -n python-%{service}-tests
 %{common_desc}
 
 This package contains the Cinder test files.
@@ -246,15 +246,15 @@ BuildRequires:    python-iso8601 >= 0.1.9
 %description      doc
 %{common_desc}
 
-This package contains documentation files for cinder.
+This package contains documentation files for %{service}.
 %endif
 
 %prep
-%autosetup -n cinder-%{upstream_version} -S git
+%autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
-find cinder -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
@@ -264,21 +264,19 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=tools/config/cinder-config-generator.conf
+PYTHONPATH=. oslo-config-generator --config-file=tools/config/%{service}-config-generator.conf
 
 # Build
 %{__python2} setup.py build
 
 # Generate i18n files
 # (amoralej) we can remove '-D cinder' once https://review.openstack.org/#/c/439501/ is merged
-%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale -D cinder
+%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale -D cinder
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
 # Create fake egg-info for the tempest plugin
-# TODO switch to %{service} everywhere as in openstack-example.spec
-%global service cinder
 %py2_entrypoint %{service} %{service}
 
 # docs generation requires everything to be installed first
@@ -295,123 +293,123 @@ mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
 # Setup directories
-install -d -m 755 %{buildroot}%{_sharedstatedir}/cinder
-install -d -m 755 %{buildroot}%{_sharedstatedir}/cinder/tmp
-install -d -m 755 %{buildroot}%{_localstatedir}/log/cinder
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}/tmp
+install -d -m 755 %{buildroot}%{_localstatedir}/log/%{service}
 
 # Install config files
-install -d -m 755 %{buildroot}%{_sysconfdir}/cinder
-install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/cinder/cinder-dist.conf
-install -d -m 755 %{buildroot}%{_sysconfdir}/cinder/volumes
-install -p -D -m 640 etc/cinder/rootwrap.conf %{buildroot}%{_sysconfdir}/cinder/rootwrap.conf
-install -p -D -m 640 etc/cinder/api-paste.ini %{buildroot}%{_sysconfdir}/cinder/api-paste.ini
-install -p -D -m 640 etc/cinder/policy.json %{buildroot}%{_sysconfdir}/cinder/policy.json
-install -p -D -m 640 etc/cinder/cinder.conf.sample %{buildroot}%{_sysconfdir}/cinder/cinder.conf
+install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/%{service}/%{service}-dist.conf
+install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}/volumes
+install -p -D -m 640 etc/%{service}/rootwrap.conf %{buildroot}%{_sysconfdir}/%{service}/rootwrap.conf
+install -p -D -m 640 etc/%{service}/api-paste.ini %{buildroot}%{_sysconfdir}/%{service}/api-paste.ini
+install -p -D -m 640 etc/%{service}/policy.json %{buildroot}%{_sysconfdir}/%{service}/policy.json
+install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
 
 # Install initscripts for services
-install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-cinder-api.service
-install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/openstack-cinder-scheduler.service
-install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/openstack-cinder-volume.service
-install -p -D -m 644 %{SOURCE13} %{buildroot}%{_unitdir}/openstack-cinder-backup.service
+install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/openstack-%{service}-api.service
+install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/openstack-%{service}-scheduler.service
+install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/openstack-%{service}-volume.service
+install -p -D -m 644 %{SOURCE13} %{buildroot}%{_unitdir}/openstack-%{service}-backup.service
 
 # Install sudoers
-install -p -D -m 440 %{SOURCE20} %{buildroot}%{_sysconfdir}/sudoers.d/cinder
+install -p -D -m 440 %{SOURCE20} %{buildroot}%{_sysconfdir}/sudoers.d/%{service}
 
 # Install logrotate
-install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-cinder
+install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-%{service}
 
 # Install pid directory
-install -d -m 755 %{buildroot}%{_localstatedir}/run/cinder
+install -d -m 755 %{buildroot}%{_localstatedir}/run/%{service}
 
 # Install rootwrap files in /usr/share/cinder/rootwrap
-mkdir -p %{buildroot}%{_datarootdir}/cinder/rootwrap/
-install -p -D -m 644 etc/cinder/rootwrap.d/* %{buildroot}%{_datarootdir}/cinder/rootwrap/
+mkdir -p %{buildroot}%{_datarootdir}/%{service}/rootwrap/
+install -p -D -m 644 etc/%{service}/rootwrap.d/* %{buildroot}%{_datarootdir}/%{service}/rootwrap/
 
 
 # Symlinks to rootwrap config files
-mkdir -p %{buildroot}%{_sysconfdir}/cinder/rootwrap.d
+mkdir -p %{buildroot}%{_sysconfdir}/%{service}/rootwrap.d
 for filter in %{_datarootdir}/os-brick/rootwrap/*.filters; do
-ln -s $filter %{buildroot}%{_sysconfdir}/cinder/rootwrap.d/
+ln -s $filter %{buildroot}%{_sysconfdir}/%{service}/rootwrap.d/
 done
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*/LC_*/%{pypi_name}*po
-rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*pot
-mv %{buildroot}%{python2_sitelib}/%{pypi_name}/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*/LC_*/%{service}*po
+rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*pot
+mv %{buildroot}%{python2_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
-%find_lang %{pypi_name} --all-name
+%find_lang %{service} --all-name
 
 # Remove unneeded in production stuff
-rm -f %{buildroot}/usr/share/doc/cinder/README*
+rm -f %{buildroot}/usr/share/doc/%{service}/README*
 
 # FIXME(jpena): unit tests are taking too long in the current DLRN infra
 # Until we have a better architecture, let's not run them when under DLRN
 %if 0%{!?dlrn}
 %check
-OS_TEST_PATH=./cinder/tests/unit ostestr --concurrency=2
+OS_TEST_PATH=./%{service}/tests/unit ostestr --concurrency=2
 %endif
 
 %pre
-getent group cinder >/dev/null || groupadd -r cinder --gid 165
-if ! getent passwd cinder >/dev/null; then
-  useradd -u 165 -r -g cinder -G cinder,nobody -d %{_sharedstatedir}/cinder -s /sbin/nologin -c "OpenStack Cinder Daemons" cinder
+getent group %{service} >/dev/null || groupadd -r %{service} --gid 165
+if ! getent passwd %{service} >/dev/null; then
+  useradd -u 165 -r -g %{service} -G %{service},nobody -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "OpenStack Cinder Daemons" %{service}
 fi
 exit 0
 
 %post
-%systemd_post openstack-cinder-volume
-%systemd_post openstack-cinder-api
-%systemd_post openstack-cinder-scheduler
-%systemd_post openstack-cinder-backup
+%systemd_post openstack-%{service}-volume
+%systemd_post openstack-%{service}-api
+%systemd_post openstack-%{service}-scheduler
+%systemd_post openstack-%{service}-backup
 
 %preun
-%systemd_preun openstack-cinder-volume
-%systemd_preun openstack-cinder-api
-%systemd_preun openstack-cinder-scheduler
-%systemd_preun openstack-cinder-backup
+%systemd_preun openstack-%{service}-volume
+%systemd_preun openstack-%{service}-api
+%systemd_preun openstack-%{service}-scheduler
+%systemd_preun openstack-%{service}-backup
 
 %postun
-%systemd_postun_with_restart openstack-cinder-volume
-%systemd_postun_with_restart openstack-cinder-api
-%systemd_postun_with_restart openstack-cinder-scheduler
-%systemd_postun_with_restart openstack-cinder-backup
+%systemd_postun_with_restart openstack-%{service}-volume
+%systemd_postun_with_restart openstack-%{service}-api
+%systemd_postun_with_restart openstack-%{service}-scheduler
+%systemd_postun_with_restart openstack-%{service}-backup
 
 %files
-%dir %{_sysconfdir}/cinder
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/cinder.conf
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/api-paste.ini
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/rootwrap.conf
-%config(noreplace) %attr(-, root, cinder) %{_sysconfdir}/cinder/policy.json
-%config(noreplace) %{_sysconfdir}/logrotate.d/openstack-cinder
-%config(noreplace) %{_sysconfdir}/sudoers.d/cinder
-%{_sysconfdir}/cinder/rootwrap.d/
-%attr(-, root, cinder) %{_datadir}/cinder/cinder-dist.conf
+%dir %{_sysconfdir}/%{service}
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/rootwrap.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
+%config(noreplace) %{_sysconfdir}/logrotate.d/openstack-%{service}
+%config(noreplace) %{_sysconfdir}/sudoers.d/%{service}
+%{_sysconfdir}/%{service}/rootwrap.d/
+%attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 
-%dir %attr(0750, cinder, root) %{_localstatedir}/log/cinder
-%dir %attr(0755, cinder, root) %{_localstatedir}/run/cinder
-%dir %attr(0755, cinder, root) %{_sysconfdir}/cinder/volumes
+%dir %attr(0750, %{service}, root) %{_localstatedir}/log/%{service}
+%dir %attr(0755, %{service}, root) %{_localstatedir}/run/%{service}
+%dir %attr(0755, %{service}, root) %{_sysconfdir}/%{service}/volumes
 
-%{_bindir}/cinder-*
+%{_bindir}/%{service}-*
 %{_unitdir}/*.service
-%{_datarootdir}/cinder
-%{_mandir}/man1/cinder*.1.gz
+%{_datarootdir}/%{service}
+%{_mandir}/man1/%{service}*.1.gz
 
-%defattr(-, cinder, cinder, -)
-%dir %{_sharedstatedir}/cinder
-%dir %{_sharedstatedir}/cinder/tmp
+%defattr(-, %{service}, %{service}, -)
+%dir %{_sharedstatedir}/%{service}
+%dir %{_sharedstatedir}/%{service}/tmp
 
-%files -n python-cinder -f %{pypi_name}.lang
+%files -n python-%{service} -f %{service}.lang
 %{?!_licensedir: %global license %%doc}
 %license LICENSE
-%{python2_sitelib}/cinder
-%{python2_sitelib}/cinder-*.egg-info
-%exclude %{python2_sitelib}/cinder/tests
+%{python2_sitelib}/%{service}
+%{python2_sitelib}/%{service}-*.egg-info
+%exclude %{python2_sitelib}/%{service}/tests
 
-%files -n python-cinder-tests
+%files -n python-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/cinder/tests
+%{python2_sitelib}/%{service}/tests
 %{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
