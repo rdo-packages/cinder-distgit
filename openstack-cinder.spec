@@ -99,9 +99,7 @@ Requires:         python-pbr
 # as convenience
 Requires:         python-cinderclient
 
-Requires(post):   systemd
-Requires(preun):  systemd
-Requires(postun): systemd
+%{?systemd_requires}
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
