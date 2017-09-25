@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a930d6b_eea6ff52",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-09-25T16:23:03Z",
+      "side": 1,
+      "message": "rmdir would be better, see https://review.rdoproject.org/r/#/c/9728/6..7/openstack-heat.spec",
+      "revId": "b70153daba0abbcbaf457708a677c73f648057ed",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
