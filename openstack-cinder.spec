@@ -344,6 +344,9 @@ mv %{buildroot}%{python2_sitelib}/%{service}/locale %{buildroot}%{_datadir}/loca
 # Remove unneeded in production stuff
 rm -f %{buildroot}/usr/share/doc/%{service}/README*
 
+# Remove duplicate config files under /usr/etc/
+rm -rf %{buildroot}%{_prefix}/etc
+
 # FIXME(jpena): unit tests are taking too long in the current DLRN infra
 # Until we have a better architecture, let's not run them when under DLRN
 %if 0%{!?dlrn}
