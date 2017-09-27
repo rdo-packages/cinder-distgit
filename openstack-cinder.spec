@@ -125,7 +125,7 @@ Requires:         os-brick >= 1.15.2
 Requires:         python-paramiko >= 2.0
 Requires:         python-simplejson >= 2.2.0
 
-Requires:         python-castellan >= 0.7.0
+Requires:         python-castellan >= 0.14.0
 Requires:         python-eventlet >= 0.18.2
 Requires:         python-greenlet >= 0.3.2
 Requires:         python-iso8601 >= 0.1.11
