@@ -109,6 +109,7 @@ Requires(pre):    shadow-utils
 Requires:         lvm2
 Requires:         python-osprofiler
 Requires:         python-rtslib
+Requires:         python-pyudev
 
 %description
 %{common_desc}
