@@ -105,6 +105,7 @@ Requires(pre):    shadow-utils
 Requires:         lvm2
 Requires:         python-osprofiler
 Requires:         python-rtslib
+Requires:         python-pyudev
 
 # required for cinder-manage
 Requires:         python-prettytable >= 0.7.1
