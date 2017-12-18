@@ -11,7 +11,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          11.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -109,6 +109,7 @@ Requires(pre):    shadow-utils
 Requires:         lvm2
 Requires:         python-osprofiler
 Requires:         python-rtslib
+Requires:         python-pyudev
 
 %description
 %{common_desc}
@@ -419,6 +420,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Dec 21 2017 Eric Harney <eharney@redhat.com> 1:11.0.1-2
+- Add requirement on python-pyudev
+
 * Fri Nov 03 2017 RDO <dev@lists.rdoproject.org> 1:11.0.1-1
 - Update to 11.0.1
 
