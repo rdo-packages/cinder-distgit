@@ -192,6 +192,8 @@ Requires:         python-oslo-privsep >= 1.9.0
 
 Requires:         python-cryptography >= 1.6
 
+Requires:         python-pyudev
+
 
 %description -n   python-%{service}
 %{common_desc}
