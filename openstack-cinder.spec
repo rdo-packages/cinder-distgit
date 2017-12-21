@@ -10,8 +10,8 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          11.0.1
-Release:          2%{?dist}
+Version:          11.0.2
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -420,6 +420,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Dec 21 2017 RDO <dev@lists.rdoproject.org> 1:11.0.2-1
+- Update to 11.0.2
+
 * Thu Dec 21 2017 Eric Harney <eharney@redhat.com> 1:11.0.1-2
 - Add requirement on python-pyudev
 
