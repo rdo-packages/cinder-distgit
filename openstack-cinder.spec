@@ -74,6 +74,7 @@ BuildRequires:    python-oslo-i18n
 BuildRequires:    python-barbicanclient
 BuildRequires:    python-requests
 BuildRequires:    python-retrying
+BuildRequires:    python-defusedxml
 
 # Required to compile translation files
 BuildRequires:    python-babel
@@ -192,6 +193,7 @@ Requires:         python-oslo-privsep >= 1.9.0
 
 Requires:         python-cryptography >= 1.6
 
+Requires:         python-defusedxml >= 0.5.0
 
 %description -n   python-%{service}
 %{common_desc}
