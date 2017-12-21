@@ -34,6 +34,24 @@
       "revId": "ec25fa6517b43535538bdf7e9588f6a658bf8a6e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_66879010",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-12-21T15:00:48Z",
+      "side": 1,
+      "message": "yes, you can do it in the same or in a follow-up review if you prefer to keep the cherry-pick clean. Any way is ok.",
+      "parentUuid": "1a6ced46_e69b8070",
+      "revId": "ec25fa6517b43535538bdf7e9588f6a658bf8a6e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
