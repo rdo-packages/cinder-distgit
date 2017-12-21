@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a6ced46_66b070f5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2017-12-21T14:58:12Z",
+      "side": 1,
+      "message": "I think the Release needs to be bumped in order for the machinery to pick up the change.\n\namorale, can you comment on this? We need the change downstream ASAP.",
+      "revId": "ec25fa6517b43535538bdf7e9588f6a658bf8a6e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
