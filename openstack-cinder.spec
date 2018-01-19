@@ -420,3 +420,4 @@ exit 0
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/cinder/commit/?id=feec9e4dac82ad09eb7f9a0d65fb8eaabbe3e266
