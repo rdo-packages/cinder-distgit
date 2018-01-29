@@ -403,10 +403,12 @@ exit 0
 %license LICENSE
 %{python2_sitelib}/%{service}
 %{python2_sitelib}/%{service}-*.egg-info
+%exclude %{python2_sitelib}/%{service}/test.py
 %exclude %{python2_sitelib}/%{service}/tests
 
 %files -n python-%{service}-tests
 %license LICENSE
+%{python2_sitelib}/%{service}/test.py
 %{python2_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
