@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aaa499b_aaa3e49d",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2018-02-14T12:41:41Z",
+      "side": 1,
+      "message": "\u003e\u003d 1:3.8.0",
+      "range": {
+        "startLine": 152,
+        "startChar": 40,
+        "endLine": 152,
+        "endChar": 50
+      },
+      "revId": "aad383591bbbc00cc876f5c7c2ee283c7ef6df6e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
