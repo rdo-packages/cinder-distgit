@@ -31,80 +31,80 @@ Source20:         %{service}-sudoers
 BuildArch:        noarch
 BuildRequires:    intltool
 BuildRequires:    python-d2to1
-BuildRequires:    python-openstackdocstheme
-BuildRequires:    python-pbr
-BuildRequires:    python-reno
-BuildRequires:    python-sphinx
+BuildRequires:    python2-openstackdocstheme
+BuildRequires:    python2-pbr
+BuildRequires:    python2-reno
+BuildRequires:    python2-sphinx
 BuildRequires:    python2-devel
-BuildRequires:    python-setuptools
-BuildRequires:    python-netaddr
+BuildRequires:    python2-setuptools
+BuildRequires:    python2-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
 BuildRequires:    openstack-macros
 BuildRequires:    os-brick
-BuildRequires:    pyparsing
-BuildRequires:    pytz
+BuildRequires:    python2-pyparsing
+BuildRequires:    python2-pytz
 BuildRequires:    python-decorator
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
-BuildRequires:    python-google-api-client >= 1.4.2
-BuildRequires:    python-keystonemiddleware
-BuildRequires:    python-glanceclient >= 1:2.8.0
-BuildRequires:    python-novaclient >= 1:9.1.0
-BuildRequires:    python-swiftclient >= 3.2.0
-BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-config >= 2:5.1.0
-BuildRequires:    python-oslo-policy
-BuildRequires:    python-oslo-reports
-BuildRequires:    python-oslotest
-BuildRequires:    python-oslo-utils
-BuildRequires:    python-oslo-versionedobjects
-BuildRequires:    python-oslo-vmware
-BuildRequires:    python-os-win
-BuildRequires:    python-castellan
-BuildRequires:    python-cryptography
+BuildRequires:    python2-google-api-client >= 1.4.2
+BuildRequires:    python2-keystonemiddleware
+BuildRequires:    python2-glanceclient >= 2.8.0
+BuildRequires:    python2-novaclient >= 9.1.0
+BuildRequires:    python2-swiftclient >= 3.2.0
+BuildRequires:    python2-oslo-db
+BuildRequires:    python2-oslo-config >= 2:5.1.0
+BuildRequires:    python2-oslo-policy
+BuildRequires:    python2-oslo-reports
+BuildRequires:    python2-oslotest
+BuildRequires:    python2-oslo-utils
+BuildRequires:    python2-oslo-versionedobjects
+BuildRequires:    python2-oslo-vmware
+BuildRequires:    python2-os-win
+BuildRequires:    python2-castellan
+BuildRequires:    python2-cryptography
 BuildRequires:    python-lxml
-BuildRequires:    python-osprofiler
-BuildRequires:    python-paramiko
-BuildRequires:    python-suds
-BuildRequires:    python-taskflow
-BuildRequires:    python-tooz
-BuildRequires:    python-oslo-log
-BuildRequires:    python-oslo-i18n
-BuildRequires:    python-barbicanclient
-BuildRequires:    python-requests
+BuildRequires:    python2-osprofiler
+BuildRequires:    python2-paramiko
+BuildRequires:    python2-suds
+BuildRequires:    python2-taskflow
+BuildRequires:    python2-tooz
+BuildRequires:    python2-oslo-log
+BuildRequires:    python2-oslo-i18n
+BuildRequires:    python2-barbicanclient
+BuildRequires:    python2-requests
 BuildRequires:    python-retrying
-BuildRequires:    python-defusedxml
+BuildRequires:    python2-defusedxml
 
 # Required to compile translation files
-BuildRequires:    python-babel
+BuildRequires:    python2-babel
 
 # Needed for unit tests
-BuildRequires:    python-ddt
-BuildRequires:    python-fixtures
-BuildRequires:    python-mock
-BuildRequires:    python-oslotest
-BuildRequires:    python-subunit
-BuildRequires:    python-testtools
-BuildRequires:    python-testrepository
-BuildRequires:    python-testresources
-BuildRequires:    python-testscenarios
-BuildRequires:    python-os-testr
+BuildRequires:    python2-ddt
+BuildRequires:    python2-fixtures
+BuildRequires:    python2-mock
+BuildRequires:    python2-oslotest
+BuildRequires:    python2-subunit
+BuildRequires:    python2-testtools
+BuildRequires:    python2-testrepository
+BuildRequires:    python2-testresources
+BuildRequires:    python2-testscenarios
+BuildRequires:    python2-os-testr
 BuildRequires:    python-rtslib
 
 Requires:         python-%{service} = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
-Requires:         python-pbr
+Requires:         python2-pbr
 
 # as convenience
-Requires:         python-cinderclient
+Requires:         python2-cinderclient
 
 %{?systemd_requires}
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
-Requires:         python-osprofiler
+Requires:         python2-osprofiler
 Requires:         python-rtslib
 Requires:         python-pyudev
 
@@ -124,77 +124,81 @@ Requires:         sudo
 Requires:         qemu-img
 Requires:         sysfsutils
 Requires:         os-brick >= 2.1.1
-Requires:         python-paramiko >= 2.0
+Requires:         python2-paramiko >= 2.0
 Requires:         python-simplejson >= 3.5.1
+Requires:         python2-jsonschema >= 2.6.0
+Requires:         python2-os-win >= 3.0.0
+Requires:         python2-oslo-vmware >= 2.17.0
 
-Requires:         python-castellan >= 0.14.0
-Requires:         python-eventlet >= 0.18.2
-Requires:         python-greenlet >= 0.3.2
-Requires:         python-iso8601 >= 0.1.11
+Requires:         python2-castellan >= 0.16.0
+Requires:         python2-eventlet >= 0.18.2
+Requires:         python2-greenlet >= 0.4.10
+Requires:         python2-iso8601 >= 0.1.11
 Requires:         python-lxml >= 3.2.1
-Requires:         python-stevedore >= 1.20.0
-Requires:         python-suds
-Requires:         python-tooz >= 1.58.0
+Requires:         python2-stevedore >= 1.20.0
+Requires:         python2-suds
+Requires:         python2-tooz >= 1.58.0
 
-Requires:         python-sqlalchemy >= 1.0.10
+Requires:         python2-sqlalchemy >= 1.0.10
 Requires:         python-migrate >= 0.11.0
 
+Requires:         python-paste
 Requires:         python-paste-deploy
-Requires:         python-routes >= 2.3.1
+Requires:         python2-routes >= 2.3.1
 Requires:         python-webob >= 1.7.1
 
-Requires:         python-glanceclient >= 1:2.8.0
-Requires:         python-swiftclient >= 3.2.0
-Requires:         python-keystoneclient >= 3.8.0
-Requires:         python-novaclient >= 1:9.1.0
+Requires:         python2-glanceclient >= 1:2.8.0
+Requires:         python2-swiftclient >= 3.2.0
+Requires:         python2-keystoneclient >= 1:3.8.0
+Requires:         python2-novaclient >= 9.1.0
 
-Requires:         python-oslo-config >= 2:5.1.0
-Requires:         python-six >= 1.9.0
-Requires:         python-psutil >= 3.2.2
+Requires:         python2-oslo-config >= 2:5.1.0
+Requires:         python2-six >= 1.10.0
+Requires:         python2-psutil >= 3.2.2
 
-Requires:         python-babel
-Requires:         python-google-api-client >= 1.4.2
+Requires:         python2-babel
+Requires:         python2-google-api-client >= 1.4.2
 
-Requires:         python-oslo-rootwrap >= 5.8.0
-Requires:         python-oslo-utils >= 3.31.0
-Requires:         python-oslo-serialization >= 2.18.0
-Requires:         python-oslo-db >= 4.27.0
-Requires:         python-oslo-context >= 2.19.2
-Requires:         python-oslo-concurrency >= 3.20.0
-Requires:         python-oslo-middleware >= 3.31.0
-Requires:         python-taskflow >= 2.7.0
-Requires:         python-oslo-messaging >= 5.29.0
-Requires:         python-oslo-policy >= 1.30.0
-Requires:         python-oslo-reports >= 1.18.0
-Requires:         python-oslo-service >= 1.24.0
-Requires:         python-oslo-versionedobjects >= 1.28.0
+Requires:         python2-oslo-rootwrap >= 5.8.0
+Requires:         python2-oslo-utils >= 3.33.0
+Requires:         python2-oslo-serialization >= 2.18.0
+Requires:         python2-oslo-db >= 4.27.0
+Requires:         python2-oslo-context >= 2.19.2
+Requires:         python2-oslo-concurrency >= 3.25.0
+Requires:         python2-oslo-middleware >= 3.31.0
+Requires:         python2-taskflow >= 2.16.0
+Requires:         python2-oslo-messaging >= 5.29.0
+Requires:         python2-oslo-policy >= 1.30.0
+Requires:         python2-oslo-reports >= 1.18.0
+Requires:         python2-oslo-service >= 1.24.0
+Requires:         python2-oslo-versionedobjects >= 1.31.2
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python-osprofiler >= 1.4.0
+Requires:         python2-osprofiler >= 1.4.0
 
 Requires:         python-httplib2 >= 0.9.1
-Requires:         python-oauth2client >= 1.5.0
+Requires:         python2-oauth2client >= 1.5.0
 
-Requires:         python-oslo-log >= 3.30.0
-Requires:         python-oslo-i18n >= 3.15.3
-Requires:         python-barbicanclient >= 4.0.0
-Requires:         python-requests >= 2.14.2
+Requires:         python2-oslo-log >= 3.36.0
+Requires:         python2-oslo-i18n >= 3.15.3
+Requires:         python2-barbicanclient >= 4.0.0
+Requires:         python2-requests >= 2.14.2
 Requires:         python-retrying >= 1.2.3
-Requires:         pyparsing >= 2.1.0
-Requires:         pytz
+Requires:         python2-pyparsing >= 2.1.0
+Requires:         python2-pytz
 Requires:         python-decorator
 Requires:         python-enum34
 Requires:         python-ipaddress
 
-Requires:         python-keystonemiddleware >= 4.17.0
-Requires:         python-keystoneauth1 >= 3.1.0
+Requires:         python2-keystonemiddleware >= 4.17.0
+Requires:         python2-keystoneauth1 >= 3.3.0
 
-Requires:         python-oslo-privsep >= 1.23.0
+Requires:         python2-oslo-privsep >= 1.23.0
 
-Requires:         python-cryptography >= 1.6
+Requires:         python2-cryptography >= 1.7.2
 
-Requires:         python-defusedxml >= 0.5.0
+Requires:         python2-defusedxml >= 0.5.0
 
 %description -n   python-%{service}
 %{common_desc}
@@ -206,19 +210,19 @@ Summary:        Cinder tests
 Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 
 # Added test requirements
-Requires:       python-hacking
+Requires:       python2-hacking
 Requires:       python-anyjson
-Requires:       python-ddt
-Requires:       python-fixtures
-Requires:       python-mock
-Requires:       python-mox3
-Requires:       python-oslotest
-Requires:       python-subunit
-Requires:       python-testtools
-Requires:       python-testrepository
-Requires:       python-testresources
-Requires:       python-testscenarios
-Requires:       python-os-testr
+Requires:       python2-ddt
+Requires:       python2-fixtures
+Requires:       python2-mock
+Requires:       python2-mox3
+Requires:       python2-oslotest
+Requires:       python2-subunit
+Requires:       python2-testtools
+Requires:       python2-testrepository
+Requires:       python2-testresources
+Requires:       python2-testscenarios
+Requires:       python2-os-testr
 
 %description -n python-%{service}-tests
 %{common_desc}
@@ -235,13 +239,13 @@ Requires:         %{name} = %{epoch}:%{version}-%{release}
 BuildRequires:    graphviz
 
 # Required to build module documents
-BuildRequires:    python-eventlet
-BuildRequires:    python-routes
-BuildRequires:    python-sqlalchemy
+BuildRequires:    python2-eventlet
+BuildRequires:    python2-routes
+BuildRequires:    python2-sqlalchemy
 BuildRequires:    python-webob
 # while not strictly required, quiets the build down when building docs.
 BuildRequires:    python-migrate
-BuildRequires:    python-iso8601 >= 0.1.9
+BuildRequires:    python2-iso8601 >= 0.1.9
 
 %description      doc
 %{common_desc}
