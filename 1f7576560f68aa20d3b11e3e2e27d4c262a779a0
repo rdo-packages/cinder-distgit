@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aaa499b_2ccc9134",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-02-15T10:37:23Z",
+      "side": 1,
+      "message": "I realize now we are adding os-win and oslo-vmware, i\u0027m not sure if those are just optional requirements.\n\n@eharney, could you comment on this?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 47
+      },
+      "revId": "1f7576560f68aa20d3b11e3e2e27d4c262a779a0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
