@@ -32,7 +32,6 @@ Source20:         %{service}-sudoers
 
 BuildArch:        noarch
 BuildRequires:    intltool
-BuildRequires:    python-d2to1
 BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-pbr
 BuildRequires:    python2-reno
