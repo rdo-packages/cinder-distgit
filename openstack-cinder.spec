@@ -12,7 +12,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          12.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          0.3%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -35,7 +35,6 @@ Source20:         %{service}-sudoers
 
 BuildArch:        noarch
 BuildRequires:    intltool
-BuildRequires:    python-d2to1
 BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-pbr
 BuildRequires:    python2-reno
@@ -426,6 +425,9 @@ exit 0
 %endif
 
 %changelog
+* Sun Feb 25 2018 Charles Short <zulcss@gmail.com> 1:12.0.0-0.3.0rc2
+- Remove undeeded python-d2to1 dependency.
+
 * Wed Feb 21 2018 RDO <dev@lists.rdoproject.org> 1:12.0.0-0.2.0rc1
 - Update to 12.0.0.0rc2
 
