@@ -121,7 +121,7 @@ Group:            Applications/System
 
 Requires:         sudo
 
-Requires:         qemu-img
+Requires:         qemu-img >= 2.10.0
 Requires:         sysfsutils
 Requires:         os-brick >= 2.1.1
 Requires:         python2-paramiko >= 2.0
