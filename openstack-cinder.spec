@@ -284,12 +284,14 @@ PYTHONPATH=. oslo-config-generator --config-file=tools/config/%{service}-config-
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
 %if 0%{?with_doc}
-sphinx-build -W -b html doc/source doc/build/html
+# FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
+sphinx-build -b html doc/source doc/build/html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
 
-sphinx-build -W -b man doc/source doc/build/man
+# FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
+sphinx-build -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
