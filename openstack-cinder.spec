@@ -53,7 +53,7 @@ BuildRequires:    python2-glanceclient >= 2.8.0
 BuildRequires:    python2-novaclient >= 9.1.0
 BuildRequires:    python2-swiftclient >= 3.2.0
 BuildRequires:    python2-oslo-db
-BuildRequires:    python2-oslo-config >= 2:5.1.0
+BuildRequires:    python2-oslo-config >= 2:5.2.0
 BuildRequires:    python2-oslo-policy
 BuildRequires:    python2-oslo-reports
 BuildRequires:    python2-oslotest
@@ -123,7 +123,7 @@ Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick >= 2.1.1
+Requires:         os-brick >= 2.2.0
 Requires:         python2-paramiko >= 2.0
 Requires:         python-simplejson >= 3.5.1
 Requires:         python2-jsonschema >= 2.6.0
@@ -152,7 +152,7 @@ Requires:         python2-swiftclient >= 3.2.0
 Requires:         python2-keystoneclient >= 1:3.8.0
 Requires:         python2-novaclient >= 9.1.0
 
-Requires:         python2-oslo-config >= 2:5.1.0
+Requires:         python2-oslo-config >= 2:5.2.0
 Requires:         python2-six >= 1.10.0
 Requires:         python2-psutil >= 3.2.2
 
@@ -164,7 +164,7 @@ Requires:         python2-oslo-utils >= 3.33.0
 Requires:         python2-oslo-serialization >= 2.18.0
 Requires:         python2-oslo-db >= 4.27.0
 Requires:         python2-oslo-context >= 2.19.2
-Requires:         python2-oslo-concurrency >= 3.25.0
+Requires:         python2-oslo-concurrency >= 3.26.0
 Requires:         python2-oslo-middleware >= 3.31.0
 Requires:         python2-taskflow >= 2.16.0
 Requires:         python2-oslo-messaging >= 5.29.0
@@ -182,7 +182,7 @@ Requires:         python2-oauth2client >= 1.5.0
 
 Requires:         python2-oslo-log >= 3.36.0
 Requires:         python2-oslo-i18n >= 3.15.3
-Requires:         python2-barbicanclient >= 4.0.0
+Requires:         python2-barbicanclient >= 4.5.2
 Requires:         python2-requests >= 2.14.2
 Requires:         python-retrying >= 1.2.3
 Requires:         python2-pyparsing >= 2.1.0
@@ -192,11 +192,11 @@ Requires:         python-enum34
 Requires:         python-ipaddress
 
 Requires:         python2-keystonemiddleware >= 4.17.0
-Requires:         python2-keystoneauth1 >= 3.3.0
+Requires:         python2-keystoneauth1 >= 3.4.0
 
 Requires:         python2-oslo-privsep >= 1.23.0
 
-Requires:         python2-cryptography >= 1.7.2
+Requires:         python2-cryptography >= 2.1.0
 
 Requires:         python2-defusedxml >= 0.5.0
 
