@@ -1,5 +1,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+# FIXME(ykarel) disable doc build until sphinxcontrib-apidoc package is
+# available in RDO https://bugzilla.redhat.com/show_bug.cgi?id=1565504
+%global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
 
 %global common_desc \
