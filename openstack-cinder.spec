@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          9.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -388,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Jun  5 2018 Alan Bishop <abishop@redhat.com> 1:9.1.4-2
+- Do not repeat log messages on stderr
+
 * Thu Apr 13 2017 Alfredo Moralejo <amoralej@redhat.com> 1:9.1.4-1
 - Update to 9.1.4
 
