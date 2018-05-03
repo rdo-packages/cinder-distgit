@@ -7,7 +7,7 @@ Name:             openstack-cinder
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          10.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -399,6 +399,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Jun  5 2018 Alan Bishop <abishop@redhat.com> 1:10.0.7-2
+- Do not repeat log messages on stderr
+
 * Fri Jun 01 2018 RDO <dev@lists.rdoproject.org> 1:10.0.7-1
 - Update to 10.0.7
 
