@@ -1,7 +1,5 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-# FIXME(ykarel) disable doc build until sphinxcontrib-apidoc package is
-# available in RDO https://bugzilla.redhat.com/show_bug.cgi?id=1565504
-%global with_doc %{!?_without_doc:0}%{?_without_doc:1}
+%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service cinder
 
 %global common_desc \
@@ -36,6 +34,7 @@ BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-pbr
 BuildRequires:    python2-reno
 BuildRequires:    python2-sphinx
+BuildRequires:    python2-sphinxcontrib-apidoc
 BuildRequires:    python2-devel
 BuildRequires:    python2-setuptools
 BuildRequires:    python2-netaddr
@@ -285,12 +284,10 @@ PYTHONPATH=. oslo-config-generator --config-file=tools/config/%{service}-config-
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
 %if 0%{?with_doc}
-# FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
-sphinx-build -b html doc/source doc/build/html
+sphinx-build -W -b html doc/source doc/build/html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
-# FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
-sphinx-build -b man doc/source doc/build/man
+sphinx-build -W -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %endif
