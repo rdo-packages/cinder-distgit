@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab921fb_5810bd4e",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-05-07T11:00:21Z",
+      "side": 1,
+      "message": "New warning is error issues",
+      "range": {
+        "startLine": 287,
+        "startChar": 13,
+        "endLine": 287,
+        "endChar": 15
+      },
+      "revId": "66e59c8789440b2471cd13048c7f9e85046bba97",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
