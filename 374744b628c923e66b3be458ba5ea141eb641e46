@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab921fb_80b6c13b",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-06-13T07:25:10Z",
+      "side": 1,
+      "message": "Don\u0027t forget to remove this line :)",
+      "revId": "374744b628c923e66b3be458ba5ea141eb641e46",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
