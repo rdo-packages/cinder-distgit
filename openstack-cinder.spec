@@ -41,13 +41,13 @@ BuildRequires:    python2-setuptools
 BuildRequires:    python2-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
-BuildRequires:    openstack-macros
 BuildRequires:    os-brick
 BuildRequires:    python2-pyparsing
 BuildRequires:    python2-pytz
 BuildRequires:    python-decorator
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
+BuildRequires:    python2-cursive
 BuildRequires:    python2-google-api-client >= 1.4.2
 BuildRequires:    python2-keystonemiddleware
 BuildRequires:    python2-glanceclient >= 2.8.0
@@ -132,6 +132,7 @@ Requires:         python2-os-win >= 3.0.0
 Requires:         python2-oslo-vmware >= 2.17.0
 
 Requires:         python2-castellan >= 0.16.0
+Requires:         python2-cursive >= 0.2.1
 Requires:         python2-eventlet >= 0.18.2
 Requires:         python2-greenlet >= 0.4.10
 Requires:         python2-iso8601 >= 0.1.11
