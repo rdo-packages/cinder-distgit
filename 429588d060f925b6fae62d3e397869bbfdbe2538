@@ -1,0 +1,9 @@
+Code-Review+2: hguemar <hguemar@fedoraproject.org>
+Workflow+1: hguemar <hguemar@fedoraproject.org>
+Code-Review+1: Alan Bishop <abishop@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Mon, 18 Jun 2018 14:45:33 +0000
+Reviewed-on: https://review.rdoproject.org/r/14291
+Project: openstack/cinder-distgit
+Branch: refs/heads/queens-rdo
