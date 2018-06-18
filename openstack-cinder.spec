@@ -10,8 +10,8 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          11.1.0
-Release:          2%{?dist}
+Version:          11.1.1
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -420,6 +420,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Jun 18 2018 RDO <dev@lists.rdoproject.org> 1:11.1.1-1
+- Update to 11.1.1
+
 * Tue Jun  5 2018 Alan Bishop <abishop@redhat.com> 1:11.1.0-2
 - Do not repeat log messages on stderr
 
