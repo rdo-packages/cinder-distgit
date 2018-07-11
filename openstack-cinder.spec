@@ -1,7 +1,5 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-# FIXME(ykarel) disable doc build until sphinxcontrib-apidoc package is
-# available in RDO https://bugzilla.redhat.com/show_bug.cgi?id=1565504
-%global with_doc %{!?_without_doc:0}%{?_without_doc:1}
+%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service cinder
 
 %global common_desc \
@@ -32,10 +30,8 @@ Source20:         %{service}-sudoers
 
 BuildArch:        noarch
 BuildRequires:    intltool
-BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-pbr
 BuildRequires:    python2-reno
-BuildRequires:    python2-sphinx
 BuildRequires:    python2-devel
 BuildRequires:    python2-setuptools
 BuildRequires:    python2-netaddr
@@ -240,6 +236,9 @@ Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
 
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-openstackdocstheme
+BuildRequires:    python2-sphinxcontrib-apidoc
 # Required to build module documents
 BuildRequires:    python2-eventlet
 BuildRequires:    python2-routes
