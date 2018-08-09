@@ -239,6 +239,7 @@ BuildRequires:    graphviz
 BuildRequires:    python2-sphinx
 BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-sphinxcontrib-apidoc
+BuildRequires:    python2-sphinx-feature-classification
 # Required to build module documents
 BuildRequires:    python2-eventlet
 BuildRequires:    python2-routes
