@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_fdaacd84",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-08-10T07:45:51Z",
+      "side": 1,
+      "message": "it\u0027s coming from base, and currently 3.2.1 is available",
+      "range": {
+        "startLine": 135,
+        "startChar": 18,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "3286dc5e8d7a976eefb8907231ab85fe60f62170",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
