@@ -22,6 +22,30 @@
       "revId": "3286dc5e8d7a976eefb8907231ab85fe60f62170",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_18eeaf22",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-08-10T14:22:38Z",
+      "side": 1,
+      "message": "lxml minimal release is coming from https://review.openstack.org/#/c/491176/ one year ago and it\u0027s not clear what requires it. As it has been passing CI since then with no issues, i\u0027d keep it \u003e\u003d 3.2.1 as is to avoid overriding base from RDO.",
+      "parentUuid": "9abe1de1_fdaacd84",
+      "range": {
+        "startLine": 135,
+        "startChar": 18,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "3286dc5e8d7a976eefb8907231ab85fe60f62170",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
