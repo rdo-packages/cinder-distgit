@@ -1,4 +1,3 @@
-%global milestone .0rc3
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service cinder
@@ -12,15 +11,13 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          13.0.0
-Release:          0.3%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=13.0.0.0rc3
 #
 
 Source1:          %{service}-dist.conf
@@ -432,6 +429,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Aug 30 2018 RDO <dev@lists.rdoproject.org> 1:13.0.0-1
+- Update to 13.0.0
+
 * Fri Aug 24 2018 RDO <dev@lists.rdoproject.org> 1:13.0.0-0.3.0rc2
 - Update to 13.0.0.0rc3
 
