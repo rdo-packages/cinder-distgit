@@ -1,3 +1,15 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service cinder
@@ -30,199 +42,237 @@ Source20:         %{service}-sudoers
 
 BuildArch:        noarch
 BuildRequires:    intltool
-BuildRequires:    python2-pbr
-BuildRequires:    python2-reno
-BuildRequires:    python2-devel
-BuildRequires:    python2-setuptools
-BuildRequires:    python2-netaddr
+BuildRequires:    python%{pyver}-pbr
+BuildRequires:    python%{pyver}-reno
+BuildRequires:    python%{pyver}-devel
+BuildRequires:    python%{pyver}-setuptools
+BuildRequires:    python%{pyver}-netaddr
 BuildRequires:    systemd
 BuildRequires:    git
-BuildRequires:    os-brick
-BuildRequires:    python2-pyparsing
-BuildRequires:    python2-pytz
-BuildRequires:    python-decorator
+BuildRequires:    python%{pyver}-os-brick
+BuildRequires:    python%{pyver}-pyparsing
+BuildRequires:    python%{pyver}-pytz
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
-BuildRequires:    python2-cursive
-BuildRequires:    python2-google-api-client >= 1.4.2
-BuildRequires:    python2-keystonemiddleware
-BuildRequires:    python2-glanceclient >= 2.8.0
-BuildRequires:    python2-novaclient >= 9.1.0
-BuildRequires:    python2-swiftclient >= 3.2.0
-BuildRequires:    python2-oslo-db
-BuildRequires:    python2-oslo-config >= 2:5.2.0
-BuildRequires:    python2-oslo-policy
-BuildRequires:    python2-oslo-reports
-BuildRequires:    python2-oslotest
-BuildRequires:    python2-oslo-utils
-BuildRequires:    python2-oslo-versionedobjects
-BuildRequires:    python2-oslo-vmware
-BuildRequires:    python2-os-win
-BuildRequires:    python2-castellan
-BuildRequires:    python2-cryptography
-BuildRequires:    python-lxml
-BuildRequires:    python2-osprofiler
-BuildRequires:    python2-paramiko
-BuildRequires:    python2-suds
-BuildRequires:    python2-taskflow
-BuildRequires:    python2-tooz
-BuildRequires:    python2-oslo-log
-BuildRequires:    python2-oslo-i18n
-BuildRequires:    python2-barbicanclient
-BuildRequires:    python2-requests
-BuildRequires:    python-retrying
-BuildRequires:    python2-defusedxml
+BuildRequires:    python%{pyver}-cursive
+BuildRequires:    python%{pyver}-google-api-client >= 1.4.2
+BuildRequires:    python%{pyver}-keystonemiddleware
+BuildRequires:    python%{pyver}-glanceclient >= 2.8.0
+BuildRequires:    python%{pyver}-novaclient >= 9.1.0
+BuildRequires:    python%{pyver}-swiftclient >= 3.2.0
+BuildRequires:    python%{pyver}-oslo-db
+BuildRequires:    python%{pyver}-oslo-config >= 2:5.2.0
+BuildRequires:    python%{pyver}-oslo-policy
+BuildRequires:    python%{pyver}-oslo-reports
+BuildRequires:    python%{pyver}-oslotest
+BuildRequires:    python%{pyver}-oslo-utils
+BuildRequires:    python%{pyver}-oslo-versionedobjects
+BuildRequires:    python%{pyver}-oslo-vmware
+BuildRequires:    python%{pyver}-os-win
+BuildRequires:    python%{pyver}-castellan
+BuildRequires:    python%{pyver}-cryptography
+BuildRequires:    python%{pyver}-osprofiler
+BuildRequires:    python%{pyver}-paramiko
+BuildRequires:    python%{pyver}-suds
+BuildRequires:    python%{pyver}-taskflow
+BuildRequires:    python%{pyver}-tooz
+BuildRequires:    python%{pyver}-oslo-log
+BuildRequires:    python%{pyver}-oslo-i18n
+BuildRequires:    python%{pyver}-barbicanclient
+BuildRequires:    python%{pyver}-requests
+BuildRequires:    python%{pyver}-defusedxml
 
 # Required to compile translation files
-BuildRequires:    python2-babel
+BuildRequires:    python%{pyver}-babel
 
 # Needed for unit tests
-BuildRequires:    python2-ddt
-BuildRequires:    python2-fixtures
-BuildRequires:    python2-mock
-BuildRequires:    python2-oslotest
-BuildRequires:    python2-subunit
-BuildRequires:    python2-testtools
-BuildRequires:    python2-testrepository
-BuildRequires:    python2-testresources
-BuildRequires:    python2-testscenarios
-BuildRequires:    python2-os-testr
-BuildRequires:    python-rtslib
+BuildRequires:    python%{pyver}-ddt
+BuildRequires:    python%{pyver}-fixtures
+BuildRequires:    python%{pyver}-mock
+BuildRequires:    python%{pyver}-oslotest
+BuildRequires:    python%{pyver}-subunit
+BuildRequires:    python%{pyver}-testtools
+BuildRequires:    python%{pyver}-testrepository
+BuildRequires:    python%{pyver}-testresources
+BuildRequires:    python%{pyver}-testscenarios
+BuildRequires:    python%{pyver}-os-testr
 
-Requires:         python-%{service} = %{epoch}:%{version}-%{release}
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:    python-decorator
+BuildRequires:    python-lxml
+BuildRequires:    python-retrying
+BuildRequires:    python-rtslib
+%else
+BuildRequires:    python%{pyver}-decorator
+BuildRequires:    python%{pyver}-lxml
+BuildRequires:    python%{pyver}-retrying
+BuildRequires:    python%{pyver}-rtslib
+%endif
+
+
+Requires:         python%{pyver}-%{service} = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
-Requires:         python2-pbr
+Requires:         python%{pyver}-pbr
 
 # as convenience
-Requires:         python2-cinderclient
+Requires:         python%{pyver}-cinderclient
 
 %{?systemd_requires}
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
-Requires:         python2-osprofiler
+Requires:         python%{pyver}-osprofiler
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:         python-rtslib
 Requires:         python-pyudev
-
 # required for cinder-manage
 Requires:         python-prettytable >= 0.7.2
+%else
+Requires:         python%{pyver}-rtslib
+Requires:         python%{pyver}-pyudev
+# required for cinder-manage
+Requires:         python%{pyver}-prettytable >= 0.7.2
+%endif
+
 
 %description
 %{common_desc}
 
 
-%package -n       python-%{service}
+%package -n       python%{pyver}-%{service}
 Summary:          OpenStack Volume Python libraries
+%{?python_provide:%python_provide python%{pyver}-%{service}}
 Group:            Applications/System
 
 Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick >= 2.1.1
-Requires:         python2-paramiko >= 2.0
-Requires:         python-simplejson >= 3.5.1
-Requires:         python2-jsonschema >= 2.6.0
-Requires:         python2-os-win >= 3.0.0
-Requires:         python2-oslo-vmware >= 2.17.0
+Requires:         python%{pyver}-os-brick >= 2.1.1
+Requires:         python%{pyver}-paramiko >= 2.0
+Requires:         python%{pyver}-simplejson >= 3.5.1
+Requires:         python%{pyver}-jsonschema >= 2.6.0
+Requires:         python%{pyver}-os-win >= 3.0.0
+Requires:         python%{pyver}-oslo-vmware >= 2.17.0
 
-Requires:         python2-castellan >= 0.16.0
-Requires:         python2-cursive >= 0.2.1
-Requires:         python2-eventlet >= 0.18.2
-Requires:         python2-greenlet >= 0.4.10
-Requires:         python2-iso8601 >= 0.1.11
-Requires:         python-lxml >= 3.2.1
-Requires:         python2-stevedore >= 1.20.0
-Requires:         python2-suds
-Requires:         python2-tooz >= 1.58.0
+Requires:         python%{pyver}-castellan >= 0.16.0
+Requires:         python%{pyver}-cursive >= 0.2.1
+Requires:         python%{pyver}-eventlet >= 0.18.2
+Requires:         python%{pyver}-greenlet >= 0.4.10
+Requires:         python%{pyver}-iso8601 >= 0.1.11
+Requires:         python%{pyver}-stevedore >= 1.20.0
+Requires:         python%{pyver}-suds
+Requires:         python%{pyver}-tooz >= 1.58.0
 
-Requires:         python2-sqlalchemy >= 1.0.10
-Requires:         python-migrate >= 0.11.0
+Requires:         python%{pyver}-sqlalchemy >= 1.0.10
+Requires:         python%{pyver}-routes >= 2.3.1
+Requires:         python%{pyver}-webob >= 1.7.1
 
-Requires:         python-paste
-Requires:         python-paste-deploy
-Requires:         python2-routes >= 2.3.1
-Requires:         python-webob >= 1.7.1
+Requires:         python%{pyver}-glanceclient >= 1:2.8.0
+Requires:         python%{pyver}-swiftclient >= 3.2.0
+Requires:         python%{pyver}-keystoneclient >= 1:3.8.0
+Requires:         python%{pyver}-novaclient >= 9.1.0
 
-Requires:         python2-glanceclient >= 1:2.8.0
-Requires:         python2-swiftclient >= 3.2.0
-Requires:         python2-keystoneclient >= 1:3.8.0
-Requires:         python2-novaclient >= 9.1.0
+Requires:         python%{pyver}-oslo-config >= 2:5.2.0
+Requires:         python%{pyver}-six >= 1.10.0
+Requires:         python%{pyver}-psutil >= 3.2.2
 
-Requires:         python2-oslo-config >= 2:5.2.0
-Requires:         python2-six >= 1.10.0
-Requires:         python2-psutil >= 3.2.2
+Requires:         python%{pyver}-babel
+Requires:         python%{pyver}-google-api-client >= 1.4.2
 
-Requires:         python2-babel
-Requires:         python2-google-api-client >= 1.4.2
-
-Requires:         python2-oslo-rootwrap >= 5.8.0
-Requires:         python2-oslo-utils >= 3.33.0
-Requires:         python2-oslo-serialization >= 2.18.0
-Requires:         python2-oslo-db >= 4.27.0
-Requires:         python2-oslo-context >= 2.19.2
-Requires:         python2-oslo-concurrency >= 3.26.0
-Requires:         python2-oslo-middleware >= 3.31.0
-Requires:         python2-taskflow >= 2.16.0
-Requires:         python2-oslo-messaging >= 5.29.0
-Requires:         python2-oslo-policy >= 1.30.0
-Requires:         python2-oslo-reports >= 1.18.0
-Requires:         python2-oslo-service >= 1.24.0
-Requires:         python2-oslo-versionedobjects >= 1.31.2
+Requires:         python%{pyver}-oslo-rootwrap >= 5.8.0
+Requires:         python%{pyver}-oslo-utils >= 3.33.0
+Requires:         python%{pyver}-oslo-serialization >= 2.18.0
+Requires:         python%{pyver}-oslo-db >= 4.27.0
+Requires:         python%{pyver}-oslo-context >= 2.19.2
+Requires:         python%{pyver}-oslo-concurrency >= 3.26.0
+Requires:         python%{pyver}-oslo-middleware >= 3.31.0
+Requires:         python%{pyver}-taskflow >= 2.16.0
+Requires:         python%{pyver}-oslo-messaging >= 5.29.0
+Requires:         python%{pyver}-oslo-policy >= 1.30.0
+Requires:         python%{pyver}-oslo-reports >= 1.18.0
+Requires:         python%{pyver}-oslo-service >= 1.24.0
+Requires:         python%{pyver}-oslo-versionedobjects >= 1.31.2
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python2-osprofiler >= 1.4.0
+Requires:         python%{pyver}-osprofiler >= 1.4.0
+Requires:         python%{pyver}-oauth2client >= 1.5.0
+Requires:         python%{pyver}-oslo-log >= 3.36.0
+Requires:         python%{pyver}-oslo-i18n >= 3.15.3
+Requires:         python%{pyver}-barbicanclient >= 4.5.2
+Requires:         python%{pyver}-requests >= 2.14.2
+Requires:         python%{pyver}-pyparsing >= 2.1.0
+Requires:         python%{pyver}-pytz
 
+Requires:         python%{pyver}-keystonemiddleware >= 4.17.0
+Requires:         python%{pyver}-keystoneauth1 >= 3.4.0
+
+Requires:         python%{pyver}-oslo-privsep >= 1.23.0
+
+Requires:         python%{pyver}-cryptography >= 2.1
+
+Requires:         python%{pyver}-defusedxml >= 0.5.0
+
+# Handle python2 exception
+%if %{pyver} == 2
+Requires:         python-lxml >= 3.2.1
+Requires:         python-migrate >= 0.11.0
+Requires:         python-paste
+Requires:         python-paste-deploy
 Requires:         python-httplib2 >= 0.9.1
-Requires:         python2-oauth2client >= 1.5.0
-
-Requires:         python2-oslo-log >= 3.36.0
-Requires:         python2-oslo-i18n >= 3.15.3
-Requires:         python2-barbicanclient >= 4.5.2
-Requires:         python2-requests >= 2.14.2
 Requires:         python-retrying >= 1.2.3
-Requires:         python2-pyparsing >= 2.1.0
-Requires:         python2-pytz
 Requires:         python-decorator
 Requires:         python-enum34
 Requires:         python-ipaddress
+%else
+Requires:         python%{pyver}-lxml >= 3.2.1
+Requires:         python%{pyver}-migrate >= 0.11.0
+Requires:         python%{pyver}-paste
+Requires:         python%{pyver}-paste-deploy
+Requires:         python%{pyver}-httplib2 >= 0.9.1
+Requires:         python%{pyver}-retrying >= 1.2.3
+Requires:         python%{pyver}-decorator
+%endif
 
-Requires:         python2-keystonemiddleware >= 4.17.0
-Requires:         python2-keystoneauth1 >= 3.4.0
 
-Requires:         python2-oslo-privsep >= 1.23.0
-
-Requires:         python2-cryptography >= 2.1
-
-Requires:         python2-defusedxml >= 0.5.0
-
-%description -n   python-%{service}
+%description -n   python%{pyver}-%{service}
 %{common_desc}
 
 This package contains the %{service} Python library.
 
-%package -n python-%{service}-tests
+%package -n python%{pyver}-%{service}-tests
 Summary:        Cinder tests
+%{?python_provide:%python_provide python%{pyver}-%{service}-tests}
 Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 
 # Added test requirements
-Requires:       python2-hacking
-Requires:       python-anyjson
-Requires:       python2-ddt
-Requires:       python2-fixtures
-Requires:       python2-mock
-Requires:       python2-mox3
-Requires:       python2-oslotest
-Requires:       python2-subunit
-Requires:       python2-testtools
-Requires:       python2-testrepository
-Requires:       python2-testresources
-Requires:       python2-testscenarios
-Requires:       python2-os-testr
+Requires:       python%{pyver}-hacking
+Requires:       python%{pyver}-ddt
+Requires:       python%{pyver}-fixtures
+Requires:       python%{pyver}-mock
+Requires:       python%{pyver}-mox3
+Requires:       python%{pyver}-oslotest
+Requires:       python%{pyver}-subunit
+Requires:       python%{pyver}-testtools
+Requires:       python%{pyver}-testrepository
+Requires:       python%{pyver}-testresources
+Requires:       python%{pyver}-testscenarios
+Requires:       python%{pyver}-os-testr
 
-%description -n python-%{service}-tests
+# Handle python2 exception
+%if %{pyver} == 2
+Requires:       python-anyjson
+%else
+Requires:       python%{pyver}-anyjson
+%endif
+
+
+%description -n python%{pyver}-%{service}-tests
 %{common_desc}
 
 This package contains the Cinder test files.
@@ -236,18 +286,25 @@ Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
 
-BuildRequires:    python2-sphinx
-BuildRequires:    python2-openstackdocstheme
-BuildRequires:    python2-sphinxcontrib-apidoc
-BuildRequires:    python2-sphinx-feature-classification
+BuildRequires:    python%{pyver}-sphinx
+BuildRequires:    python%{pyver}-openstackdocstheme
+BuildRequires:    python%{pyver}-sphinxcontrib-apidoc
+BuildRequires:    python%{pyver}-sphinx-feature-classification
 # Required to build module documents
-BuildRequires:    python2-eventlet
-BuildRequires:    python2-routes
-BuildRequires:    python2-sqlalchemy
-BuildRequires:    python-webob
+BuildRequires:    python%{pyver}-eventlet
+BuildRequires:    python%{pyver}-routes
+BuildRequires:    python%{pyver}-sqlalchemy
+BuildRequires:    python%{pyver}-webob
 # while not strictly required, quiets the build down when building docs.
+BuildRequires:    python%{pyver}-iso8601 >= 0.1.9
+
+# Handle python2 exception
+%if %{pyver} == 2
 BuildRequires:    python-migrate
-BuildRequires:    python2-iso8601 >= 0.1.9
+%else
+BuildRequires:    python%{pyver}-migrate
+%endif
+
 
 %description      doc
 %{common_desc}
@@ -261,6 +318,7 @@ This package contains documentation files for %{service}.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+sed -i 's/\/usr\/bin\/env python/\/usr\/bin\/env python%{pyver}/' tools/generate_driver_list.py
 
 sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
@@ -270,28 +328,28 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=tools/config/%{service}-config-generator.conf
+PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=tools/config/%{service}-config-generator.conf
 
 # Build
-%{__python2} setup.py build
+%{pyver_build}
 
 # Generate i18n files
 # (amoralej) we can remove '-D cinder' once https://review.openstack.org/#/c/439501/ is merged
-%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale -D cinder
+%{pyver_bin} setup.py compile_catalog -d build/lib/%{service}/locale -D cinder
 
 %install
-%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
+%{pyver_install}
 
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
 %if 0%{?with_doc}
 # FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
-sphinx-build -b html doc/source doc/build/html
+sphinx-build-%{pyver} -b html doc/source doc/build/html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
 # FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
-sphinx-build -b man doc/source doc/build/man
+sphinx-build-%{pyver} -b man doc/source doc/build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %endif
@@ -338,9 +396,9 @@ done
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*/LC_*/%{service}*po
-rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*pot
-mv %{buildroot}%{python2_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*/LC_*/%{service}*po
+rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*pot
+mv %{buildroot}%{pyver_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
 %find_lang %{service} --all-name
@@ -408,18 +466,18 @@ exit 0
 %dir %{_sharedstatedir}/%{service}
 %dir %{_sharedstatedir}/%{service}/tmp
 
-%files -n python-%{service} -f %{service}.lang
+%files -n python%{pyver}-%{service} -f %{service}.lang
 %{?!_licensedir: %global license %%doc}
 %license LICENSE
-%{python2_sitelib}/%{service}
-%{python2_sitelib}/%{service}-*.egg-info
-%exclude %{python2_sitelib}/%{service}/test.py
-%exclude %{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}
+%{pyver_sitelib}/%{service}-*.egg-info
+%exclude %{pyver_sitelib}/%{service}/test.py
+%exclude %{pyver_sitelib}/%{service}/tests
 
-%files -n python-%{service}-tests
+%files -n python%{pyver}-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/%{service}/test.py
-%{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}/test.py
+%{pyver_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
 %files doc
@@ -427,3 +485,4 @@ exit 0
 %endif
 
 %changelog
+
