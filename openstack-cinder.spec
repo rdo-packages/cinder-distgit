@@ -366,6 +366,7 @@ install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/%{service}/%{service}-di
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}/volumes
 install -p -D -m 640 etc/%{service}/rootwrap.conf %{buildroot}%{_sysconfdir}/%{service}/rootwrap.conf
 install -p -D -m 640 etc/%{service}/api-paste.ini %{buildroot}%{_sysconfdir}/%{service}/api-paste.ini
+install -p -D -m 640 etc/%{service}/resource_filters.json %{buildroot}%{_sysconfdir}/%{service}/resource_filters.json
 install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
 
 # Install initscripts for services
@@ -446,6 +447,7 @@ exit 0
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/rootwrap.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/resource_filters.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-%{service}
 %config(noreplace) %{_sysconfdir}/sudoers.d/%{service}
 %{_sysconfdir}/%{service}/rootwrap.d/
