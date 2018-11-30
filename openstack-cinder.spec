@@ -119,7 +119,11 @@ Requires:         python%{pyver}-pbr
 # as convenience
 Requires:         python%{pyver}-cinderclient
 
+%if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
+%else
+%{?systemd_ordering} # does not exist on EL7
+%endif
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
