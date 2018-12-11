@@ -30,6 +30,8 @@ License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
+# patches_ignore=DROP-IN-RPM
+
 Source1:          %{service}-dist.conf
 Source2:          %{service}.logrotate
 
