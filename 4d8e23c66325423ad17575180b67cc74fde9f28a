@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ad32947_364e38c2",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 181
+      },
+      "writtenOn": "2018-12-18T16:44:38Z",
+      "side": 1,
+      "message": "Here\u0027s a \"funny\" story...  Drivers also need:\n\n- cinder/db\n- cinder/utils\n- cinder/objects\n- cinder/i18n.py\n- cinder/privsep\n- cinder/brick\n- cinder/context\n- cinder/flow_utils\n- cinder/volume\n- cinder/compute\n- cinder/coordination\n- cinder/exception.py\n- cinder/ssh_utils.py\n- cinder/version.py\n- etc...",
+      "revId": "4d8e23c66325423ad17575180b67cc74fde9f28a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
