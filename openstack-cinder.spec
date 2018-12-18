@@ -154,6 +154,8 @@ Summary:          OpenStack Volume Python libraries
 %{?python_provide:%python_provide python%{pyver}-%{service}}
 Group:            Applications/System
 
+Requires:         python%{pyver}-cinder-common = %{epoch}:%{version}-%{release}
+
 Requires:         sudo
 
 Requires:         qemu-img
@@ -250,6 +252,24 @@ Requires:         python%{pyver}-decorator
 %{common_desc}
 
 This package contains the %{service} Python library.
+
+
+%package -n python%{pyver}-cinder-common
+# This package contains Cinder python code, but does not track dependencies
+# for all of Cinder.  Dependencies here are intended only to make it possible
+# to load and use Cinder drivers and not the Cinder service.
+Summary:        Cinder common code
+
+%{?python_provide:%python_provide python%{pyver}-cinder-common}
+
+Requires:         python%{pyver}-castellan >= 0.16.0
+Requires:         python%{pyver}-oslo-config >= 2:5.2.0
+
+
+%description -n   python%{pyver}-cinder-common
+Common code for Cinder.
+
+
 
 %package -n python%{pyver}-%{service}-tests
 Summary:        Cinder tests
@@ -476,6 +496,9 @@ exit 0
 
 %files -n python%{pyver}-%{service} -f %{service}.lang
 %{?!_licensedir: %global license %%doc}
+%license LICENSE
+
+%files -n python%{pyver}-%{service}-common
 %license LICENSE
 %{pyver_sitelib}/%{service}
 %{pyver_sitelib}/%{service}-*.egg-info
