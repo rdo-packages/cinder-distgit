@@ -16,6 +16,24 @@
       "revId": "4d8e23c66325423ad17575180b67cc74fde9f28a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ad32947_b69ec805",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 75
+      },
+      "writtenOn": "2018-12-18T17:33:32Z",
+      "side": 1,
+      "message": "Hmm, maybe just making a -drivers package is the wrong approach.\n\nPerhaps we need a python-cinder-common (?) package that has all of this stuff in it but doesn\u0027t depend on much, leave the deps in python-cinder with depends on -common, and have both python-cinder and python-cinder-drivers depend on -common.\n\nThis could let us handle including all of the right code for -drivers without having to move code around upstream...",
+      "parentUuid": "7ad32947_364e38c2",
+      "revId": "4d8e23c66325423ad17575180b67cc74fde9f28a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
