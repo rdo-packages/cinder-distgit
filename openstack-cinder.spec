@@ -150,6 +150,8 @@ Summary:          OpenStack Volume Python libraries
 %{?python_provide:%python_provide python%{pyver}-%{service}}
 Group:            Applications/System
 
+Requires:         python%{pyver}-cinder-drivers = %{epoch}:%{version}-%{release}
+
 Requires:         sudo
 
 Requires:         qemu-img
@@ -246,6 +248,20 @@ Requires:         python%{pyver}-decorator
 %{common_desc}
 
 This package contains the %{service} Python library.
+
+
+%package -n python%{pyver}-cinder-drivers
+Summary:        Cinder drivers
+
+%{?python_provide:%python_provide python%{pyver}-cinder-drivers}
+
+Requires:       python%{pyver}-castellan >= 0.16.0
+
+
+%description -n   python%{pyver}-cinder-drivers
+Volume drivers for Cinder.
+
+
 
 %package -n python%{pyver}-%{service}-tests
 Summary:        Cinder tests
@@ -477,6 +493,13 @@ exit 0
 %{pyver_sitelib}/%{service}-*.egg-info
 %exclude %{pyver_sitelib}/%{service}/test.py
 %exclude %{pyver_sitelib}/%{service}/tests
+%exclude %{pyver_sitelib}/%{service}/volume/driver.py
+%exclude %{pyver_sitelib}/%{service}/volume/drivers
+
+%files -n python%{pyver}-%{service}-drivers
+%license LICENSE
+%{pyver_sitelib}/%{service}/volume/driver.py
+%{pyver_sitelib}/%{service}/volume/drivers
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
