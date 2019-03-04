@@ -16,6 +16,24 @@
       "revId": "d40fc5368b883ee874178f0972be41f72c565f89",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6456538c_df0c66cc",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 586
+      },
+      "writtenOn": "2019-03-04T22:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d188547_6de023da",
+      "revId": "d40fc5368b883ee874178f0972be41f72c565f89",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
