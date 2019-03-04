@@ -57,7 +57,7 @@ BuildRequires:    openstack-macros
 BuildRequires:    python%{pyver}-cursive
 BuildRequires:    python%{pyver}-google-api-client >= 1.4.2
 BuildRequires:    python%{pyver}-keystonemiddleware
-BuildRequires:    python%{pyver}-glanceclient >= 2.8.0
+BuildRequires:    python%{pyver}-glanceclient >= 2.13.1
 BuildRequires:    python%{pyver}-novaclient >= 9.1.0
 BuildRequires:    python%{pyver}-swiftclient >= 3.2.0
 BuildRequires:    python%{pyver}-oslo-db
@@ -176,7 +176,7 @@ Requires:         python%{pyver}-sqlalchemy >= 1.0.10
 Requires:         python%{pyver}-routes >= 2.3.1
 Requires:         python%{pyver}-webob >= 1.7.1
 
-Requires:         python%{pyver}-glanceclient >= 1:2.8.0
+Requires:         python%{pyver}-glanceclient >= 1:2.13.1
 Requires:         python%{pyver}-swiftclient >= 3.2.0
 Requires:         python%{pyver}-keystoneclient >= 1:3.8.0
 Requires:         python%{pyver}-novaclient >= 9.1.0
