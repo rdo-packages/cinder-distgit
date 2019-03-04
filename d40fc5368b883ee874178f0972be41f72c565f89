@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d188547_6de023da",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 75
+      },
+      "writtenOn": "2019-03-04T22:23:05Z",
+      "side": 1,
+      "message": "You have to bump the release here and adjust the changelog below.  (Unlike on master.)",
+      "revId": "d40fc5368b883ee874178f0972be41f72c565f89",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
