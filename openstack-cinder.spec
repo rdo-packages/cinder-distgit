@@ -48,7 +48,7 @@ BuildRequires:    openstack-macros
 BuildRequires:    python2-cursive
 BuildRequires:    python2-google-api-client >= 1.4.2
 BuildRequires:    python2-keystonemiddleware
-BuildRequires:    python2-glanceclient >= 2.8.0
+BuildRequires:    python2-glanceclient >= 2.13.1
 BuildRequires:    python2-novaclient >= 9.1.0
 BuildRequires:    python2-swiftclient >= 3.2.0
 BuildRequires:    python2-oslo-db
@@ -147,7 +147,7 @@ Requires:         python-paste-deploy
 Requires:         python2-routes >= 2.3.1
 Requires:         python-webob >= 1.7.1
 
-Requires:         python2-glanceclient >= 1:2.8.0
+Requires:         python2-glanceclient >= 1:2.13.1
 Requires:         python2-swiftclient >= 3.2.0
 Requires:         python2-keystoneclient >= 1:3.8.0
 Requires:         python2-novaclient >= 9.1.0
