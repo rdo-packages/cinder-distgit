@@ -261,21 +261,13 @@ Requires:       python%{pyver}-hacking
 Requires:       python%{pyver}-ddt
 Requires:       python%{pyver}-fixtures
 Requires:       python%{pyver}-mock
-Requires:       python%{pyver}-mox3
 Requires:       python%{pyver}-oslotest
 Requires:       python%{pyver}-subunit
 Requires:       python%{pyver}-testtools
 Requires:       python%{pyver}-testrepository
 Requires:       python%{pyver}-testresources
 Requires:       python%{pyver}-testscenarios
-Requires:       python%{pyver}-os-testr
-
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       python-anyjson
-%else
-Requires:       python%{pyver}-anyjson
-%endif
+Requires:       python%{pyver}-stestr
 
 
 %description -n python%{pyver}-%{service}-tests
