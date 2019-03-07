@@ -122,7 +122,7 @@ Requires:         sudo
 
 Requires:         qemu-img
 Requires:         sysfsutils
-Requires:         os-brick >= 2.1.1
+Requires:         os-brick >= 2.5.0
 Requires:         python2-paramiko >= 2.0
 Requires:         python-simplejson >= 3.5.1
 Requires:         python2-jsonschema >= 2.6.0
