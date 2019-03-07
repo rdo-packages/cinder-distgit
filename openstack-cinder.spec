@@ -226,7 +226,7 @@ Requires:         python%{pyver}-defusedxml >= 0.5.0
 
 # Handle python2 exception
 %if %{pyver} == 2
-Requires:         python-lxml >= 3.2.1
+Requires:         python-lxml >= 3.4.1
 Requires:         python-migrate >= 0.11.0
 Requires:         python-paste
 Requires:         python-paste-deploy
@@ -236,7 +236,7 @@ Requires:         python-decorator
 Requires:         python-enum34
 Requires:         python-ipaddress
 %else
-Requires:         python%{pyver}-lxml >= 3.2.1
+Requires:         python%{pyver}-lxml >= 3.4.1
 Requires:         python%{pyver}-migrate >= 0.11.0
 Requires:         python%{pyver}-paste
 Requires:         python%{pyver}-paste-deploy
