@@ -166,6 +166,7 @@ Requires:         python%{pyver}-oslo-vmware >= 2.17.0
 
 Requires:         python%{pyver}-castellan >= 0.16.0
 Requires:         python%{pyver}-cursive >= 0.2.1
+Requires:         python%{pyver}-etcd3gw
 Requires:         python%{pyver}-eventlet >= 0.18.2
 Requires:         python%{pyver}-greenlet >= 0.4.10
 Requires:         python%{pyver}-iso8601 >= 0.1.11
