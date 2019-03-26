@@ -10,8 +10,8 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          13.0.3
-Release:          2%{?dist}
+Version:          13.0.4
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -431,6 +431,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Mar 26 2019 RDO <dev@lists.rdoproject.org> 1:13.0.4-1
+- Update to 13.0.4
+
 * Mon Mar 04 2019 Brian Rosmaita <rosmaita.fossdev@gmail.com> 1:13.0.3-2
 - Updated version of glanceclient to current stable/rocky release (2.13.1)
 
