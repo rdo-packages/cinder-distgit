@@ -157,12 +157,9 @@ Requires:         sudo
 
 Requires:         qemu-img >= 2.10.0
 Requires:         sysfsutils
-Requires:         python%{pyver}-os-brick >= 2.8.0
 Requires:         python%{pyver}-paramiko >= 2.0
 Requires:         python%{pyver}-simplejson >= 3.5.1
 Requires:         python%{pyver}-jsonschema >= 2.6.0
-Requires:         python%{pyver}-os-win >= 3.0.0
-Requires:         python%{pyver}-oslo-vmware >= 2.17.0
 
 Requires:         python%{pyver}-castellan >= 0.16.0
 Requires:         python%{pyver}-cursive >= 0.2.1
@@ -178,48 +175,49 @@ Requires:         python%{pyver}-sqlalchemy >= 1.0.10
 Requires:         python%{pyver}-routes >= 2.3.1
 Requires:         python%{pyver}-webob >= 1.7.1
 
+Requires:         python%{pyver}-barbicanclient >= 4.5.2
 Requires:         python%{pyver}-glanceclient >= 1:2.15.0
-Requires:         python%{pyver}-swiftclient >= 3.2.0
 Requires:         python%{pyver}-keystoneclient >= 1:3.8.0
 Requires:         python%{pyver}-novaclient >= 9.1.0
+Requires:         python%{pyver}-swiftclient >= 3.2.0
 
-Requires:         python%{pyver}-oslo-config >= 2:5.2.0
 Requires:         python%{pyver}-six >= 1.10.0
 Requires:         python%{pyver}-psutil >= 3.2.2
 
 Requires:         python%{pyver}-babel
 Requires:         python%{pyver}-google-api-client >= 1.4.2
 
-Requires:         python%{pyver}-oslo-rootwrap >= 5.8.0
-Requires:         python%{pyver}-oslo-utils >= 3.34.0
-Requires:         python%{pyver}-oslo-serialization >= 2.18.0
-Requires:         python%{pyver}-oslo-db >= 4.27.0
-Requires:         python%{pyver}-oslo-context >= 2.19.2
+Requires:         python%{pyver}-keystonemiddleware >= 4.17.0
+Requires:         python%{pyver}-keystoneauth1 >= 3.7.0
+Requires:         python%{pyver}-osprofiler >= 1.4.0
+Requires:         python%{pyver}-os-brick >= 2.8.0
+Requires:         python%{pyver}-os-win >= 3.0.0
+Requires:         python%{pyver}-oslo-config >= 2:5.2.0
 Requires:         python%{pyver}-oslo-concurrency >= 3.26.0
+Requires:         python%{pyver}-oslo-context >= 2.19.2
+Requires:         python%{pyver}-oslo-db >= 4.27.0
+Requires:         python%{pyver}-oslo-i18n >= 3.15.3
+Requires:         python%{pyver}-oslo-log >= 3.36.0
 Requires:         python%{pyver}-oslo-middleware >= 3.31.0
-Requires:         python%{pyver}-taskflow >= 3.2.0
 Requires:         python%{pyver}-oslo-messaging >= 6.4.0
 Requires:         python%{pyver}-oslo-policy >= 1.44.1
+Requires:         python%{pyver}-oslo-privsep >= 1.32.0
 Requires:         python%{pyver}-oslo-reports >= 1.18.0
+Requires:         python%{pyver}-oslo-rootwrap >= 5.8.0
+Requires:         python%{pyver}-oslo-serialization >= 2.18.0
 Requires:         python%{pyver}-oslo-service >= 1.24.0
 Requires:         python%{pyver}-oslo-upgradecheck >= 0.1.0
+Requires:         python%{pyver}-oslo-utils >= 3.34.0
 Requires:         python%{pyver}-oslo-versionedobjects >= 1.31.2
+Requires:         python%{pyver}-oslo-vmware >= 2.17.0
+Requires:         python%{pyver}-taskflow >= 3.2.0
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python%{pyver}-osprofiler >= 1.4.0
 Requires:         python%{pyver}-oauth2client >= 1.5.0
-Requires:         python%{pyver}-oslo-log >= 3.36.0
-Requires:         python%{pyver}-oslo-i18n >= 3.15.3
-Requires:         python%{pyver}-barbicanclient >= 4.5.2
 Requires:         python%{pyver}-requests >= 2.14.2
 Requires:         python%{pyver}-pyparsing >= 2.1.0
 Requires:         python%{pyver}-pytz
-
-Requires:         python%{pyver}-keystonemiddleware >= 4.17.0
-Requires:         python%{pyver}-keystoneauth1 >= 3.7.0
-
-Requires:         python%{pyver}-oslo-privsep >= 1.32.0
 
 Requires:         python%{pyver}-cryptography >= 2.1
 
