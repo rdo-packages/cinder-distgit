@@ -10,7 +10,7 @@ Name:             openstack-cinder
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          11.2.1
+Version:          11.2.2
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -420,6 +420,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Apr 12 2019 RDO <dev@lists.rdoproject.org> 1:11.2.2-1
+- Update to 11.2.2
+
 * Tue Mar 26 2019 RDO <dev@lists.rdoproject.org> 1:11.2.1-1
 - Update to 11.2.1
 
