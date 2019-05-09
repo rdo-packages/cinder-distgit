@@ -10,7 +10,7 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          12.0.6
+Version:          12.0.7
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -422,6 +422,9 @@ exit 0
 %endif
 
 %changelog
+* Thu May 09 2019 RDO <dev@lists.rdoproject.org> 1:12.0.7-1
+- Update to 12.0.7
+
 * Tue Mar 26 2019 RDO <dev@lists.rdoproject.org> 1:12.0.6-1
 - Update to 12.0.6
 
