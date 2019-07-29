@@ -11,8 +11,7 @@
 %global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-# Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
-%global with_doc %{!?_without_doc:0}%{?_without_doc:1}
+%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global service cinder
 
 %global common_desc \
@@ -66,6 +65,7 @@ BuildRequires:    python%{pyver}-oslo-config >= 2:5.2.0
 BuildRequires:    python%{pyver}-oslo-policy
 BuildRequires:    python%{pyver}-oslo-privsep
 BuildRequires:    python%{pyver}-oslo-reports
+BuildRequires:    python%{pyver}-oslo-upgradecheck
 BuildRequires:    python%{pyver}-oslotest
 BuildRequires:    python%{pyver}-oslo-utils
 BuildRequires:    python%{pyver}-oslo-versionedobjects
