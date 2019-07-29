@@ -11,7 +11,8 @@
 %global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-%global with_doc %{!?_without_doc:1}%{?_without_doc:0}
+# Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
+%global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
 
 %global common_desc \
