@@ -486,3 +486,4 @@ exit 0
 
 %changelog
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/cinder/commit/?id=af54266a8848b109d67f719744aab0189061c952
