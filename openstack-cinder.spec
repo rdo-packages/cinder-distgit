@@ -11,7 +11,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          12.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -408,11 +408,13 @@ exit 0
 %license LICENSE
 %{python2_sitelib}/%{service}
 %{python2_sitelib}/%{service}-*.egg-info
+%exclude %{python2_sitelib}/%{service}/hacking
 %exclude %{python2_sitelib}/%{service}/test.py
 %exclude %{python2_sitelib}/%{service}/tests
 
 %files -n python-%{service}-tests
 %license LICENSE
+%{python2_sitelib}/%{service}/hacking
 %{python2_sitelib}/%{service}/test.py
 %{python2_sitelib}/%{service}/tests
 
@@ -422,6 +424,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Nov 18 2019 Eric Harney <eharney@redhat.com> 1:12.0.10-2
+- Exclude tests from service RPM
+
 * Thu Oct 24 2019 RDO <dev@lists.rdoproject.org> 1:12.0.10-1
 - Update to 12.0.10
 
