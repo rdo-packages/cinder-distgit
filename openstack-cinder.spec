@@ -23,7 +23,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          14.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -474,11 +474,13 @@ exit 0
 %license LICENSE
 %{pyver_sitelib}/%{service}
 %{pyver_sitelib}/%{service}-*.egg-info
+%exclude %{pyver_sitelib}/%{service}/hacking
 %exclude %{pyver_sitelib}/%{service}/test.py
 %exclude %{pyver_sitelib}/%{service}/tests
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
+%{pyver_sitelib}/%{service}/hacking
 %{pyver_sitelib}/%{service}/test.py
 %{pyver_sitelib}/%{service}/tests
 
@@ -488,6 +490,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Oct 22 2019 Eric Harney <eharney@redhat.com> 1:14.0.2-2
+- Exclude tests from service RPM
+
 * Fri Oct 04 2019 RDO <dev@lists.rdoproject.org> 1:14.0.2-1
 - Update to 14.0.2
 
