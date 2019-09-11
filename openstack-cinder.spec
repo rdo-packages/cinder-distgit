@@ -471,11 +471,13 @@ exit 0
 %license LICENSE
 %{pyver_sitelib}/%{service}
 %{pyver_sitelib}/%{service}-*.egg-info
+%exclude %{pyver_sitelib}/%{service}/hacking
 %exclude %{pyver_sitelib}/%{service}/test.py
 %exclude %{pyver_sitelib}/%{service}/tests
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
+%{pyver_sitelib}/%{service}/hacking
 %{pyver_sitelib}/%{service}/test.py
 %{pyver_sitelib}/%{service}/tests
 
