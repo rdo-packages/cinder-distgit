@@ -136,12 +136,12 @@ Requires:         python%{pyver}-osprofiler
 Requires:         python-rtslib
 Requires:         python-pyudev
 # required for cinder-manage
-Requires:         python-prettytable >= 0.7.2
+Requires:         python-prettytable >= 0.7.1
 %else
 Requires:         python%{pyver}-rtslib
 Requires:         python%{pyver}-pyudev
 # required for cinder-manage
-Requires:         python%{pyver}-prettytable >= 0.7.2
+Requires:         python%{pyver}-prettytable >= 0.7.1
 %endif
 
 
@@ -158,14 +158,14 @@ Requires:         sudo
 
 Requires:         qemu-img >= 2.10.0
 Requires:         sysfsutils
-Requires:         python%{pyver}-paramiko >= 2.0
+Requires:         python%{pyver}-paramiko >= 2.0.0
 Requires:         python%{pyver}-simplejson >= 3.5.1
 Requires:         python%{pyver}-jsonschema >= 2.6.0
 
 Requires:         python%{pyver}-castellan >= 0.16.0
 Requires:         python%{pyver}-cursive >= 0.2.1
 Requires:         python%{pyver}-etcd3gw
-Requires:         python%{pyver}-eventlet >= 0.18.2
+Requires:         python%{pyver}-eventlet >= 0.22.0
 Requires:         python%{pyver}-greenlet >= 0.4.10
 Requires:         python%{pyver}-iso8601 >= 0.1.11
 Requires:         python%{pyver}-stevedore >= 1.20.0
@@ -178,7 +178,7 @@ Requires:         python%{pyver}-webob >= 1.7.1
 
 Requires:         python%{pyver}-barbicanclient >= 4.5.2
 Requires:         python%{pyver}-glanceclient >= 1:2.15.0
-Requires:         python%{pyver}-keystoneclient >= 1:3.8.0
+Requires:         python%{pyver}-keystoneclient >= 1:3.15.0
 Requires:         python%{pyver}-novaclient >= 9.1.0
 Requires:         python%{pyver}-swiftclient >= 3.2.0
 
@@ -188,7 +188,7 @@ Requires:         python%{pyver}-psutil >= 3.2.2
 Requires:         python%{pyver}-babel
 Requires:         python%{pyver}-google-api-client >= 1.4.2
 
-Requires:         python%{pyver}-keystonemiddleware >= 4.17.0
+Requires:         python%{pyver}-keystonemiddleware >= 4.21.0
 Requires:         python%{pyver}-keystoneauth1 >= 3.7.0
 Requires:         python%{pyver}-osprofiler >= 1.4.0
 Requires:         python%{pyver}-os-brick >= 2.8.0
