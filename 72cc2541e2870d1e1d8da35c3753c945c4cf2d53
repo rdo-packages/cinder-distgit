@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83248da5_183491a5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-09-25T09:50:44Z",
+      "side": 1,
+      "message": "2.8.0 was explictly done here, so don\u0027t downgrade it.",
+      "range": {
+        "startLine": 194,
+        "startChar": 45,
+        "endLine": 194,
+        "endChar": 50
+      },
+      "revId": "72cc2541e2870d1e1d8da35c3753c945c4cf2d53",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
