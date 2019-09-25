@@ -22,6 +22,46 @@
       "revId": "72cc2541e2870d1e1d8da35c3753c945c4cf2d53",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c4c755b_0e77d085",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-09-25T10:39:55Z",
+      "side": 1,
+      "message": "We use lxml from centos7 base repos which includes 3.2.1 and will not update unless there are known issues (it\u0027s passing ci so far), so let\u0027s keep 3.2.1 as minimal version.",
+      "range": {
+        "startLine": 229,
+        "startChar": 32,
+        "endLine": 229,
+        "endChar": 38
+      },
+      "revId": "72cc2541e2870d1e1d8da35c3753c945c4cf2d53",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8966d68e_4418eb7c",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-09-25T10:39:55Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "72cc2541e2870d1e1d8da35c3753c945c4cf2d53",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
