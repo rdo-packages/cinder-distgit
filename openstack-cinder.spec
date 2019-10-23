@@ -185,7 +185,6 @@ Requires:         python%{pyver}-swiftclient >= 3.2.0
 Requires:         python%{pyver}-six >= 1.10.0
 Requires:         python%{pyver}-psutil >= 3.2.2
 
-Requires:         python%{pyver}-babel
 Requires:         python%{pyver}-google-api-client >= 1.4.2
 
 Requires:         python%{pyver}-keystonemiddleware >= 4.21.0
