@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5f408c7_12c6d6b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2019-11-04T14:05:45Z",
+      "side": 1,
+      "message": "log_dir",
+      "range": {
+        "startLine": 7,
+        "startChar": 32,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "4e7a4c8269a355d87579dc9aa7d79c4eb70d7ac6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "125bf258_0ef6fe91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2019-11-04T14:05:45Z",
+      "side": 1,
+      "message": "log_dir",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "4e7a4c8269a355d87579dc9aa7d79c4eb70d7ac6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dc54c08_9e336557",
+        "filename": "cinder-dist.conf",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2019-11-04T14:05:45Z",
+      "side": 1,
+      "message": "log_dir",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 7
+      },
+      "revId": "4e7a4c8269a355d87579dc9aa7d79c4eb70d7ac6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
