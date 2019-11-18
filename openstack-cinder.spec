@@ -49,7 +49,7 @@ BuildRequires:    python%{pyver}-devel
 BuildRequires:    python%{pyver}-setuptools
 BuildRequires:    python%{pyver}-netaddr
 BuildRequires:    systemd
-BuildRequires:    git
+BuildRequires:    git-core
 BuildRequires:    python%{pyver}-os-brick
 BuildRequires:    python%{pyver}-pyparsing
 BuildRequires:    python%{pyver}-pytz
