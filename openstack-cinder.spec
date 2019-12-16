@@ -98,6 +98,7 @@ BuildRequires:    python%{pyver}-testrepository
 BuildRequires:    python%{pyver}-testresources
 BuildRequires:    python%{pyver}-testscenarios
 BuildRequires:    python%{pyver}-os-testr
+BuildRequires:    python%{pyver}-tabulate
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -136,12 +137,9 @@ Requires:         python%{pyver}-osprofiler
 Requires:         python-rtslib
 Requires:         python-pyudev
 # required for cinder-manage
-Requires:         python-prettytable >= 0.7.1
 %else
 Requires:         python%{pyver}-rtslib
 Requires:         python%{pyver}-pyudev
-# required for cinder-manage
-Requires:         python%{pyver}-prettytable >= 0.7.1
 %endif
 
 
@@ -218,6 +216,7 @@ Requires:         python%{pyver}-oauth2client >= 1.5.0
 Requires:         python%{pyver}-requests >= 2.14.2
 Requires:         python%{pyver}-pyparsing >= 2.1.0
 Requires:         python%{pyver}-pytz
+Requires:         python%{pyver}-tabulate >= 0.8.5
 
 Requires:         python%{pyver}-cryptography >= 2.1
 
