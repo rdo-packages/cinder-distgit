@@ -22,8 +22,8 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          14.0.2
-Release:          2%{?dist}
+Version:          14.0.3
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -490,6 +490,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Jan 06 2020 RDO <dev@lists.rdoproject.org> 1:14.0.3-1
+- Update to 14.0.3
+
 * Tue Oct 22 2019 Eric Harney <eharney@redhat.com> 1:14.0.2-2
 - Exclude tests from service RPM
 
