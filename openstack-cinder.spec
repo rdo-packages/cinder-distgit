@@ -23,8 +23,8 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          15.0.0
-Release:          2%{?dist}
+Version:          15.0.1
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -485,6 +485,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Jan 06 2020 RDO <dev@lists.rdoproject.org> 1:15.0.1-1
+- Update to 15.0.1
+
 * Mon Nov 18 2019 Eric Harney <eharney@redhat.com> 1:15.0.0-2
 - Remove runtime dep on babel
 
