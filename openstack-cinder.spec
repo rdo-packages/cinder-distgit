@@ -281,7 +281,6 @@ Group:            Documentation
 Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
-
 BuildRequires:    python%{pyver}-sphinx
 BuildRequires:    python%{pyver}-openstackdocstheme
 BuildRequires:    python%{pyver}-sphinxcontrib-apidoc
@@ -483,4 +482,3 @@ exit 0
 %endif
 
 %changelog
-
