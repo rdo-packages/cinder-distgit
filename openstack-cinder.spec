@@ -1,15 +1,16 @@
-# Macros for py2/py3 compatibility
+# Macros to fail on py2
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global pyver %{python3_pkgversion}
 %else
-%global pyver 2
+%{error: There is no Python 2 support!}
+exit 1
 %endif
 
 %global pyver_bin python%{pyver}
 %global pyver_sitelib %python%{pyver}_sitelib
 %global pyver_install %py%{pyver}_install
 %global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
+
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
@@ -100,18 +101,10 @@ BuildRequires:    python%{pyver}-testscenarios
 BuildRequires:    python%{pyver}-os-testr
 BuildRequires:    python%{pyver}-tabulate
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-decorator
-BuildRequires:    python-lxml
-BuildRequires:    python-retrying
-BuildRequires:    python-rtslib
-%else
 BuildRequires:    python%{pyver}-decorator
 BuildRequires:    python%{pyver}-lxml
 BuildRequires:    python%{pyver}-retrying
 BuildRequires:    python%{pyver}-rtslib
-%endif
 
 
 Requires:         python%{pyver}-%{service} = %{epoch}:%{version}-%{release}
@@ -122,25 +115,15 @@ Requires:         python%{pyver}-pbr
 # as convenience
 Requires:         python%{pyver}-cinderclient
 
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
 %{?systemd_ordering} # does not exist on EL7
-%endif
 Requires(pre):    shadow-utils
 
 Requires:         lvm2
 Requires:         python%{pyver}-osprofiler
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-rtslib
-Requires:         python-pyudev
 # required for cinder-manage
-%else
 Requires:         python%{pyver}-rtslib
 Requires:         python%{pyver}-pyudev
-%endif
 
 
 %description
@@ -222,18 +205,6 @@ Requires:         python%{pyver}-cryptography >= 2.1
 
 Requires:         python%{pyver}-defusedxml >= 0.5.0
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-lxml >= 3.2.1
-Requires:         python-migrate >= 0.11.0
-Requires:         python-paste
-Requires:         python-paste-deploy
-Requires:         python-httplib2 >= 0.9.1
-Requires:         python-retrying >= 1.2.3
-Requires:         python-decorator
-Requires:         python-enum34
-Requires:         python-ipaddress
-%else
 Requires:         python%{pyver}-lxml >= 3.2.1
 Requires:         python%{pyver}-migrate >= 0.11.0
 Requires:         python%{pyver}-paste
@@ -241,7 +212,6 @@ Requires:         python%{pyver}-paste-deploy
 Requires:         python%{pyver}-httplib2 >= 0.9.1
 Requires:         python%{pyver}-retrying >= 1.2.3
 Requires:         python%{pyver}-decorator
-%endif
 
 
 %description -n   python%{pyver}-%{service}
@@ -293,12 +263,7 @@ BuildRequires:    python%{pyver}-webob
 # while not strictly required, quiets the build down when building docs.
 BuildRequires:    python%{pyver}-iso8601 >= 0.1.9
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-migrate
-%else
 BuildRequires:    python%{pyver}-migrate
-%endif
 
 
 %description      doc
