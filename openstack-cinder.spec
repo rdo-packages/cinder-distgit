@@ -154,6 +154,8 @@ Group:            Applications/System
 
 Requires:         sudo
 
+Requires:         cryptsetup
+Requires:         cracklib-dicts
 Requires:         qemu-img >= 2.10.0
 Requires:         sysfsutils
 Requires:         python%{pyver}-paramiko >= 2.0.0
