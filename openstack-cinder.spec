@@ -55,6 +55,7 @@ BuildRequires:    python%{pyver}-pyparsing
 BuildRequires:    python%{pyver}-pytz
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
+BuildRequires:    python3
 BuildRequires:    python%{pyver}-cursive
 BuildRequires:    python%{pyver}-google-api-client >= 1.4.2
 BuildRequires:    python%{pyver}-keystonemiddleware
@@ -325,7 +326,7 @@ sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=tools/config/%{service}-config-generator.conf
+PYTHONPATH=. oslo-config-generator-3 --config-file=tools/config/%{service}-config-generator.conf
 
 # Build
 %{pyver_build}
