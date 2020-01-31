@@ -157,7 +157,6 @@ Requires:         sudo
 Requires:         qemu-img >= 2.10.0
 Requires:         sysfsutils
 Requires:         python%{pyver}-paramiko >= 2.0.0
-Requires:         python%{pyver}-simplejson >= 3.5.1
 Requires:         python%{pyver}-jsonschema >= 2.6.0
 
 Requires:         python%{pyver}-castellan >= 0.16.0
