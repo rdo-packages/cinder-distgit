@@ -354,6 +354,7 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}/tmp
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}/groups
 install -d -m 755 %{buildroot}%{_localstatedir}/log/%{service}
 
 # Install config files
@@ -462,6 +463,7 @@ exit 0
 
 %defattr(-, %{service}, %{service}, -)
 %dir %{_sharedstatedir}/%{service}
+%dir %{_sharedstatedir}/%{service}/groups
 %dir %{_sharedstatedir}/%{service}/tmp
 
 %files -n python%{pyver}-%{service} -f %{service}.lang
