@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afeb8af3_9478d11b",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-05-04T04:35:17Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 46
+      },
+      "revId": "d984fc57b11a9d49f7d57ea093e0e1776fe6bfd3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91ae22ef_1a844dc4",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-05-04T04:35:17Z",
+      "side": 1,
+      "message": "not needed after https://opendev.org/openstack/cinder/commit/d4eb4a9ba18743a86813008d31b58c0f7acbaa95",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 37
+      },
+      "revId": "d984fc57b11a9d49f7d57ea093e0e1776fe6bfd3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
