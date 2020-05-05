@@ -423,12 +423,10 @@ exit 0
 %license LICENSE
 %{python3_sitelib}/%{service}
 %{python3_sitelib}/%{service}-*.egg-info
-%exclude %{python3_sitelib}/%{service}/test.py
 %exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests
 %license LICENSE
-%{python3_sitelib}/%{service}/test.py
 %{python3_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
