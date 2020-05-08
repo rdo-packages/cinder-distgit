@@ -1,4 +1,4 @@
-%global milestone .0rc2
+%global milestone .0rc3
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
@@ -13,14 +13,14 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          16.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          0.3%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-# patches_base=16.0.0.0rc2
+# patches_base=16.0.0.0rc3
 
 Source1:          %{service}-dist.conf
 Source2:          %{service}.logrotate
@@ -440,6 +440,9 @@ exit 0
 %endif
 
 %changelog
+* Fri May 08 2020 RDO <dev@lists.rdoproject.org> 1:16.0.0-0.3.0rc2
+- Update to 16.0.0.0rc3
+
 * Mon May 04 2020 RDO <dev@lists.rdoproject.org> 1:16.0.0-0.2.0rc1
 - Update to 16.0.0.0rc2
 
