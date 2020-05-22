@@ -90,8 +90,8 @@ BuildRequires:    python3-tabulate
 
 BuildRequires:    python3-decorator
 BuildRequires:    python3-lxml
-BuildRequires:    python3-retrying
 BuildRequires:    python3-rtslib
+BuildRequires:    python3-tenacity
 
 
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
@@ -200,7 +200,7 @@ Requires:         python3-migrate >= 0.11.0
 Requires:         python3-paste
 Requires:         python3-paste-deploy
 Requires:         python3-httplib2 >= 0.9.1
-Requires:         python3-retrying >= 1.2.3
+Requires:         python3-tenacity >= 6.0.0
 Requires:         python3-decorator
 
 
