@@ -23,8 +23,8 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          15.1.0
-Release:          2%{?dist}
+Version:          15.2.0
+Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -487,6 +487,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Jun 05 2020 RDO <dev@lists.rdoproject.org> 1:15.2.0-1
+- Update to 15.2.0
+
 * Tue Apr 07 2020 Luigi Toscano <ltoscano@redhat.com> 1:15.1.0-2
 - Add cryptsetup dependencies
 
