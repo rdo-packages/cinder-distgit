@@ -109,12 +109,9 @@ Requires:         python3-cinderclient
 %endif
 Requires(pre):    shadow-utils
 
-Requires:         lvm2
 Requires:         python3-osprofiler
 
-Requires:         python3-rtslib
 Requires:         python3-pyudev
-
 
 %description
 %{common_desc}
@@ -125,25 +122,17 @@ Summary:          OpenStack Volume Python libraries
 %{?python_provide:%python_provide python3-%{service}}
 Group:            Applications/System
 
-Requires:         sudo
+Requires:         python3-%{service}-common = %{epoch}:%{version}-%{release}
 
 Requires:         cryptsetup
 Requires:         cracklib-dicts
 Requires:         qemu-img >= 2.10.0
-Requires:         sysfsutils
-Requires:         python3-paramiko >= 2.4.0
 Requires:         python3-jsonschema >= 2.6.0
 
 Requires:         python3-castellan >= 1.3.0
 Requires:         python3-cursive >= 0.2.1
 Requires:         python3-etcd3gw
-Requires:         python3-eventlet >= 0.22.0
-Requires:         python3-greenlet >= 0.4.13
-Requires:         python3-iso8601 >= 0.1.11
-Requires:         python3-stevedore >= 1.31.0
-Requires:         python3-tooz >= 1.58.0
 
-Requires:         python3-sqlalchemy >= 1.3.0
 Requires:         python3-routes >= 2.3.1
 Requires:         python3-webob >= 1.7.1
 
@@ -153,39 +142,73 @@ Requires:         python3-keystoneclient >= 1:3.15.0
 Requires:         python3-novaclient >= 9.1.0
 Requires:         python3-swiftclient >= 3.2.0
 
-Requires:         python3-six >= 1.10.0
-Requires:         python3-psutil >= 3.2.2
-
 Requires:         python3-google-api-client >= 1.4.2
 
 Requires:         python3-keystonemiddleware >= 4.21.0
 Requires:         python3-keystoneauth1 >= 3.14.0
 Requires:         python3-osprofiler >= 1.4.0
-Requires:         python3-os-brick >= 3.1.0
+
 Requires:         python3-os-win >= 3.0.0
+
+Requires:         python3-oslo-middleware >= 3.31.0
+Requires:         python3-oslo-messaging >= 6.4.0
+Requires:         python3-oslo-policy >= 1.44.1
+Requires:         python3-oslo-reports >= 1.18.0
+Requires:         python3-oslo-upgradecheck >= 0.1.0
+Requires:         python3-oslo-vmware >= 2.35.0
+
+Requires:         python3-oauth2client >= 1.5.0
+
+Requires:         python3-paste
+Requires:         python3-paste-deploy
+
+%description -n   python3-%{service}
+%{common_desc}
+
+This package contains the %{service} Python library.
+
+%package -n python3-%{service}-common
+# This package contains Cinder python code, but does not track dependencies
+# for all of Cinder.  Dependencies here are intended only to make it possible
+# to load and use Cinder drivers and not the Cinder service.
+Summary:        Cinder common code
+%{?python_provide:%python_provide python3-%{service}-common}
+
+Requires:         sudo
+
+Requires:         sysfsutils
+Requires:         python3-paramiko >= 2.4.0
+
+Requires:         python3-eventlet >= 0.22.0
+Requires:         python3-greenlet >= 0.4.13
+Requires:         python3-iso8601 >= 0.1.11
+Requires:         python3-stevedore >= 1.31.0
+Requires:         python3-tooz >= 1.58.0
+
+Requires:         python3-sqlalchemy >= 1.3.0
+
+Requires:         python3-six >= 1.10.0
+Requires:         python3-psutil >= 3.2.2
+
+Requires:         python3-os-brick >= 3.1.0
 Requires:         python3-oslo-config >= 2:6.11.0
 Requires:         python3-oslo-concurrency >= 3.26.0
 Requires:         python3-oslo-context >= 2.23.0
 Requires:         python3-oslo-db >= 4.35.0
 Requires:         python3-oslo-i18n >= 3.24.0
 Requires:         python3-oslo-log >= 3.44.0
-Requires:         python3-oslo-middleware >= 3.31.0
-Requires:         python3-oslo-messaging >= 6.4.0
-Requires:         python3-oslo-policy >= 1.44.1
 Requires:         python3-oslo-privsep >= 1.32.0
-Requires:         python3-oslo-reports >= 1.18.0
 Requires:         python3-oslo-rootwrap >= 5.8.0
 Requires:         python3-oslo-serialization >= 2.18.0
 Requires:         python3-oslo-service >= 1.24.0
-Requires:         python3-oslo-upgradecheck >= 0.1.0
 Requires:         python3-oslo-utils >= 3.34.0
 Requires:         python3-oslo-versionedobjects >= 1.31.2
-Requires:         python3-oslo-vmware >= 2.35.0
+
+# Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 3.8.0
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python3-oauth2client >= 1.5.0
 Requires:         python3-requests >= 2.14.2
 Requires:         python3-pyparsing >= 2.2.1
 Requires:         python3-pytz
@@ -197,17 +220,17 @@ Requires:         python3-defusedxml >= 0.5.0
 
 Requires:         python3-lxml >= 4.2.0
 Requires:         python3-migrate >= 0.11.0
-Requires:         python3-paste
-Requires:         python3-paste-deploy
 Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-tenacity
 Requires:         python3-decorator
 
+# Required by LVM-LIO
+Requires:         lvm2
+Requires:         python3-rtslib
 
-%description -n   python3-%{service}
-%{common_desc}
 
-This package contains the %{service} Python library.
+%description -n   python3-%{service}-common
+Common code for Cinder.
 
 %package -n python3-%{service}-tests
 Summary:        Cinder tests
@@ -407,6 +430,7 @@ exit 0
 %dir %attr(0755, %{service}, root) %{_localstatedir}/run/%{service}
 %dir %attr(0755, %{service}, root) %{_sysconfdir}/%{service}/volumes
 
+%exclude %{_bindir}/%{service}-rtstool
 %{_bindir}/%{service}-*
 %{_unitdir}/*.service
 %{_datarootdir}/%{service}
@@ -418,11 +442,13 @@ exit 0
 %dir %{_sharedstatedir}/%{service}
 %dir %{_sharedstatedir}/%{service}/tmp
 
-%files -n python3-%{service} -f %{service}.lang
-%{?!_licensedir: %global license %%doc}
+%files -n python3-%{service}
+
+%files -n python3-%{service}-common -f %{service}.lang
 %license LICENSE
 %{python3_sitelib}/%{service}
 %{python3_sitelib}/%{service}-*.egg-info
+%{_bindir}/%{service}-rtstool
 %exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests
