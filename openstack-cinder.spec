@@ -80,6 +80,7 @@ BuildRequires:    python3-ddt
 BuildRequires:    python3-fixtures
 BuildRequires:    python3-mock
 BuildRequires:    python3-oslotest
+BuildRequires:    python3-packaging
 BuildRequires:    python3-subunit
 BuildRequires:    python3-testtools
 BuildRequires:    python3-testrepository
@@ -158,7 +159,7 @@ Requires:         python3-oslo-upgradecheck >= 0.1.0
 Requires:         python3-oslo-vmware >= 2.35.0
 
 Requires:         python3-oauth2client >= 1.5.0
-
+Requires:         python3-packaging
 Requires:         python3-paste
 Requires:         python3-paste-deploy
 
