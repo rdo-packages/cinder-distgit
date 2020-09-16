@@ -128,7 +128,7 @@ Requires:         python3-%{service}-common = %{epoch}:%{version}-%{release}
 Requires:         cryptsetup
 Requires:         cracklib-dicts
 Requires:         qemu-img >= 2.10.0
-Requires:         python3-jsonschema >= 2.6.0
+Requires:         python3-jsonschema >= 3.2.0
 
 Requires:         python3-castellan >= 1.3.0
 Requires:         python3-cursive >= 0.2.1
@@ -149,7 +149,7 @@ Requires:         python3-keystonemiddleware >= 4.21.0
 Requires:         python3-keystoneauth1 >= 3.14.0
 Requires:         python3-osprofiler >= 1.4.0
 
-Requires:         python3-os-win >= 3.0.0
+Requires:         python3-os-win >= 4.2.0
 
 Requires:         python3-oslo-middleware >= 3.31.0
 Requires:         python3-oslo-messaging >= 6.4.0
@@ -182,13 +182,13 @@ Requires:         python3-paramiko >= 2.4.0
 
 Requires:         python3-eventlet >= 0.22.0
 Requires:         python3-greenlet >= 0.4.13
-Requires:         python3-iso8601 >= 0.1.11
+Requires:         python3-iso8601 >= 0.1.12
 Requires:         python3-stevedore >= 1.31.0
 Requires:         python3-tooz >= 1.58.0
 
 Requires:         python3-sqlalchemy >= 1.3.0
 
-Requires:         python3-six >= 1.10.0
+Requires:         python3-six >= 1.11.0
 Requires:         python3-psutil >= 3.2.2
 
 Requires:         python3-os-brick >= 3.1.0
@@ -200,24 +200,25 @@ Requires:         python3-oslo-i18n >= 3.24.0
 Requires:         python3-oslo-log >= 3.44.0
 Requires:         python3-oslo-privsep >= 1.32.0
 Requires:         python3-oslo-rootwrap >= 5.8.0
-Requires:         python3-oslo-serialization >= 2.18.0
-Requires:         python3-oslo-service >= 1.24.0
-Requires:         python3-oslo-utils >= 3.34.0
+Requires:         python3-oslo-serialization >= 2.25.0
+Requires:         python3-oslo-service >= 2.0.0
+Requires:         python3-oslo-utils >= 3.40.2
 Requires:         python3-oslo-versionedobjects >= 1.31.2
+Requires:         python3-zstd >= 1.4.5.0
+Requires:         python3-importlib-metadata >= 1.7.0
 
 # Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 3.8.0
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python3-requests >= 2.14.2
+Requires:         python3-requests >= 2.18.0
 Requires:         python3-pyparsing >= 2.2.1
 Requires:         python3-pytz
 Requires:         python3-tabulate >= 0.8.5
 
-Requires:         python3-cryptography >= 2.1
+Requires:         python3-cryptography >= 2.1.4
 
-Requires:         python3-defusedxml >= 0.5.0
 
 Requires:         python3-lxml >= 4.2.0
 Requires:         python3-migrate >= 0.11.0
