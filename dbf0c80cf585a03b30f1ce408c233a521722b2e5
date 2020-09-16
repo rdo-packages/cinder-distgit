@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67c6c202_a3f9c625",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2020-09-16T14:00:22Z",
+      "side": 0,
+      "message": "jsonschema was bumped to support python 3.8:\n\nhttps://github.com/openstack/cinder/commit/84eb41d4e58aadd174d9fef936a9af968d79c569\n\nbut in centos8 we are still using 3.6 so i\u0027d keep using the version included in CentOS8, 2.6.0 as we try to override what comes from OS repos only when it\u0027s actually needed.",
+      "range": {
+        "startLine": 131,
+        "startChar": 18,
+        "endLine": 131,
+        "endChar": 45
+      },
+      "revId": "dbf0c80cf585a03b30f1ce408c233a521722b2e5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
