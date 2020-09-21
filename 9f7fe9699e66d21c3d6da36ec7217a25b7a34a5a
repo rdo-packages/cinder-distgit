@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d138887_29b2b78e",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-09-21T06:26:52Z",
+      "side": 1,
+      "message": "i see we recenty overridden zstd https://review.rdoproject.org/r/#/c/29414/1/buildsys-tags/cloud8-openstack-victoria-testing.yml instead cinder needs python3-zstd. So we need to add new dep in RDO for this and revertd zstd bump or zstd bump still needed with python-zstd?",
+      "range": {
+        "startLine": 207,
+        "startChar": 18,
+        "endLine": 207,
+        "endChar": 39
+      },
+      "revId": "9f7fe9699e66d21c3d6da36ec7217a25b7a34a5a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
