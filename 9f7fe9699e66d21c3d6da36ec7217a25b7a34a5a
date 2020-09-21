@@ -22,6 +22,30 @@
       "revId": "9f7fe9699e66d21c3d6da36ec7217a25b7a34a5a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89a3adb8_bcc419c3",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-09-21T13:08:12Z",
+      "side": 1,
+      "message": "amoralej has already added the new dep in RDO [1].\nDon\u0027t know if the zstd was bumped for the current patch.\n\n[1] https://review.rdoproject.org/r/#/c/29395/",
+      "parentUuid": "2d138887_29b2b78e",
+      "range": {
+        "startLine": 207,
+        "startChar": 18,
+        "endLine": 207,
+        "endChar": 39
+      },
+      "revId": "9f7fe9699e66d21c3d6da36ec7217a25b7a34a5a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
