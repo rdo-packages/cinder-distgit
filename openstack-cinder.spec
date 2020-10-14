@@ -1,4 +1,6 @@
 %global milestone .0rc2
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
@@ -30,9 +32,19 @@ Source11:         openstack-%{service}-scheduler.service
 Source12:         openstack-%{service}-volume.service
 Source13:         openstack-%{service}-backup.service
 Source20:         %{service}-sudoers
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 
 
 BuildArch:        noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+%endif
 BuildRequires:    intltool
 BuildRequires:    python3-pbr
 BuildRequires:    python3-reno
@@ -291,6 +303,10 @@ This package contains documentation files for %{service}.
 %endif
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n %{service}-%{upstream_version} -S git
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
@@ -466,6 +482,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Oct 14 2020 Joel Capitao <jcapitao@redhat.com> 1:17.0.0-0.2.0rc1
+- Enable sources tarball validation using GPG signature.
+
 * Thu Oct 08 2020 RDO <dev@lists.rdoproject.org> 1:17.0.0-0.2.0rc1
 - Update to 17.0.0.0rc2
 
