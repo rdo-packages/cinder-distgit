@@ -83,6 +83,7 @@ BuildRequires:    python3-oslo-i18n
 BuildRequires:    python3-barbicanclient
 BuildRequires:    python3-requests
 BuildRequires:    python3-defusedxml
+BuildRequires:    python3-boto3
 
 # Required to compile translation files
 BuildRequires:    python3-babel
@@ -218,6 +219,7 @@ Requires:         python3-oslo-utils >= 3.40.2
 Requires:         python3-oslo-versionedobjects >= 1.31.2
 Requires:         python3-zstd >= 1.4.5
 Requires:         python3-importlib-metadata >= 1.7.0
+Requires:         python3-boto3
 
 # Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 3.8.0
