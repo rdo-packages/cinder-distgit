@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87e6991e_d05270cd",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 586
+      },
+      "writtenOn": "2021-01-29T18:56:52Z",
+      "side": 1,
+      "message": "my dnf info shows this at version 1.11.17, while upstream testing has been using 1.16.x",
+      "range": {
+        "startLine": 222,
+        "startChar": 18,
+        "endLine": 222,
+        "endChar": 31
+      },
+      "revId": "cc1be057a3cf07ebe540d55aa997b8592a289e26",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
