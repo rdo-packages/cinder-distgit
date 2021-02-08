@@ -56,11 +56,11 @@ BuildRequires:    python3-pytz
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python3-cursive
-BuildRequires:    python3-google-api-client >= 1.4.2
+BuildRequires:    python3-google-api-client >= 1.11.0
 BuildRequires:    python3-keystonemiddleware
-BuildRequires:    python3-glanceclient >= 1:2.15.0
-BuildRequires:    python3-novaclient >= 9.1.0
-BuildRequires:    python3-swiftclient >= 3.2.0
+BuildRequires:    python3-glanceclient >= 1:3.2.2
+BuildRequires:    python3-novaclient >= 17.0.0
+BuildRequires:    python3-swiftclient >= 3.10.1
 BuildRequires:    python3-oslo-db
 BuildRequires:    python3-oslo-config >= 2:5.2.0
 BuildRequires:    python3-oslo-policy
@@ -141,37 +141,37 @@ Requires:         python3-%{service}-common = %{epoch}:%{version}-%{release}
 Requires:         cryptsetup
 Requires:         cracklib-dicts
 Requires:         qemu-img >= 2.10.0
-Requires:         python3-jsonschema >= 2.6.0
+Requires:         python3-jsonschema >= 3.2.0
 
-Requires:         python3-castellan >= 1.3.0
-Requires:         python3-cursive >= 0.2.1
+Requires:         python3-castellan >= 3.6.0
+Requires:         python3-cursive >= 0.2.2
 Requires:         python3-etcd3gw
 
-Requires:         python3-routes >= 2.3.1
-Requires:         python3-webob >= 1.7.1
+Requires:         python3-routes >= 2.4.1
+Requires:         python3-webob >= 1.8.6
 
-Requires:         python3-barbicanclient >= 4.9.0
-Requires:         python3-glanceclient >= 1:2.15.0
-Requires:         python3-keystoneclient >= 1:3.15.0
-Requires:         python3-novaclient >= 9.1.0
-Requires:         python3-swiftclient >= 3.2.0
+Requires:         python3-barbicanclient >= 5.0.1
+Requires:         python3-glanceclient >= 1:3.2.2
+Requires:         python3-keystoneclient >= 1:4.1.1
+Requires:         python3-novaclient >= 17.2.1
+Requires:         python3-swiftclient >= 3.10.1
 
-Requires:         python3-google-api-client >= 1.4.2
+Requires:         python3-google-api-client >= 1.11.0
 
-Requires:         python3-keystonemiddleware >= 4.21.0
-Requires:         python3-keystoneauth1 >= 3.14.0
-Requires:         python3-osprofiler >= 1.4.0
+Requires:         python3-keystonemiddleware >= 9.1.0
+Requires:         python3-keystoneauth1 >= 4.2.1
+Requires:         python3-osprofiler >= 3.4.0
 
-Requires:         python3-os-win >= 4.2.0
+Requires:         python3-os-win >= 5.1.0
 
-Requires:         python3-oslo-middleware >= 3.31.0
-Requires:         python3-oslo-messaging >= 6.4.0
-Requires:         python3-oslo-policy >= 1.44.1
-Requires:         python3-oslo-reports >= 1.18.0
-Requires:         python3-oslo-upgradecheck >= 0.1.0
-Requires:         python3-oslo-vmware >= 2.35.0
+Requires:         python3-oslo-middleware >= 4.1.1
+Requires:         python3-oslo-messaging >= 12.5.0
+Requires:         python3-oslo-policy >= 3.6.0
+Requires:         python3-oslo-reports >= 2.2.0
+Requires:         python3-oslo-upgradecheck >= 1.1.1
+Requires:         python3-oslo-vmware >= 3.7.0
 
-Requires:         python3-oauth2client >= 1.5.0
+Requires:         python3-oauth2client >= 4.1.3
 Requires:         python3-packaging
 Requires:         python3-paste
 Requires:         python3-paste-deploy
@@ -191,53 +191,53 @@ Summary:        Cinder common code
 Requires:         sudo
 
 Requires:         sysfsutils
-Requires:         python3-paramiko >= 2.7.1
+Requires:         python3-paramiko >= 2.7.2
 
-Requires:         python3-eventlet >= 0.25.0
-Requires:         python3-greenlet >= 0.4.13
+Requires:         python3-eventlet >= 0.26.1
+Requires:         python3-greenlet >= 0.4.16
 Requires:         python3-iso8601 >= 0.1.12
-Requires:         python3-stevedore >= 1.31.0
-Requires:         python3-tooz >= 1.58.0
+Requires:         python3-stevedore >= 3.2.2
+Requires:         python3-tooz >= 2.7.1
 
-Requires:         python3-sqlalchemy >= 1.3.0
+Requires:         python3-sqlalchemy >= 1.3.19
 
-Requires:         python3-six >= 1.11.0
-Requires:         python3-psutil >= 3.2.2
+Requires:         python3-six >= 1.15.0
+Requires:         python3-psutil >= 5.7.2
 
 Requires:         python3-os-brick >= 4.0.1
-Requires:         python3-oslo-config >= 2:6.11.0
-Requires:         python3-oslo-concurrency >= 3.26.0
-Requires:         python3-oslo-context >= 2.23.0
-Requires:         python3-oslo-db >= 6.0.0
-Requires:         python3-oslo-i18n >= 3.24.0
-Requires:         python3-oslo-log >= 3.44.0
-Requires:         python3-oslo-privsep >= 2.3.0
-Requires:         python3-oslo-rootwrap >= 5.8.0
-Requires:         python3-oslo-serialization >= 2.25.0
-Requires:         python3-oslo-service >= 2.0.0
-Requires:         python3-oslo-utils >= 3.40.2
-Requires:         python3-oslo-versionedobjects >= 1.31.2
-Requires:         python3-zstd >= 1.4.5
-Requires:         python3-importlib-metadata >= 1.7.0
+Requires:         python3-oslo-config >= 2:8.3.2
+Requires:         python3-oslo-concurrency >= 4.3.0
+Requires:         python3-oslo-context >= 3.1.1
+Requires:         python3-oslo-db >= 8.4.0
+Requires:         python3-oslo-i18n >= 5.0.1
+Requires:         python3-oslo-log >= 4.4.0
+Requires:         python3-oslo-privsep >= 2.4.0
+Requires:         python3-oslo-rootwrap >= 6.2.0
+Requires:         python3-oslo-serialization >= 4.0.1
+Requires:         python3-oslo-service >= 2.4.0
+Requires:         python3-oslo-utils >= 4.7.0
+Requires:         python3-oslo-versionedobjects >= 2.3.0
+Requires:         python3-zstd >= 1.4.5.1
+Requires:         python3-importlib-metadata >= 3.1.1
 Requires:         python3-boto3
 
 # Required by 3PAR and VNX as well as cinder flows
-Requires:         python3-taskflow >= 3.8.0
+Requires:         python3-taskflow >= 4.5.0
 
 Requires:         iscsi-initiator-utils
 
-Requires:         python3-requests >= 2.18.0
-Requires:         python3-pyparsing >= 2.2.1
+Requires:         python3-requests >= 2.23.0
+Requires:         python3-pyparsing >= 2.4.7
 Requires:         python3-pytz
-Requires:         python3-tabulate >= 0.8.5
+Requires:         python3-tabulate >= 0.8.7
 
-Requires:         python3-cryptography >= 2.1.4
+Requires:         python3-cryptography >= 3.1
 
 
-Requires:         python3-lxml >= 4.2.0
+Requires:         python3-lxml >= 4.5.2
 Requires:         python3-migrate >= 0.13.0
-Requires:         python3-httplib2 >= 0.9.1
-Requires:         python3-tenacity
+Requires:         python3-httplib2 >= 0.18.1
+Requires:         python3-tenacity >= 6.2.0
 Requires:         python3-decorator
 
 # Required by LVM-LIO
