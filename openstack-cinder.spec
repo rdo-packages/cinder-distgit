@@ -56,7 +56,7 @@ BuildRequires:    python3-pytz
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python3-cursive
-BuildRequires:    python3-google-api-client >= 1.11.0
+BuildRequires:    python3-google-api-client
 BuildRequires:    python3-keystonemiddleware
 BuildRequires:    python3-glanceclient >= 1:3.2.2
 BuildRequires:    python3-novaclient >= 17.0.0
@@ -156,7 +156,7 @@ Requires:         python3-keystoneclient >= 1:4.1.1
 Requires:         python3-novaclient >= 17.2.1
 Requires:         python3-swiftclient >= 3.10.1
 
-Requires:         python3-google-api-client >= 1.11.0
+Requires:         python3-google-api-client
 
 Requires:         python3-keystonemiddleware >= 9.1.0
 Requires:         python3-keystoneauth1 >= 4.2.1
