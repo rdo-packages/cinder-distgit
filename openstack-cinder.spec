@@ -521,3 +521,4 @@ exit 0
 - Update to 15.0.0.0rc1
 
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/cinder/commit/f70bfbf7110fbf20f1e263ade02229c6837393bc
