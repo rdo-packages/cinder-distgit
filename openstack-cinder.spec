@@ -191,7 +191,6 @@ Summary:        Cinder common code
 
 Requires:         sudo
 
-Requires:         sysfsutils
 Requires:         python3-paramiko >= 2.7.2
 
 Requires:         python3-eventlet >= 0.26.1
