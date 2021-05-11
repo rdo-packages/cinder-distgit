@@ -217,8 +217,10 @@ Requires:         python3-oslo-service >= 2.4.0
 Requires:         python3-oslo-utils >= 4.7.0
 Requires:         python3-oslo-versionedobjects >= 2.3.0
 Requires:         python3-zstd >= 1.4.5.1
-Requires:         python3-importlib-metadata >= 1.7.0
 Requires:         python3-boto3
+%if 0%{?rhel} && 0%{?rhel} < 9
+Requires:         python3-importlib-metadata >= 1.7.0
+%endif
 
 # Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 4.5.0
