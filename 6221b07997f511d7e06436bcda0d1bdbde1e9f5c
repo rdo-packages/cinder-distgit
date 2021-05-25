@@ -1,0 +1,10 @@
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Code-Review+2: Gorka Eguileor <geguileo@redhat.com>
+Code-Review+1: Sofia Enriquez <lsofia.enriquez@gmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Gorka Eguileor <geguileo@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 25 May 2021 11:38:26 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/23600
+Project: openstack/cinder-distgit
+Branch: refs/heads/train-rdo
