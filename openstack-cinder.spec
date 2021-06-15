@@ -226,6 +226,7 @@ Requires:         python3-importlib-metadata >= 1.7.0
 Requires:         python3-taskflow >= 4.5.0
 
 Requires:         iscsi-initiator-utils
+Requires:         nvmetcli
 
 Requires:         python3-requests >= 2.23.0
 Requires:         python3-pyparsing >= 2.2.1
