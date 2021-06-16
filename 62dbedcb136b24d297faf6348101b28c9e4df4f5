@@ -1,0 +1,10 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Code-Review+2: Eric Harney <eharney@redhat.com>
+Workflow+1: Eric Harney <eharney@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 16 Jun 2021 17:26:36 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/34118
+Project: openstack/cinder-distgit
+Branch: refs/heads/rpm-master
