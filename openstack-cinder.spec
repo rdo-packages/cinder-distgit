@@ -247,6 +247,12 @@ Requires:         python%{pyver}-retrying >= 1.2.3
 Requires:         python%{pyver}-decorator
 %endif
 
+# Required by the volume_copy_bps_limit option
+# at least where the package is available
+%if 0%{?rhel} && 0%{?rhel} < 9
+Requires:         libcgroup-tools
+%endif
+
 
 %description -n   python%{pyver}-%{service}
 %{common_desc}
