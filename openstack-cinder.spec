@@ -245,6 +245,12 @@ Requires:         python3-decorator
 Requires:         lvm2
 Requires:         python3-rtslib >= 2.1.74
 
+# Required by the volume_copy_bps_limit option
+# at least where the package is available
+%if 0%{?rhel} && 0%{?rhel} < 9
+Requires:         libcgroup-tools%{?_isa}
+%endif
+
 
 %description -n   python3-%{service}-common
 Common code for Cinder.
