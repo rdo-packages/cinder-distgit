@@ -204,6 +204,11 @@ Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-retrying >= 1.2.3
 Requires:         python3-decorator
 
+# Required by the volume_copy_bps_limit option
+# at least where the package is available
+%if 0%{?rhel} && 0%{?rhel} < 9
+Requires:         libcgroup-tools%{?_isa}
+%endif
 
 %description -n   python3-%{service}
 %{common_desc}
