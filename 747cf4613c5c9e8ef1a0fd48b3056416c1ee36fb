@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0c47fdd_e24e2c79",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 75
+      },
+      "writtenOn": "2021-06-16T16:28:14Z",
+      "side": 1,
+      "message": "Does this need to cover CentOS 8 as well?",
+      "revId": "747cf4613c5c9e8ef1a0fd48b3056416c1ee36fb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
