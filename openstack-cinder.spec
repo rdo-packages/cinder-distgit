@@ -245,6 +245,7 @@ Requires:         python3-decorator
 # Required by LVM-LIO
 Requires:         lvm2
 Requires:         python3-rtslib >= 2.1.74
+Requires:         targetcli
 
 # Required by the volume_copy_bps_limit option
 # at least where the package is available
