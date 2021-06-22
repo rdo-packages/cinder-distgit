@@ -250,7 +250,7 @@ Requires:         targetcli
 # Required by the volume_copy_bps_limit option
 # at least where the package is available
 %if 0%{?rhel} && 0%{?rhel} < 9
-Requires:         libcgroup-tools%{?_isa}
+Requires:         libcgroup-tools
 %endif
 
 
