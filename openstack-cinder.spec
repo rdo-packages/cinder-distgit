@@ -111,7 +111,7 @@ BuildRequires:    python3-tenacity
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
-Requires:         python3-pbr >= 5.5.0
+Requires:         python3-pbr >= 5.5.1
 
 # as convenience
 Requires:         python3-cinderclient
@@ -169,7 +169,7 @@ Requires:         python3-oslo-messaging >= 12.5.0
 Requires:         python3-oslo-policy >= 3.6.2
 Requires:         python3-oslo-reports >= 2.2.0
 Requires:         python3-oslo-upgradecheck >= 1.1.1
-Requires:         python3-oslo-vmware >= 3.7.0
+Requires:         python3-oslo-vmware >= 3.8.0
 
 Requires:         python3-oauth2client >= 4.1.3
 Requires:         python3-packaging >= 20.4
@@ -192,20 +192,20 @@ Requires:         sudo
 
 Requires:         python3-paramiko >= 2.7.2
 
-Requires:         python3-eventlet >= 0.26.1
+Requires:         python3-eventlet >= 0.30.1
 Requires:         python3-greenlet >= 0.4.13
 Requires:         python3-iso8601 >= 0.1.12
 Requires:         python3-stevedore >= 3.2.2
 Requires:         python3-tooz >= 2.7.1
 
-Requires:         python3-sqlalchemy >= 1.3.0
+Requires:         python3-sqlalchemy >= 1.3.2
 
 Requires:         python3-six >= 1.15.0
 Requires:         python3-psutil >= 5.7.2
 
-Requires:         python3-os-brick >= 4.2.0
+Requires:         python3-os-brick >= 4.3.1
 Requires:         python3-oslo-config >= 2:8.3.2
-Requires:         python3-oslo-concurrency >= 4.3.0
+Requires:         python3-oslo-concurrency >= 4.4.0
 Requires:         python3-oslo-context >= 3.1.1
 Requires:         python3-oslo-db >= 8.4.0
 Requires:         python3-oslo-i18n >= 5.0.1
@@ -213,8 +213,8 @@ Requires:         python3-oslo-log >= 4.4.0
 Requires:         python3-oslo-privsep >= 2.4.0
 Requires:         python3-oslo-rootwrap >= 6.2.0
 Requires:         python3-oslo-serialization >= 4.1.0
-Requires:         python3-oslo-service >= 2.4.0
-Requires:         python3-oslo-utils >= 4.7.0
+Requires:         python3-oslo-service >= 2.5.0
+Requires:         python3-oslo-utils >= 4.8.0
 Requires:         python3-oslo-versionedobjects >= 2.3.0
 Requires:         python3-zstd >= 1.4.5.1
 Requires:         python3-boto3
@@ -228,17 +228,17 @@ Requires:         python3-taskflow >= 4.5.0
 Requires:         iscsi-initiator-utils
 Requires:         nvmetcli
 
-Requires:         python3-requests >= 2.23.0
-Requires:         python3-pyparsing >= 2.2.1
+Requires:         python3-requests >= 2.25.1
+Requires:         python3-pyparsing >= 2.4.6
 Requires:         python3-pytz
 Requires:         python3-tabulate >= 0.8.7
 
 Requires:         python3-cryptography >= 3.1
 
 
-Requires:         python3-lxml >= 4.2.0
+Requires:         python3-lxml >= 4.2.3
 Requires:         python3-migrate >= 0.13.0
-Requires:         python3-httplib2 >= 0.9.1
+Requires:         python3-httplib2 >= 0.16.0
 Requires:         python3-tenacity >= 6.2.0
 Requires:         python3-decorator
 
