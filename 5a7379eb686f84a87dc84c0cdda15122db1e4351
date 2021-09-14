@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f09ec4e_6b7b06fd",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2021-09-14T13:15:01Z",
+      "side": 1,
+      "message": "We don\u0027t have 2.4.7 in RDO atm. I\u0027m in the process to update it.",
+      "parentUuid": "a569fbfd_184cd57d",
+      "range": {
+        "startLine": 232,
+        "startChar": 39,
+        "endLine": 232,
+        "endChar": 44
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef7e0548_c4d675f0",
         "filename": "openstack-cinder.spec",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ae0efb2e_6370e1a8",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2021-09-14T13:15:01Z",
+      "side": 1,
+      "message": "We don\u0027t have 4.5.2 in RDO atm. I\u0027m in the process to update it.",
+      "parentUuid": "ef7e0548_c4d675f0",
+      "range": {
+        "startLine": 239,
+        "startChar": 34,
+        "endLine": 239,
+        "endChar": 39
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b03a6d_9b1ede7b",
         "filename": "openstack-cinder.spec",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b99765_c4377eac",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2021-09-14T13:15:01Z",
+      "side": 1,
+      "message": "same here",
+      "parentUuid": "85b03a6d_9b1ede7b",
+      "range": {
+        "startLine": 241,
+        "startChar": 38,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
