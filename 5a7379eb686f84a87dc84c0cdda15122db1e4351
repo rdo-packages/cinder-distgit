@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a569fbfd_184cd57d",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 181
+      },
+      "writtenOn": "2021-09-14T09:07:00Z",
+      "side": 1,
+      "message": "I believe this should be 2.4.7\n\nhttps://github.com/openstack/cinder/blob/768b8996ba4cb24eb2e5cd5dc149cd114186debd/requirements.txt#L39",
+      "range": {
+        "startLine": 232,
+        "startChar": 39,
+        "endLine": 232,
+        "endChar": 44
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef7e0548_c4d675f0",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 181
+      },
+      "writtenOn": "2021-09-14T09:07:00Z",
+      "side": 1,
+      "message": "This is a lot older than the one used upstream, which is \u003e\u003d 4.5.2",
+      "range": {
+        "startLine": 239,
+        "startChar": 34,
+        "endLine": 239,
+        "endChar": 39
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b03a6d_9b1ede7b",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 181
+      },
+      "writtenOn": "2021-09-14T09:07:00Z",
+      "side": 1,
+      "message": "This is a lot older than the one used upstream, which is \u003e\u003d 0.18.1",
+      "range": {
+        "startLine": 241,
+        "startChar": 38,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "5a7379eb686f84a87dc84c0cdda15122db1e4351",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
