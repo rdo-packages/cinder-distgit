@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
+%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
@@ -13,7 +13,7 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          17.1.0
+Version:          17.2.0
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -486,6 +486,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Sep 27 2021 RDO <dev@lists.rdoproject.org> 1:17.2.0-1
+- Update to 17.2.0
+
 * Mon Mar 08 2021 RDO <dev@lists.rdoproject.org> 1:17.1.0-1
 - Update to 17.1.0
 
