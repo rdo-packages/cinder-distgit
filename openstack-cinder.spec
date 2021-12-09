@@ -5,6 +5,8 @@
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
 
+# guard for Red Hat OpenStack Platform supported cinder
+%global rhosp 0
 %global common_desc \
 OpenStack Volume (codename Cinder) provides services to manage and \
 access block storage volumes for use by Virtual Machine instances.
@@ -56,7 +58,6 @@ BuildRequires:    python3-pytz
 BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python3-cursive
-BuildRequires:    python3-google-api-client
 BuildRequires:    python3-keystonemiddleware
 BuildRequires:    python3-glanceclient >= 1:3.2.2
 BuildRequires:    python3-novaclient >= 17.0.0
@@ -87,6 +88,11 @@ BuildRequires:    python3-boto3
 
 # Required to compile translation files
 BuildRequires:    python3-babel
+
+%if 0%{?rhosp} == 0
+# Google Backup driver
+BuildRequires:    python3-google-api-client
+%endif
 
 # Needed for unit tests
 BuildRequires:    python3-ddt
@@ -156,8 +162,6 @@ Requires:         python3-keystoneclient >= 1:4.1.1
 Requires:         python3-novaclient >= 17.2.1
 Requires:         python3-swiftclient >= 3.10.1
 
-Requires:         python3-google-api-client
-
 Requires:         python3-keystonemiddleware >= 9.1.0
 Requires:         python3-keystoneauth1 >= 4.2.1
 Requires:         python3-osprofiler >= 3.4.0
@@ -171,10 +175,15 @@ Requires:         python3-oslo-reports >= 2.2.0
 Requires:         python3-oslo-upgradecheck >= 1.1.1
 Requires:         python3-oslo-vmware >= 3.8.0
 
-Requires:         python3-oauth2client >= 4.1.3
 Requires:         python3-packaging >= 20.4
 Requires:         python3-paste >= 3.4.3
 Requires:         python3-paste-deploy >= 2.1.0
+
+%if 0%{?rhosp} == 0
+# Google Backup driver
+Requires:         python3-google-api-client
+Requires:         python3-oauth2client >= 4.1.3
+%endif
 
 %description -n   python3-%{service}
 %{common_desc}
