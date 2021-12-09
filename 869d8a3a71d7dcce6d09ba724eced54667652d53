@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41f4c0fe_2c511870",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2021-12-09T16:14:42Z",
+      "side": 1,
+      "message": "Not sure if this is a nit, but what this patch does is it removes python libraries required by cinder\u0027s gcs backup driver. The gcs (backup) driver will still be present, but it just will not function. I verified the driver disables itself (doesn\u0027t blow up) when the libs are not present.",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "869d8a3a71d7dcce6d09ba724eced54667652d53",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
