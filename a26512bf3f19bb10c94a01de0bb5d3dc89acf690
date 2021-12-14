@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a873b375_7f9a4cac",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 181
+      },
+      "writtenOn": "2021-12-14T09:00:08Z",
+      "side": 1,
+      "message": "I didn\u0027t consider it when reviewing the patch in master, but I think it makes sense to bump the release and add the changelog, after all we are removing the dependencies of one of the backup drivers.",
+      "parentUuid": "6360d73a_db2473fd",
+      "revId": "a26512bf3f19bb10c94a01de0bb5d3dc89acf690",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bf87ce1_701acfaf",
         "filename": "openstack-cinder.spec",
         "patchSetId": 1
