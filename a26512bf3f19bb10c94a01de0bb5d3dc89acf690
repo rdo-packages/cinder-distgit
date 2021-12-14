@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c11afdf3_875265b5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2021-12-14T09:07:51Z",
+      "side": 1,
+      "message": "Actually, this is not changing anything in RDO builds as in this case rhosp\u003d0, so i think release bump is not needed. Anyway, feel free to update it if you prefer to be more explicit.",
+      "parentUuid": "a873b375_7f9a4cac",
+      "revId": "a26512bf3f19bb10c94a01de0bb5d3dc89acf690",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bf87ce1_701acfaf",
         "filename": "openstack-cinder.spec",
         "patchSetId": 1
