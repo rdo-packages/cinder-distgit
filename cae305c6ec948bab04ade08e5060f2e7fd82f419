@@ -1,0 +1,9 @@
+Code-Review+2: Alan Bishop <abishop@redhat.com>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 17 Dec 2021 10:17:28 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/37146
+Project: openstack/cinder-distgit
+Branch: refs/heads/wallaby-rdo
