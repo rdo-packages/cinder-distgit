@@ -90,10 +90,10 @@ BuildRequires:    python3-boto3
 # Required to compile translation files
 BuildRequires:    python3-babel
 
-%if 0%{?rhosp} == 0
+#%if 0%{?rhosp} == 0
 # Google Backup driver
 BuildRequires:    python3-google-api-client
-%endif
+#%endif
 
 # Needed for unit tests
 BuildRequires:    python3-ddt
