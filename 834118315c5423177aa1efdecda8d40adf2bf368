@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb8e8de_e172d944",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2022-02-09T23:46:10Z",
+      "side": 1,
+      "message": "It may not be needed anymore thanks to downstream fixes.",
+      "revId": "834118315c5423177aa1efdecda8d40adf2bf368",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
