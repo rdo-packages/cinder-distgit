@@ -16,7 +16,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          19.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -219,7 +219,7 @@ Requires:         python3-oslo-concurrency >= 4.4.0
 Requires:         python3-oslo-context >= 3.1.1
 Requires:         python3-oslo-db >= 8.4.0
 Requires:         python3-oslo-i18n >= 5.0.1
-Requires:         python3-oslo-log >= 4.4.0
+Requires:         python3-oslo-log >= 4.5.0
 Requires:         python3-oslo-privsep >= 2.4.0
 Requires:         python3-oslo-rootwrap >= 6.2.0
 Requires:         python3-oslo-serialization >= 4.1.0
@@ -500,6 +500,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Feb 16 2022 Tobias Urdin <tobias.urdin@binero.com> 1:19.0.0-2
+- Update oslo.log requires to >= 4.5.0
+
 * Wed Oct 06 2021 RDO <dev@lists.rdoproject.org> 1:19.0.0-1
 - Update to 19.0.0
 
