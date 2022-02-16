@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aca2269d_63231e5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-02-16T14:00:10Z",
+      "side": 1,
+      "message": "You could use \"cherry-pick -x \u003cmaster commit\u003e\" in order to have the cherry-pick information in commit message.",
+      "revId": "b14cf4cc0ece1131265f0c255ef433902b67c849",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
