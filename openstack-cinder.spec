@@ -248,7 +248,7 @@ Requires:         python3-cryptography >= 3.1
 Requires:         python3-lxml >= 4.2.3
 Requires:         python3-migrate >= 0.13.0
 Requires:         python3-httplib2 >= 0.16.0
-Requires:         python3-tenacity >= 6.2.0
+Requires:         python3-tenacity >= 6.3.1
 Requires:         python3-decorator
 
 # Required by LVM-LIO
