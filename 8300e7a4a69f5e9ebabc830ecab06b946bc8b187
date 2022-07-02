@@ -16,6 +16,24 @@
       "message": "I think this actually highlights the fact that RDO no longer uses cinder-dist.conf when launching the services. I suggest a broader cleanup might be warranted, or we might leave this alone for now.",
       "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b45a94b_fb6c55f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 682
+      },
+      "writtenOn": "2022-07-02T09:22:30Z",
+      "side": 1,
+      "message": "I\u0027m afraid I\u0027m not fully following you.\n\nFor cinder we do use cinder-dist.conf[1], and the definition is still used since oslo.concurrency still supports the [DEFAULT] lock_path parameter.\n\nHowever the file is not well maintained and I agree we would require some cleanup/update work here(See the patch listed in merge conflicts for example).\n\n[1] https://github.com/rdo-packages/cinder-distgit/blob/rpm-master/openstack-cinder-api.service#L8",
+      "parentUuid": "46e163bd_22d84149",
+      "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
