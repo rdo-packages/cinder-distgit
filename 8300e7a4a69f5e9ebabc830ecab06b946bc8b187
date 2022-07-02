@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e163bd_22d84149",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2022-07-02T05:18:24Z",
+      "side": 1,
+      "message": "I think this actually highlights the fact that RDO no longer uses cinder-dist.conf when launching the services. I suggest a broader cleanup might be warranted, or we might leave this alone for now.",
+      "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
