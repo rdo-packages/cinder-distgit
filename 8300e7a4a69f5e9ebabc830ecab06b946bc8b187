@@ -34,6 +34,24 @@
       "parentUuid": "46e163bd_22d84149",
       "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95598cb_b7e3f8c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2022-07-02T21:16:18Z",
+      "side": 1,
+      "message": "I think the key is we no longer run services as individual entities that can be controlled in isolation using the systemd service file supplied by the dist RPM. Tripleo is much more complicated, and uses kolla and tripleo-ansible roles to run services in containers. I think the -dist.conf and systemd service files are leftover from a much simpler time.",
+      "parentUuid": "6b45a94b_fb6c55f6",
+      "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
