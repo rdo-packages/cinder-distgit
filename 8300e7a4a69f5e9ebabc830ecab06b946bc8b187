@@ -70,6 +70,23 @@
       "parentUuid": "d95598cb_b7e3f8c9",
       "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e321005b_2dc3f573",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 682
+      },
+      "writtenOn": "2022-07-05T08:36:43Z",
+      "side": 1,
+      "message": "recheck\n\nc8 jobs were removed",
+      "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
