@@ -33,6 +33,23 @@
       "message": "Note that CS8 is being removed from master (we are waiting for kolla, puppet and tripleo to move to cs9). The agreement in RDO is to avoid pinning projects for master when they fail to build for CS8 in master and ignore failures related to removing support for python 3.6. With this, those issues will not affect CS9.\n\nSee RDO meeting notes https://meetings.opendev.org/meetings/rdo_meeting___2022_06_01/2022/rdo_meeting___2022_06_01.2022-06-01-14.01.txt",
       "revId": "aff01d68f40ef698899cef3a791b1964e20d5697",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84c4b16_7f36dd92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2022-07-06T11:17:49Z",
+      "side": 1,
+      "message": "recheck\n\n",
+      "revId": "aff01d68f40ef698899cef3a791b1964e20d5697",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
