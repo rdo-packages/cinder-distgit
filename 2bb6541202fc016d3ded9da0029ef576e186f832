@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "2bb6541202fc016d3ded9da0029ef576e186f832",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "165feddc_3bfe798e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2022-07-06T11:59:00Z",
+      "side": 1,
+      "message": "recheck\n\n Curl error (28): Timeout was reached for http://mirror.stream.centos.org/SIGs/9-stream/storage/x86_64/ceph-pacific/repodata/repomd.xml [Connection timed out after 30000 milliseconds]",
+      "revId": "2bb6541202fc016d3ded9da0029ef576e186f832",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
