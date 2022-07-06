@@ -87,6 +87,23 @@
       "message": "recheck\n\nc8 jobs were removed",
       "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "508506ce_43e429f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2022-07-06T11:19:19Z",
+      "side": 1,
+      "message": "recheck\n\n  - Curl error (28): Timeout was reached for http://mirror.stream.centos.org/SIGs/9-stream/opstools/x86_64/collectd-5/repodata/repomd.xml [Connection timed out after 30000 milliseconds]",
+      "revId": "8300e7a4a69f5e9ebabc830ecab06b946bc8b187",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
