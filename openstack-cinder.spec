@@ -3,6 +3,8 @@
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
 
+# guard for Red Hat OpenStack Platform supported cinder
+%global rhosp 0
 %global common_desc \
 OpenStack Volume (codename Cinder) provides services to manage and \
 access block storage volumes for use by Virtual Machine instances.
@@ -203,6 +205,11 @@ Requires:         python3-paste-deploy
 Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-retrying >= 1.2.3
 Requires:         python3-decorator
+
+%if 0%{?rhosp} == 1
+# Required by DataCore driver
+Requires:         python3-websocket-client
+%endif
 
 # Required by the volume_copy_bps_limit option
 # at least where the package is available
