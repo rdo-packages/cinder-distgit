@@ -256,6 +256,9 @@ Requires:         lvm2
 Requires:         python3-rtslib >= 2.1.74
 Requires:         targetcli
 
+# Required by DataCore driver
+Requires:         python3-websocket-client
+
 # Required by the volume_copy_bps_limit option
 # at least where the package is available
 %if 0%{?rhel} && 0%{?rhel} < 9
