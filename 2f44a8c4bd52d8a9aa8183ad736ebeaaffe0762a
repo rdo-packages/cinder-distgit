@@ -16,6 +16,29 @@
       "message": "LGTM.",
       "revId": "2f44a8c4bd52d8a9aa8183ad736ebeaaffe0762a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c82db13e_d2edbe5e",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-07-18T16:18:11Z",
+      "side": 1,
+      "message": "Isn\u0027t this driver part of RDO?. If so, shouldn\u0027t it be added?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "2f44a8c4bd52d8a9aa8183ad736ebeaaffe0762a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
