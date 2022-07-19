@@ -63,6 +63,30 @@
       },
       "revId": "2f44a8c4bd52d8a9aa8183ad736ebeaaffe0762a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c1efcf_36ff4c9f",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-07-19T07:28:25Z",
+      "side": 1,
+      "message": "ok, got it.",
+      "parentUuid": "b46a02c3_79868a2c",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 1
+      },
+      "revId": "2f44a8c4bd52d8a9aa8183ad736ebeaaffe0762a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
