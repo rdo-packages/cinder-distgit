@@ -5,6 +5,8 @@
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
 
+# guard for Red Hat OpenStack Platform supported cinder
+%global rhosp 0
 %global common_desc \
 OpenStack Volume (codename Cinder) provides services to manage and \
 access block storage volumes for use by Virtual Machine instances.
