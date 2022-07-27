@@ -1,0 +1,9 @@
+Code-Review+2: Eric Harney <eharney@redhat.com>
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Workflow+1: Luigi Toscano <ltoscano@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 27 Jul 2022 14:10:55 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/44171
+Project: openstack/cinder-distgit
+Branch: refs/heads/train-rdo
