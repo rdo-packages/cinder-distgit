@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc04481_6720bc17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-08-10T13:45:21Z",
+      "side": 1,
+      "message": "We still support running services with systemd, and we validate it using p-o-i and packstack, so good to have a good dist.conf file.",
+      "revId": "ea85bde9fcb9ef54c299235b751074a9f5524f1f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
