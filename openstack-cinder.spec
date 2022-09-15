@@ -117,7 +117,7 @@ BuildRequires:    python3-tenacity
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
 
 # we dropped the patch to remove PBR for Delorean
-Requires:         python3-pbr >= 5.5.1
+Requires:         python3-pbr >= 5.8.0
 
 # as convenience
 Requires:         python3-cinderclient
@@ -202,17 +202,17 @@ Requires:         sudo
 Requires:         python3-paramiko >= 2.7.2
 
 Requires:         python3-eventlet >= 0.30.1
-Requires:         python3-greenlet >= 0.4.13
+Requires:         python3-greenlet >= 0.4.16
 Requires:         python3-iso8601 >= 0.1.12
 Requires:         python3-stevedore >= 3.2.2
 Requires:         python3-tooz >= 2.7.1
 
-Requires:         python3-sqlalchemy >= 1.3.2
+Requires:         python3-sqlalchemy >= 1.4.23
 
 Requires:         python3-six >= 1.15.0
 Requires:         python3-psutil >= 5.7.2
 
-Requires:         python3-os-brick >= 5.2.0
+Requires:         python3-os-brick >= 6.0.0
 Requires:         python3-oslo-config >= 2:8.3.2
 Requires:         python3-oslo-concurrency >= 4.5.0
 Requires:         python3-oslo-context >= 3.4.0
@@ -227,9 +227,6 @@ Requires:         python3-oslo-utils >= 4.12.1
 Requires:         python3-oslo-versionedobjects >= 2.3.0
 Requires:         python3-zstd >= 1.4.5.1
 Requires:         python3-boto3
-%if 0%{?rhel} && 0%{?rhel} < 9
-Requires:         python3-importlib-metadata >= 1.7.0
-%endif
 
 # Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 4.5.0
@@ -238,16 +235,16 @@ Requires:         iscsi-initiator-utils
 Requires:         nvmetcli
 
 Requires:         python3-requests >= 2.25.1
-Requires:         python3-pyparsing >= 2.4.6
+Requires:         python3-pyparsing >= 2.4.7
 Requires:         python3-pytz
 Requires:         python3-tabulate >= 0.8.7
 
 Requires:         python3-cryptography >= 3.1
 
 
-Requires:         python3-lxml >= 4.2.3
+Requires:         python3-lxml >= 4.5.2
 Requires:         python3-migrate >= 0.13.0
-Requires:         python3-httplib2 >= 0.16.0
+Requires:         python3-httplib2 >= 0.18.1
 Requires:         python3-tenacity >= 6.3.1
 Requires:         python3-decorator
 
