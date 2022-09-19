@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82ba934_5fa50fde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-19T12:59:40Z",
+      "side": 1,
+      "message": "tarball not availalble https://tarballs.opendev.org/openstack/cinder/cinder-21.0.0.0rc1.tar.gz",
+      "revId": "f3a3df7f6d65120687759d32c1c7213a93bceb5a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
