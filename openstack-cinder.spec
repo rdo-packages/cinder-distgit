@@ -16,7 +16,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          21.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          ASL 2.0
@@ -501,6 +501,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Dec 13 2022 Tobias Urdin <tobias.urdin@binero.com> 1:21.0.0-2
+- Update systemd unit to reduce memory consumption
+
 * Wed Oct 05 2022 RDO <dev@lists.rdoproject.org> 1:21.0.0-1
 - Update to 21.0.0
 
