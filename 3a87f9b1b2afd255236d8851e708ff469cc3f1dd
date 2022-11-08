@@ -34,6 +34,24 @@
       "parentUuid": "00199ded_43bf2eee",
       "revId": "3a87f9b1b2afd255236d8851e708ff469cc3f1dd",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d0a9288_df313ed6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 439
+      },
+      "writtenOn": "2022-11-08T14:04:54Z",
+      "side": 1,
+      "message": "Tripleo has its own mechanism for establishing these settings [1], and it doesn\u0027t use the systemd service files in cinder\u0027s distgit. Defining them here won\u0027t interfere with tripleo.\n\n[1] https://review.opendev.org/q/I65b32f4ce3fddeb694fb33ca65076d45d23a3bb6",
+      "parentUuid": "7d3144ba_f0227d55",
+      "revId": "3a87f9b1b2afd255236d8851e708ff469cc3f1dd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
