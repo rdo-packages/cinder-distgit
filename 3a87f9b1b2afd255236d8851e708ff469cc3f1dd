@@ -1,0 +1,9 @@
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Code-Review+2: Alan Bishop <abishop@redhat.com>
+Workflow+1: Alan Bishop <abishop@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 08 Nov 2022 14:12:26 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/45471
+Project: openstack/cinder-distgit
+Branch: refs/heads/rpm-master
