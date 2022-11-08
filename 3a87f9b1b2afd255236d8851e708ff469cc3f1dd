@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00199ded_43bf2eee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-11-08T11:24:35Z",
+      "side": 1,
+      "message": "The mentioned review is in tempest which is specific to ci environment while the values in the rpms are intended for other envs. I\u0027ll ask someone from cinder to review this as i\u0027m no sure if that may have other impact. ",
+      "revId": "3a87f9b1b2afd255236d8851e708ff469cc3f1dd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
