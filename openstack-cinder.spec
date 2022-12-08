@@ -146,7 +146,6 @@ Group:            Applications/System
 Requires:         python3-%{service}-common = %{epoch}:%{version}-%{release}
 
 Requires:         cryptsetup
-Requires:         cracklib-dicts
 Requires:         qemu-img >= 2.10.0
 Requires:         python3-jsonschema >= 3.2.0
 
