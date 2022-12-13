@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a619535b_f0b07726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-12-13T08:17:06Z",
+      "side": 1,
+      "message": "We should update the release in the spec to include this change in a new cloudsig build.",
+      "revId": "1046d1132570d8a14bbd9669b3a361d47dc24083",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
