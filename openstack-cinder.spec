@@ -526,3 +526,4 @@ exit 0
 * Fri Sep 17 2021 RDO <dev@lists.rdoproject.org> 1:19.0.0-0.1.0rc1
 - Update to 19.0.0.0rc1
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/cinder/commit/9810c05e743297171c6cf7572658cbd6a19c5a47
