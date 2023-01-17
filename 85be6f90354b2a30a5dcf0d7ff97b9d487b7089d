@@ -1,0 +1,9 @@
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 17 Jan 2023 09:05:48 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/44127
+Project: openstack/cinder-distgit
+Branch: refs/heads/victoria-rdo
