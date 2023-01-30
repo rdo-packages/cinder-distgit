@@ -70,6 +70,24 @@
       "parentUuid": "8fbfb7ba_184cfb9a",
       "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e649dd4_35fe4e8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-01-30T13:28:57Z",
+      "side": 1,
+      "message": "Ok thank you for the confirmation, let\u0027s merge it",
+      "parentUuid": "a3a477df_ef307a98",
+      "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
