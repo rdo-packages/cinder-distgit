@@ -34,6 +34,24 @@
       "parentUuid": "f3aeac20_0a4595d5",
       "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbfb7ba_184cfb9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2023-01-30T12:06:03Z",
+      "side": 1,
+      "message": "I\u0027ve asked Rajat and he confirmed that the dependency should be part of driver-requirements.txt. But I think we don\u0027t package all dependencies from there?",
+      "parentUuid": "cda1feb6_3667e253",
+      "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
