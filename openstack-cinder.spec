@@ -85,6 +85,7 @@ BuildRequires:    python3-barbicanclient
 BuildRequires:    python3-requests
 BuildRequires:    python3-defusedxml
 BuildRequires:    python3-boto3
+BuildRequires:    python3-certifi
 
 # Required to compile translation files
 BuildRequires:    python3-babel
