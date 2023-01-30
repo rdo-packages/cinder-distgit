@@ -16,6 +16,24 @@
       "message": "Hi Luigi, I guess certifi should be in requirements.txt, wdyt ?\nI think it\u0027s passing CI upstream because the first condition is satisfied in [1], but I\u0027m not sure\n\n[1] https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/fungible/swagger_api_client.py#L79-L83",
       "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda1feb6_3667e253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-01-30T11:02:56Z",
+      "side": 1,
+      "message": "yes, certifi is a non-direct requirement here",
+      "parentUuid": "f3aeac20_0a4595d5",
+      "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
