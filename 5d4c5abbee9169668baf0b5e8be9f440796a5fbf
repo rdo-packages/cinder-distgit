@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3aeac20_0a4595d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-01-30T10:41:52Z",
+      "side": 1,
+      "message": "Hi Luigi, I guess certifi should be in requirements.txt, wdyt ?\nI think it\u0027s passing CI upstream because the first condition is satisfied in [1], but I\u0027m not sure\n\n[1] https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/fungible/swagger_api_client.py#L79-L83",
+      "revId": "5d4c5abbee9169668baf0b5e8be9f440796a5fbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
