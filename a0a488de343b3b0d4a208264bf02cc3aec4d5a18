@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7345cc1_8ac3e4d5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-03-06T07:39:51Z",
+      "side": 1,
+      "message": "looking at commit message and the code, this is actually not used with python\u003e\u003d3.8:\n\nhttps://github.com/openstack/cinder/commit/633c1fa9d8c894cc0bacf0f37b67e170dc9e0422",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 13
+      },
+      "revId": "a0a488de343b3b0d4a208264bf02cc3aec4d5a18",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
