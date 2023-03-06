@@ -169,7 +169,7 @@ Requires:         python3-osprofiler >= 3.4.0
 Requires:         python3-os-win >= 5.5.0
 
 Requires:         python3-oslo-middleware >= 4.1.1
-Requires:         python3-oslo-messaging >= 12.5.0
+Requires:         python3-oslo-messaging >= 14.1.0
 Requires:         python3-oslo-policy >= 3.8.1
 Requires:         python3-oslo-reports >= 2.2.0
 Requires:         python3-oslo-upgradecheck >= 1.1.1
@@ -178,10 +178,11 @@ Requires:         python3-oslo-vmware >= 3.10.0
 Requires:         python3-packaging >= 20.4
 Requires:         python3-paste >= 3.4.3
 Requires:         python3-paste-deploy >= 2.1.0
+Requires:         python3-importlib-metadata >= 3.1.1
 
 %if 0%{?rhosp} == 0
 # Google Backup driver
-Requires:         python3-google-api-client
+Requires:         python3-google-api-client >= 1.11.0
 Requires:         python3-oauth2client >= 4.1.3
 %endif
 
@@ -205,7 +206,7 @@ Requires:         python3-eventlet >= 0.30.1
 Requires:         python3-greenlet >= 0.4.16
 Requires:         python3-iso8601 >= 0.1.12
 Requires:         python3-stevedore >= 3.2.2
-Requires:         python3-tooz >= 2.7.1
+Requires:         python3-tooz >= 2.8.0
 
 Requires:         python3-sqlalchemy >= 1.4.23
 
@@ -224,9 +225,9 @@ Requires:         python3-oslo-rootwrap >= 6.2.0
 Requires:         python3-oslo-serialization >= 4.2.0
 Requires:         python3-oslo-service >= 2.8.0
 Requires:         python3-oslo-utils >= 4.12.1
-Requires:         python3-oslo-versionedobjects >= 2.3.0
+Requires:         python3-oslo-versionedobjects >= 2.4.0
 Requires:         python3-zstd >= 1.4.5.1
-Requires:         python3-boto3
+Requires:         python3-boto3 >= 1.18.49
 
 # Required by 3PAR and VNX as well as cinder flows
 Requires:         python3-taskflow >= 4.5.0
@@ -236,7 +237,7 @@ Requires:         nvmetcli
 
 Requires:         python3-requests >= 2.25.1
 Requires:         python3-pyparsing >= 2.4.7
-Requires:         python3-pytz
+Requires:         python3-pytz >= 2020.1
 Requires:         python3-tabulate >= 0.8.7
 
 Requires:         python3-cryptography >= 3.1
@@ -246,7 +247,7 @@ Requires:         python3-lxml >= 4.5.2
 Requires:         python3-migrate >= 0.13.0
 Requires:         python3-httplib2 >= 0.18.1
 Requires:         python3-tenacity >= 6.3.1
-Requires:         python3-decorator
+Requires:         python3-decorator >= 4.4.2
 
 # Required by LVM-LIO
 Requires:         lvm2
