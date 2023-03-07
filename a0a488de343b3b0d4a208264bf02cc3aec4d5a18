@@ -46,6 +46,30 @@
       },
       "revId": "a0a488de343b3b0d4a208264bf02cc3aec4d5a18",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0636dfd_8ada1a2d",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-03-07T08:48:10Z",
+      "side": 1,
+      "message": "Checking the code, the only import of importlib_metadata i can find is conditionalized for py\u003c3.8\n\nhttps://github.com/openstack/cinder/blob/01183a171776257b7aaf27220ce4113403f257bc/cinder/backup/drivers/gcs.py#L33-L38\n\nMy interpretation of the commit message in https://github.com/openstack/cinder/commit/633c1fa9d8c894cc0bacf0f37b67e170dc9e0422 is that they removed the conditional to make it compatible syntaxwise with global-requirements project.",
+      "parentUuid": "377cba28_e594aa23",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 13
+      },
+      "revId": "a0a488de343b3b0d4a208264bf02cc3aec4d5a18",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
