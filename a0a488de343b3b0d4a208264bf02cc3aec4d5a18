@@ -94,6 +94,30 @@
       },
       "revId": "a0a488de343b3b0d4a208264bf02cc3aec4d5a18",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce42d55_1a9ee7c0",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2023-03-07T10:02:59Z",
+      "side": 1,
+      "message": "Side note: as that import is only used for the Google Backup driver, and there  is an specific rule for that a few lines below, maybe it can be moved there. But that\u0027s out of scope for this specific change and a discussion for a future review!",
+      "parentUuid": "86538bde_305ddcfc",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 13
+      },
+      "revId": "a0a488de343b3b0d4a208264bf02cc3aec4d5a18",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
