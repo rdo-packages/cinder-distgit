@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
+%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
@@ -15,7 +15,7 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          19.2.0
+Version:          19.3.0
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -505,6 +505,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Apr 27 2023 RDO <dev@lists.rdoproject.org> 1:19.3.0-1
+- Update to 19.3.0
+
 * Thu Jan 26 2023 RDO <dev@lists.rdoproject.org> 1:19.2.0-1
 - Update to 19.2.0
 
