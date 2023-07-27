@@ -1,6 +1,17 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some runtime reqs from automatic generator when rhosp != 0
+%if 0%{?rhosp} != 0
+# Google Backup driver
+%global excluded_reqs google-api-python-client oauth2client
+%endif
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8 moto mypy
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 # Temporary disable doc until https://bugs.launchpad.net/tripleo/+bug/1838225 is fixed
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 %global service cinder
@@ -19,7 +30,7 @@ Version:          XXX
 Release:          XXX
 Summary:          OpenStack Volume service
 
-License:          ASL 2.0
+License:          Apache-2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
@@ -45,94 +56,22 @@ BuildArch:        noarch
 BuildRequires:  /usr/bin/gpgv2
 %endif
 BuildRequires:    intltool
-BuildRequires:    python3-pbr
-BuildRequires:    python3-reno
 BuildRequires:    python3-devel
-BuildRequires:    python3-setuptools
-BuildRequires:    python3-netaddr
+BuildRequires:    pyproject-rpm-macros
 BuildRequires:    systemd
 BuildRequires:    git-core
-BuildRequires:    python3-os-brick
-BuildRequires:    python3-pyparsing
-BuildRequires:    python3-pytz
 BuildRequires:    openstack-macros
+
 # Required to build cinder.conf
-BuildRequires:    python3-cursive
-BuildRequires:    python3-keystonemiddleware
-BuildRequires:    python3-glanceclient >= 1:3.2.2
-BuildRequires:    python3-novaclient >= 17.0.0
-BuildRequires:    python3-swiftclient >= 3.10.1
-BuildRequires:    python3-oslo-db
-BuildRequires:    python3-oslo-config >= 2:5.2.0
-BuildRequires:    python3-oslo-policy
-BuildRequires:    python3-oslo-privsep
-BuildRequires:    python3-oslo-reports
-BuildRequires:    python3-oslotest
-BuildRequires:    python3-oslo-utils
-BuildRequires:    python3-oslo-versionedobjects
-BuildRequires:    python3-oslo-vmware
-BuildRequires:    python3-os-win
-BuildRequires:    python3-castellan
-BuildRequires:    python3-cryptography
-BuildRequires:    python3-osprofiler
-BuildRequires:    python3-paramiko
-BuildRequires:    python3-suds
-BuildRequires:    python3-taskflow
-BuildRequires:    python3-tooz
-BuildRequires:    python3-oslo-log
-BuildRequires:    python3-oslo-i18n
-BuildRequires:    python3-barbicanclient
-BuildRequires:    python3-requests
-BuildRequires:    python3-defusedxml
-BuildRequires:    python3-boto3
 BuildRequires:    python3-certifi
 
-# Required to compile translation files
-BuildRequires:    python3-babel
-
-%if 0%{?rhosp} == 0
-# Google Backup driver
-BuildRequires:    python3-google-api-client
-%endif
-
-# Needed for unit tests
-BuildRequires:    python3-ddt
-BuildRequires:    python3-fixtures
-BuildRequires:    python3-mock
-BuildRequires:    python3-oslotest
-BuildRequires:    python3-packaging
-BuildRequires:    python3-subunit
-BuildRequires:    python3-testtools
-BuildRequires:    python3-testrepository
-BuildRequires:    python3-testresources
-BuildRequires:    python3-testscenarios
-BuildRequires:    python3-os-testr
-BuildRequires:    python3-tabulate
-
-BuildRequires:    python3-decorator
-BuildRequires:    python3-lxml
-BuildRequires:    python3-rtslib
-BuildRequires:    python3-tenacity
-
-
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
-
-# we dropped the patch to remove PBR for Delorean
-Requires:         python3-pbr >= 5.8.0
-
 # as convenience
 Requires:         python3-cinderclient
 
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
+%{?systemd_ordering}
+
 Requires(pre):    shadow-utils
-
-Requires:         python3-osprofiler
-
-Requires:         python3-pyudev
 
 %description
 %{common_desc}
@@ -140,50 +79,12 @@ Requires:         python3-pyudev
 
 %package -n       python3-%{service}
 Summary:          OpenStack Volume Python libraries
-%{?python_provide:%python_provide python3-%{service}}
 Group:            Applications/System
 
 Requires:         python3-%{service}-common = %{epoch}:%{version}-%{release}
 
 Requires:         cryptsetup
 Requires:         qemu-img >= 2.10.0
-Requires:         python3-jsonschema >= 3.2.0
-
-Requires:         python3-castellan >= 3.7.0
-Requires:         python3-cursive >= 0.2.2
-Requires:         python3-etcd3gw
-
-Requires:         python3-routes >= 2.4.1
-Requires:         python3-webob >= 1.8.6
-
-Requires:         python3-barbicanclient >= 5.0.1
-Requires:         python3-glanceclient >= 1:3.2.2
-Requires:         python3-keystoneclient >= 1:4.1.1
-Requires:         python3-novaclient >= 17.2.1
-Requires:         python3-swiftclient >= 3.10.1
-
-Requires:         python3-keystonemiddleware >= 9.1.0
-Requires:         python3-keystoneauth1 >= 4.2.1
-Requires:         python3-osprofiler >= 3.4.0
-
-Requires:         python3-os-win >= 5.5.0
-
-Requires:         python3-oslo-middleware >= 4.1.1
-Requires:         python3-oslo-messaging >= 14.1.0
-Requires:         python3-oslo-policy >= 3.8.1
-Requires:         python3-oslo-reports >= 2.2.0
-Requires:         python3-oslo-upgradecheck >= 1.1.1
-Requires:         python3-oslo-vmware >= 3.10.0
-
-Requires:         python3-packaging >= 20.4
-Requires:         python3-paste >= 3.4.3
-Requires:         python3-paste-deploy >= 2.1.0
-
-%if 0%{?rhosp} == 0
-# Google Backup driver
-Requires:         python3-google-api-client >= 1.11.0
-Requires:         python3-oauth2client >= 4.1.3
-%endif
 
 %description -n   python3-%{service}
 %{common_desc}
@@ -195,82 +96,19 @@ This package contains the %{service} Python library.
 # for all of Cinder.  Dependencies here are intended only to make it possible
 # to load and use Cinder drivers and not the Cinder service.
 Summary:        Cinder common code
-%{?python_provide:%python_provide python3-%{service}-common}
 
 Requires:         sudo
-
-Requires:         python3-paramiko >= 2.7.2
-
-Requires:         python3-eventlet >= 0.30.1
-Requires:         python3-greenlet >= 0.4.16
-Requires:         python3-iso8601 >= 0.1.12
-Requires:         python3-stevedore >= 3.2.2
-Requires:         python3-tooz >= 2.8.0
-
-Requires:         python3-sqlalchemy >= 1.4.23
-
-Requires:         python3-six >= 1.15.0
-Requires:         python3-psutil >= 5.7.2
-
-Requires:         python3-os-brick >= 6.0.0
-Requires:         python3-oslo-config >= 2:8.3.2
-Requires:         python3-oslo-concurrency >= 4.5.0
-Requires:         python3-oslo-context >= 3.4.0
-Requires:         python3-oslo-db >= 11.0.0
-Requires:         python3-oslo-i18n >= 5.1.0
-Requires:         python3-oslo-log >= 4.6.1
-Requires:         python3-oslo-privsep >= 2.6.2
-Requires:         python3-oslo-rootwrap >= 6.2.0
-Requires:         python3-oslo-serialization >= 4.2.0
-Requires:         python3-oslo-service >= 2.8.0
-Requires:         python3-oslo-utils >= 4.12.1
-Requires:         python3-oslo-versionedobjects >= 2.4.0
-Requires:         python3-zstd >= 1.4.5.1
-Requires:         python3-boto3 >= 1.18.49
-
-# Required by 3PAR and VNX as well as cinder flows
-Requires:         python3-taskflow >= 4.5.0
-
 Requires:         iscsi-initiator-utils
 Requires:         nvmetcli
-
-Requires:         python3-requests >= 2.25.1
-Requires:         python3-pyparsing >= 2.4.7
-Requires:         python3-pytz >= 2020.1
-Requires:         python3-tabulate >= 0.8.7
-
-Requires:         python3-cryptography >= 3.1
-
-
-Requires:         python3-lxml >= 4.5.2
-Requires:         python3-migrate >= 0.13.0
-Requires:         python3-httplib2 >= 0.18.1
-Requires:         python3-tenacity >= 6.3.1
-Requires:         python3-decorator >= 4.4.2
-
-# Required by LVM-LIO
 Requires:         lvm2
-Requires:         python3-rtslib >= 2.1.74
 Requires:         targetcli
-
-# Required by DataCore driver
-Requires:         python3-websocket-client
-
-# Required by the volume_copy_bps_limit option
-# at least where the package is available
-%if 0%{?rhel} && 0%{?rhel} < 9
-Requires:         libcgroup-tools
-%endif
-
 
 %description -n   python3-%{service}-common
 Common code for Cinder.
 
 %package -n python3-%{service}-tests
 Summary:        Cinder tests
-%{?python_provide:%python_provide python3-%{service}-tests}
 Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
-
 # Added test requirements
 Requires:       python3-hacking
 Requires:       python3-ddt
@@ -298,20 +136,6 @@ Group:            Documentation
 Requires:         %{name} = %{epoch}:%{version}-%{release}
 
 BuildRequires:    graphviz
-BuildRequires:    python3-sphinx
-BuildRequires:    python3-openstackdocstheme
-BuildRequires:    python3-sphinxcontrib-apidoc
-BuildRequires:    python3-sphinx-feature-classification
-# Required to build module documents
-BuildRequires:    python3-eventlet
-BuildRequires:    python3-routes
-BuildRequires:    python3-sqlalchemy
-BuildRequires:    python3-webob
-# while not strictly required, quiets the build down when building docs.
-BuildRequires:    python3-iso8601 >= 0.1.9
-
-BuildRequires:    python3-migrate
-
 
 %description      doc
 %{common_desc}
@@ -333,30 +157,52 @@ sed -i 's/\/usr\/bin\/env python/\/usr\/bin\/env python3/' tools/generate_driver
 
 sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
-# Remove the requirements file so that pbr hooks don't add it
-# to distutils requires_dist config
-%py_req_cleanup
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+# Exclude some bad-known runtime reqs
+for pkg in %{excluded_reqs}; do
+  sed -i /^${pkg}.*/d requirements.txt
+done
+
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-# Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=tools/config/%{service}-config-generator.conf
-
 # Build
-%{py3_build}
+%pyproject_wheel
 
 # Generate i18n files
-# (amoralej) we can remove '-D cinder' once https://review.openstack.org/#/c/439501/ is merged
-%{__python3} setup.py compile_catalog -d build/lib/%{service}/locale -D cinder
 
 %install
-%{py3_install}
+%pyproject_install
 
-# docs generation requires everything to be installed first
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
+# Generate i18n files
+%{__python3} setup.py compile_catalog -d %{buildroot}%{python3_sitelib}/%{service}/locale -D cinder
+
+# Generate config file
+PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator --config-file=tools/config/%{service}-config-generator.conf
 
 %if 0%{?with_doc}
 # FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
-sphinx-build -b html doc/source doc/build/html
+%tox -e docs
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
 # FIXME(ykarel) Temporary disable warning as error until https://review.openstack.org/#/c/558263/ merges.
@@ -485,7 +331,7 @@ exit 0
 %files -n python3-%{service}-common -f %{service}.lang
 %license LICENSE
 %{python3_sitelib}/%{service}
-%{python3_sitelib}/%{service}-*.egg-info
+%{python3_sitelib}/%{service}-*.dist-info
 %{_bindir}/%{service}-rtstool
 %exclude %{python3_sitelib}/%{service}/tests
 
