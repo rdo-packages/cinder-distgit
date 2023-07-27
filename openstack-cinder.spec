@@ -269,10 +269,8 @@ rm -rf %{buildroot}%{_prefix}/etc
 
 # FIXME(jpena): unit tests are taking too long in the current DLRN infra
 # Until we have a better architecture, let's not run them when under DLRN
-%if 0%{!?dlrn}
 %check
 %tox -e %{default_toxenv}
-%endif
 
 %pre
 getent group %{service} >/dev/null || groupadd -r %{service} --gid 165
