@@ -24,6 +24,30 @@
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4aaa80a_233c85d2",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-28T06:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f3cfac_1ebffe7b",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 19
+      },
+      "revId": "fc42866bd24f2c72ea3b71f0102b925397808052",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf0c4f02_db848aab",
@@ -47,6 +71,30 @@
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "574ea11b_c1ee419e",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-28T06:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf0c4f02_db848aab",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 105
+      },
+      "revId": "fc42866bd24f2c72ea3b71f0102b925397808052",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "844705fa_49729658",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-27T16:50:08Z",
       "side": 1,
       "message": "ditto and enable -W again for man",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 105
+      },
+      "revId": "fc42866bd24f2c72ea3b71f0102b925397808052",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b71de9f_3af2e0b0",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-28T06:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "844705fa_49729658",
       "range": {
         "startLine": 212,
         "startChar": 0,
