@@ -1,0 +1,9 @@
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Luigi Toscano <ltoscano@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 22 Nov 2023 10:02:25 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/50867
+Project: openstack/cinder-distgit
+Branch: refs/heads/rpm-master
