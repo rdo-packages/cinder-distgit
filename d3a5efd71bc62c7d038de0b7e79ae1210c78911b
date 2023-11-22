@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc5b9b1f_0da97f6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2023-11-22T08:48:38Z",
+      "side": 1,
+      "message": "Uh, is this because of the automagic spec creation? I wish there was a more declarative way to express the replacement of an item in the requirements, but... ok",
+      "revId": "d3a5efd71bc62c7d038de0b7e79ae1210c78911b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
