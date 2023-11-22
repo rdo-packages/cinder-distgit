@@ -181,6 +181,9 @@ for pkg in %{excluded_brs}; do
   done
 done
 
+# Use psycopg2 included in RDO repos
+sed -i 's/psycopg2-binary/psycopg2/g' test-requirements.txt
+
 # Automatic BR generation
 # Exclude some bad-known runtime reqs
 for pkg in %{excluded_reqs}; do
