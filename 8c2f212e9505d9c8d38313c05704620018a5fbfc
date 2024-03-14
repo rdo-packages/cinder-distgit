@@ -16,6 +16,24 @@
       "message": "If I\u0027m reading the results correctly, the problem is in https://trunk.rdoproject.org/centos9-caracal/component/cinder/05/81/0581e8cbd6b28724e75fc5b48c29c07e0d910fdb_d3a5efd7/rpmbuild.log\n\nError: \n Problem: conflicting requests\n  - nothing provides python3.9dist(suds-community) \u003e\u003d 0.6 needed by python3-oslo-vmware-4.4.0-0.20240226190340.c9faaa0.el9.noarch from delorean-component-common\n\nNot sure why that would suddenly start happening now, though.  It\u0027s completely unrelated to commit 0581e8cbd6b28, which removes usage of six from the hpe 3par driver.",
       "revId": "8c2f212e9505d9c8d38313c05704620018a5fbfc",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ddc4e3_b0a8962b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 938
+      },
+      "writtenOn": "2024-03-14T08:50:30Z",
+      "side": 1,
+      "message": "I think this is coming from the python3-oslo-vmware package itself which is also failing to build:  https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/52117\n\nAnd it seems to have happened when changing from stable/yoga to unmaintained/yoga: https://opendev.org/openstack/oslo.vmware/commit/c9faaa09ffb82fafd18a06a76692dac47d5a7163",
+      "parentUuid": "f3d2d321_2c9f017c",
+      "revId": "8c2f212e9505d9c8d38313c05704620018a5fbfc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
