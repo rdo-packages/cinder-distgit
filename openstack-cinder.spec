@@ -355,3 +355,4 @@ exit 0
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/cinder/commit/0581e8cbd6b28724e75fc5b48c29c07e0d910fdb
