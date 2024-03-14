@@ -34,6 +34,24 @@
       "parentUuid": "f3d2d321_2c9f017c",
       "revId": "8c2f212e9505d9c8d38313c05704620018a5fbfc",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "537434b1_2060d500",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-03-14T11:18:49Z",
+      "side": 1,
+      "message": "fix in https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/52185",
+      "parentUuid": "63ddc4e3_b0a8962b",
+      "revId": "8c2f212e9505d9c8d38313c05704620018a5fbfc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
