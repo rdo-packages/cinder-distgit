@@ -1,4 +1,4 @@
-%global milestone .0rc1
+%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -28,16 +28,14 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          24.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          0.2%{?milestone}%{?dist}
 Summary:          OpenStack Volume service
 
 License:          Apache-2.0
 URL:              http://www.openstack.org/software/openstack-storage/
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=24.0.0.0rc1
-#
+# patches_base=24.0.0.0rc2
 
 Source1:          %{service}-dist.conf
 Source2:          %{service}.logrotate
@@ -360,6 +358,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Mar 29 2024 RDO <dev@lists.rdoproject.org> 1:24.0.0-0.2.0rc1
+- Update to 24.0.0.0rc2
+
 * Mon Mar 18 2024 RDO <dev@lists.rdoproject.org> 1:24.0.0-0.1.0rc1
 - Update to 24.0.0.0rc1
 
