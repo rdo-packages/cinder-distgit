@@ -1,10 +1,12 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# zoneinfo library is provided in python3-libs which uses system installed tzdata
+%global excluded_reqs tzdata
 # we are excluding some runtime reqs from automatic generator when rhosp != 0
 %if 0%{?rhosp}
 # Google Backup driver
-%global excluded_reqs google-api-python-client oauth2client
+%global excluded_reqs google-api-python-client oauth2client tzdata
 %endif
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8 moto mypy
