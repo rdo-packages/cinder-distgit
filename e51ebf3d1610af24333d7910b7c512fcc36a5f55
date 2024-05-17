@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0da606bd_ba025626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 586
+      },
+      "writtenOn": "2024-05-17T20:00:47Z",
+      "side": 1,
+      "message": "The change removes pytz as a requirement but adds tzdata; looks like tzdata isn\u0027t available: https://review.rdoproject.org/zuul/build/31707fd5ad27488ca46c0f32c0228c41/log/job-output.txt#14348",
+      "revId": "e51ebf3d1610af24333d7910b7c512fcc36a5f55",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
