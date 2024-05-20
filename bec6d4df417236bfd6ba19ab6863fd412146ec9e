@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ecfacd_79c078bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 938
+      },
+      "writtenOn": "2024-05-20T09:10:39Z",
+      "side": 1,
+      "message": "Still failing with `No matching package to install: \u0027python3dist(tzdata) \u003e\u003d 2022.4\u0027`",
+      "revId": "bec6d4df417236bfd6ba19ab6863fd412146ec9e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
