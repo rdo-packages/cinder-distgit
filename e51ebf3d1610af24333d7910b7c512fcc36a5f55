@@ -16,6 +16,24 @@
       "message": "The change removes pytz as a requirement but adds tzdata; looks like tzdata isn\u0027t available: https://review.rdoproject.org/zuul/build/31707fd5ad27488ca46c0f32c0228c41/log/job-output.txt#14348",
       "revId": "e51ebf3d1610af24333d7910b7c512fcc36a5f55",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c32c90_bdd0653b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-05-20T06:56:54Z",
+      "side": 1,
+      "message": "It\u0027s part of python3-libs:\n```\n\u003e\u003e\u003e import zoneinfo\n\u003e\u003e\u003e zoneinfo.__file__\n\u0027/usr/lib64/python3.9/zoneinfo/__init__.py\u0027\n\n# rpm -qf /usr/lib64/python3.9/zoneinfo/__init__.py\npython3-libs-3.9.18-3.el9.x86_64\n```\n\nAnd it uses system installed tzdata, not python module tzdata, so just need to ignore the automatic dependency. I will send patch",
+      "parentUuid": "0da606bd_ba025626",
+      "revId": "e51ebf3d1610af24333d7910b7c512fcc36a5f55",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
