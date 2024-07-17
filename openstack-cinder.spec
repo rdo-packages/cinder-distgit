@@ -152,7 +152,9 @@ Requires:         python3-jsonschema >= 3.2.0
 
 Requires:         python3-castellan >= 3.7.0
 Requires:         python3-cursive >= 0.2.2
+%if 0%{?rhosp} == 0
 Requires:         python3-etcd3gw
+%endif
 
 Requires:         python3-routes >= 2.4.1
 Requires:         python3-webob >= 1.8.6
