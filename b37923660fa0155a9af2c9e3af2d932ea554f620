@@ -16,6 +16,23 @@
       "message": "In newer OpenStack releases we\u0027ll no longer use etcd as a DLM driver in tooz, so etcdgw is no longer needed.",
       "revId": "b37923660fa0155a9af2c9e3af2d932ea554f620",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e00e43c9_86cb435c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-07-18T09:40:38Z",
+      "side": 1,
+      "message": "I\u0027d recomend to send it to rpm-master branch too for future releases.",
+      "revId": "b37923660fa0155a9af2c9e3af2d932ea554f620",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
