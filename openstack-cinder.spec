@@ -158,7 +158,6 @@ This package contains documentation files for %{service}.
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
-sed -i 's/\/usr\/bin\/env python/\/usr\/bin\/env python3/' tools/generate_driver_list.py
 
 sed -i 's/%{version}.%{milestone}/%{version}/' PKG-INFO
 
