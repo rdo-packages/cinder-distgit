@@ -6,7 +6,7 @@
 # we are excluding some runtime reqs from automatic generator when rhosp != 0
 %if 0%{?rhosp}
 # Google Backup driver
-%global excluded_reqs google-api-python-client oauth2client tzdata
+%global excluded_reqs google-api-python-client tzdata
 %endif
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8 moto mypy
