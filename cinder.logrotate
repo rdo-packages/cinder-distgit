@@ -1,5 +1,3 @@
-compress
-
 /var/log/cinder/*.log {
     weekly
     rotate 4
