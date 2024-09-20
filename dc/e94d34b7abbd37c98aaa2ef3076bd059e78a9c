@@ -1,0 +1,9 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 20 Sep 2024 09:17:51 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/54503
+Project: openstack/cinder-distgit
+Branch: refs/heads/rpm-master
