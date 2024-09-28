@@ -368,3 +368,4 @@ exit 0
 * Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 1:23.0.0-0.1.0rc1
 - Update to 23.0.0.0rc1
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/cinder/commit/ec37accf6206a5054a9219f51d74128a9c5d3b4e
