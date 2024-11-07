@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some runtime reqs from automatic generator when rhosp != 0
 %if 0%{?rhosp}
@@ -26,7 +26,7 @@ Name:             openstack-%{service}
 # Liberty semver reset
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
-Version:          24.1.0
+Version:          24.2.0
 Release:          1%{?dist}
 Summary:          OpenStack Volume service
 
@@ -356,6 +356,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Nov 07 2024 RDO <dev@lists.rdoproject.org> 1:24.2.0-1
+- Update to 24.2.0
+
 * Wed Jul 10 2024 RDO <dev@lists.rdoproject.org> 1:24.1.0-1
 - Update to 24.1.0
 
