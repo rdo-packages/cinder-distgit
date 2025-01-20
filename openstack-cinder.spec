@@ -120,7 +120,6 @@ Requires:       openstack-%{service} = %{epoch}:%{version}-%{release}
 Requires:       python3-hacking
 Requires:       python3-ddt
 Requires:       python3-fixtures
-Requires:       python3-mock
 Requires:       python3-oslotest
 Requires:       python3-subunit
 Requires:       python3-testtools
