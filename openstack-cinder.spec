@@ -27,7 +27,7 @@ Name:             openstack-%{service}
 # https://review.openstack.org/#/q/I6a35fa0dda798fad93b804d00a46af80f08d475c,n,z
 Epoch:            1
 Version:          24.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Volume service
 
 License:          Apache-2.0
@@ -69,6 +69,7 @@ BuildRequires:    python3-certifi
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
 # as convenience
 Requires:         python3-cinderclient
+Requires:         python3-oslo-policy >= 4.3.0
 
 %{?systemd_ordering}
 
@@ -356,6 +357,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Feb 13 2025 Tobias Urdin <tobias.urdin@binero.com> 1:24.2.0-2
+- Add requires python3-oslo-policy >= 4.3.0
+
 * Thu Nov 07 2024 RDO <dev@lists.rdoproject.org> 1:24.2.0-1
 - Update to 24.2.0
 
