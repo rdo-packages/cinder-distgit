@@ -4,6 +4,7 @@ After=syslog.target network.target
 
 [Service]
 LimitNOFILE=131072
+LimitNOFILESoft=131072
 LimitNPROC=131072
 Type=simple
 User=cinder
