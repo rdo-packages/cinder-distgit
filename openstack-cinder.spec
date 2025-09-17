@@ -67,6 +67,9 @@ BuildRequires:    openstack-macros
 # Required to build cinder.conf
 BuildRequires:    python3-certifi
 
+# Required to compile translation files
+BuildRequires:    python3-babel
+
 Requires:         python3-%{service} = %{epoch}:%{version}-%{release}
 # as convenience
 Requires:         python3-cinderclient
