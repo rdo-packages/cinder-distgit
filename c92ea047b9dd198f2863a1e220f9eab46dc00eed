@@ -33,6 +33,23 @@
       "message": "recheck git clone again",
       "revId": "c92ea047b9dd198f2863a1e220f9eab46dc00eed",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f20346_9037192b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 602
+      },
+      "writtenOn": "2025-09-24T15:43:51Z",
+      "side": 1,
+      "message": "If we decide to go this way, should we need to revert https://github.com/openstack-k8s-operators/tcib/pull/333 or patch it further to avoid maintaining the same source file in both places?",
+      "revId": "c92ea047b9dd198f2863a1e220f9eab46dc00eed",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
