@@ -43,6 +43,7 @@ Source10:         openstack-%{service}-api.service
 Source11:         openstack-%{service}-scheduler.service
 Source12:         openstack-%{service}-volume.service
 Source13:         openstack-%{service}-backup.service
+Source14:         %{service}-wsgi
 Source20:         %{service}-sudoers
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
@@ -279,6 +280,9 @@ rm -f %{buildroot}/usr/share/doc/%{service}/README*
 
 # Remove duplicate config files under /usr/etc/
 rm -rf %{buildroot}%{_prefix}/etc
+
+# Install the cinder-wsgi compatibility file
+install -m 755 %{SOURCE14} %{buildroot}%{_bindir}/%{service}-wsgi
 
 # FIXME(jpena): unit tests are taking too long in the current DLRN infra
 # Until we have a better architecture, let's not run them when under DLRN
