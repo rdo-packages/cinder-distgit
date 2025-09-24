@@ -16,6 +16,24 @@
       "message": "source file missing",
       "revId": "ed896869e6e2cdf858433104fdfb841e6e6c1564",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92d7d4c2_b16a0ed5",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2025-09-24T10:19:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c30196af_e3365381",
+      "revId": "ed896869e6e2cdf858433104fdfb841e6e6c1564",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
