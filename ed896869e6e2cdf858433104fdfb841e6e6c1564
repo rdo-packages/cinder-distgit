@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30196af_e3365381",
+        "filename": "openstack-cinder.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2025-09-24T07:48:49Z",
+      "side": 1,
+      "message": "source file missing",
+      "revId": "ed896869e6e2cdf858433104fdfb841e6e6c1564",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
