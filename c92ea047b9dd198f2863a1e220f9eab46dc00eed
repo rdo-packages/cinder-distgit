@@ -50,6 +50,24 @@
       "message": "If we decide to go this way, should we need to revert https://github.com/openstack-k8s-operators/tcib/pull/333 or patch it further to avoid maintaining the same source file in both places?",
       "revId": "c92ea047b9dd198f2863a1e220f9eab46dc00eed",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "063a6f36_3284ad00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2025-09-25T07:05:34Z",
+      "side": 1,
+      "message": "@francesco yes the idea is to get this in in cinder and revert the tcib, and same can be applied to other impacted projects.",
+      "parentUuid": "40f20346_9037192b",
+      "revId": "c92ea047b9dd198f2863a1e220f9eab46dc00eed",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
