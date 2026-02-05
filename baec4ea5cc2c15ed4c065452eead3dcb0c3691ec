@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be53dd16_1bfe4493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 586
+      },
+      "writtenOn": "2026-02-05T14:46:45Z",
+      "side": 1,
+      "message": "From the rpmbuild.log (right at the end):\nError: \n Problem: conflicting requests\n  - package python3-tox-current-env-0.0.16-1.el9.noarch from epel-low-priority is filtered out by exclude filtering\n\nSo as far as I can tell, this build problem has nothing to do with commit b2298e10ab3bd5",
+      "revId": "baec4ea5cc2c15ed4c065452eead3dcb0c3691ec",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
